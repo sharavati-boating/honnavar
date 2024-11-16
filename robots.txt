@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Allow: /https://www.google.com/maps/embed/
 Sitemap: https://sharavati-boating.github.io/honnavar/sitemap.xml
