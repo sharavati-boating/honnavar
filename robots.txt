@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Allow: /https://www.google.com/maps/embed/
+Allow: /https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1515.4605824532434!2d74.45766341958212!3d14.278409530914761!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbc3b4dac1f8c25%3A0xda23cd8ee603a33d!2sMahalakshmi%20Boating!5e1!3m2!1sen!2sin!4v1730726800415!5m2!1sen!2sin
 Sitemap: https://sharavati-boating.github.io/honnavar/sitemap.xml
