@@ -2,152 +2,862 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharavati Boating Honnavar</title>
-    <meta content="Honnavar Boating. Sharavati Backwater Boat Ride." name="description">
-    <meta content="Honnavar Boating, Honnavar Backwaters, Honnavar Boat Ride, Boat House in Honnavar, Honnavar trip, Honnavar Photoshoot, Sharavati Boating, Sharavati Backwater, Sharavati Backwater Honnavar, Mahalaxmi Boating Honnavar, Boating Near Me, Boating in Honnavar, Boat Ride in Honnavar, Backwater Tour Honnavar, Scenic Boating Honnavar, Adventure Boating Honnavar, Honnavar Tourism, Honnavar Boat Tours, Private Boat Ride Honnavar, Sunset Cruise Honnavar, Nature Photography Honnavar, Pre-Wedding Shoot Honnavar, Honnavar Water Adventures, Honnavar Outdoor Activities, Honnavar Family Boat Trips, Honnavar Group Boating Packages, Honnavar Eco Tours, Relaxing Boat Ride Honnavar, River Boating Honnavar, Honnavar Scenic Views, Sharavati River Tour, Honnavar Nature Tours" name="keywords">
-
-
-    <!-- Favicons -->
-    <link href="images/logo.png" rel="icon">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mahalakshmi Boating – Honnavar Boat Rides & Tours</title>
+    <meta name="description"
+        content="Book scenic boat rides and pre‑wedding photoshoot tours at Sharavati River, Honnavar. Licensed boats • Safety first • Easy WhatsApp booking." />
+    <meta property="og:title" content="Mahalakshmi Boating – Honnavar" />
+    <meta property="og:description"
+        content="Unforgettable boat rides on the Sharavati backwaters. Adventure rides, photoshoots, family trips. Book on WhatsApp." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image"
+        content="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzB0TQpbrboUWeQAYzK1CvBpUi5PlYghil6664IjdtdONVU9DWuIUg_XlADgV2f9f04xgWl7pjaNz2CPx17VCIyJTw5iUuB98hAcZUeJ0LVdIVVTrczT-KTHgfNppAqYXfRrT4NcQ=s1360-w1360-h1020-rw" />
+    <meta name="theme-color" content="#0369a1" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans';
+        }
+
+        /* NOTE: @apply doesn't work with CDN-only Tailwind. Use plain CSS below. */
+        .btn-primary {
+            border-radius: 0.75rem;
+            background: #0284c7;
+            color: #fff;
+            padding: 0.75rem 1.25rem;
+            font-weight: 600;
+            box-shadow: 0 10px 15px -3px rgba(2, 132, 199, .3), 0 4px 6px -2px rgba(2, 132, 199, .2);
+            transition: transform .05s, background-color .2s, box-shadow .2s;
+        }
+
+        .btn-primary:hover {
+            background: #0369a1;
+        }
+
+        .btn-primary:active {
+            transform: scale(.99);
+        }
+
+        .btn-ghost {
+            border-radius: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            font-weight: 600;
+            border: 1px solid rgba(100, 116, 139, .3);
+            background: transparent;
+        }
+
+        .btn-ghost:hover {
+            background: rgb(241, 245, 249);
+        }
+
+        .card {
+            border-radius: 1.5rem;
+            background: #fff;
+            padding: 1.5rem;
+            border: 1px solid rgb(226, 232, 240);
+            box-shadow: 0 10px 15px -3px rgba(2, 6, 23, .05), 0 4px 6px -2px rgba(2, 6, 23, .04);
+        }
+
+        /* Hero effects */
+        .shimmer {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(1200px 200px at 50% 120%, rgba(255, 255, 255, 0.08), transparent 60%);
+            mix-blend-mode: screen;
+            animation: shimmer 8s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: .6;
+            }
+
+            50% {
+                transform: translateY(6px);
+                opacity: .9;
+            }
+        }
+
+        .waves {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+            height: 120px;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .waves svg {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            left: 0;
+            bottom: 0;
+        }
+
+        .wave-1 {
+            animation: waveMove 14s linear infinite;
+            opacity: 0.9;
+        }
+
+        .wave-2 {
+            animation: waveMove 20s linear infinite;
+            opacity: 0.5;
+            bottom: 8px;
+        }
+
+        @keyframes waveMove {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Simple lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 80;
+            padding: 16px
+        }
+
+        .lightbox.open {
+            display: flex
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 16px
+        }
+
+        /* Sticky mobile booking bar */
+        .sticky-book {
+            position: sticky;
+            bottom: 0;
+            z-index: 40
+        }
+    </style>
 </head>
 
-<body>
-
-    <nav id="navbar">
-        <img src="logo.png" alt="Mahalaxmi Boating Logo" class="logo">
-        <h1>Sharavati Boating Honnavar</h1>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="hero">
-        <video autoplay muted loop id="hero-video">
-            <source src="video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="hero-text">
-            <h1>Explore the Waters</h1>
-            <p>Book your unforgettable boating experience!</p>
-            <a href="https://wa.me/9449358010" class="btn">Book Now</a>
+<body class="bg-sky-50 text-slate-800">
+    <!-- Announcement bar -->
+    <div class="bg-gradient-to-r from-sky-900 via-sky-700 to-sky-600 text-white text-sm">
+        <div class="mx-auto max-w-7xl px-6 py-2 flex items-center justify-between">
+            <span data-i18n="bar.safety">🦺 Safety first • Licensed crew • Life jackets for all</span>
+            <a href="tel:+919449358010" class="underline hidden md:inline"><span data-i18n="bar.call">Call:</span> +91
+                94493 58010</a>
         </div>
     </div>
+
+    <!-- Header -->
+    <header class="fixed inset-x-0 top-8 z-50">
+        <div class="mx-auto max-w-7xl px-4">
+            <div
+                class="flex items-center justify-between rounded-2xl bg-white/80 backdrop-blur px-4 py-3 shadow-lg ring-1 ring-white/40">
+                <a href="#home" class="flex items-center gap-3">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzB0TQpbrboUWeQAYzK1CvBpUi5PlYghil6664IjdtdONVU9DWuIUg_XlADgV2f9f04xgWl7pjaNz2CPx17VCIyJTw5iUuB98hAcZUeJ0LVdIVVTrczT-KTHgfNppAqYXfRrT4NcQ=s1360-w1360-h1020-rw"
+                        alt="Mahalakshmi Boating Logo" class="h-10 w-10 rounded-full object-cover" />
+                    <span class="text-lg font-extrabold tracking-tight text-sky-900" data-i18n="brand.name">Mahalakshmi
+                        Boating</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-6 text-[15px]">
+                    <a href="#packages" class="hover:text-sky-700" data-i18n="nav.packages">Packages</a>
+                    <a href="#highlights" class="hover:text-sky-700" data-i18n="nav.highlights">Highlights</a>
+                    <a href="#gallery" class="hover:text-sky-700" data-i18n="nav.gallery">Gallery</a>
+                    <a href="#reviews" class="hover:text-sky-700" data-i18n="nav.reviews">Reviews</a>
+                    <a href="#faq" class="hover:text-sky-700" data-i18n="nav.faq">FAQ</a>
+                    <a href="#map" class="hover:text-sky-700" data-i18n="nav.map">Map</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <select id="langSwitcher" aria-label="Language"
+                        class="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm">
+                        <option value="en">English</option>
+                        <option value="kn">ಕನ್ನಡ</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                    <a href="https://wa.me/919449358010?text=Hi!%20I%20want%20to%20book%20a%20boat%20ride."
+                        target="_blank" class="btn-primary" data-i18n="cta.whatsapp">Book on WhatsApp</a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Us</h2>
-        <p>We offer exclusive boating tours that let you experience the beauty of nature up close. Whether you're
-            looking for a peaceful escape or an adventurous ride, we have the perfect package for you.</p>
+    <!-- Hero -->
+    <section id="home" class="relative isolate flex min-h-[92vh] items-center overflow-hidden bg-slate-900 pt-36">
+        <img src="https://images.unsplash.com/photo-1704365159814-9d124e3cf952?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1932"
+            class="absolute inset-0 -z-20 h-full w-full object-cover opacity-80"
+            alt="Sharavati backwaters scenic view" />
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+        <div class="shimmer"></div>
+
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2">
+            <div class="text-white">
+                <p class="mb-3 inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wider ring-1 ring-white/20"
+                    data-i18n="hero.badge">
+                    Honnavar • Sharavati Backwaters</p>
+                <h1 class="text-4xl font-extrabold leading-tight md:text-6xl" data-i18n="hero.title">Boat Rides that
+                    feel like a mini‑vacation.</h1>
+                <p class="mt-4 max-w-xl text-slate-200" data-i18n="hero.subtitle">Choose adventure rides, golden‑hour
+                    photoshoots or family trips. We keep it safe, scenic and on time.</p>
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <a href="#packages" class="btn-primary" data-i18n="cta.seePackages">See Packages</a>
+                    <a href="#highlights" class="btn-ghost" data-i18n="cta.whyUs">Why choose us?</a>
+                </div>
+                <div class="mt-6 grid grid-cols-3 gap-4 text-sm text-slate-200/95">
+                    <div class="rounded-2xl bg-white/10 p-3 ring-1 ring-white/20" data-i18n="badge.lifejackets">🦺 Life
+                        jackets</div>
+                    <div class="rounded-2xl bg-white/10 p-3 ring-1 ring-white/20" data-i18n="badge.licensed">⛵ Licensed
+                        crew</div>
+                    <div class="rounded-2xl bg-white/10 p-3 ring-1 ring-white/20" data-i18n="badge.photos">📸 Photo
+                        spots</div>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-12.jpg"
+                    alt="Boat gliding on Sharavati"
+                    class="h-full w-full rounded-3xl object-cover shadow-2xl ring-4 ring-white/60 transition duration-500 hover:scale-[1.02]" />
+            </div>
+        </div>
+
+        <div class="waves">
+            <svg class="wave-1" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+                <path fill="#ffffff"
+                    d="M0,64 C120,80 240,96 360,96 C480,96 600,80 720,74 C840,68 960,72 1080,80 C1200,88 1320,104 1440,112 L1440,160 L0,160 Z">
+                </path>
+            </svg>
+            <svg class="wave-2" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+                <path fill="#ffffff"
+                    d="M0,72 C120,62 240,52 360,60 C480,68 600,96 720,92 C840,88 960,64 1080,62 C1200,60 1320,74 1440,84 L1440,160 L0,160 Z">
+                </path>
+            </svg>
+        </div>
     </section>
 
-    <!-- Tour Packages Section -->
-    <section id="packages">
-        <h2>Our Tour Packages</h2>
-        <div class="package-card-container">
-        <div class="package-card">
-            <h3>Adventure Boat Ride</h3>
-            <p>Get your adrenaline pumping with a high-speed boat ride. </p>
-            <p> Duration: 2 hours</p>
-            <p>Price:<br>
-                5 member:1500 rs,3 places.<br>
-                6 or Above: 200 rs/person
-            </p>
-            <a href="https://wa.me/919449358010?text=Hello%2C%20I%20am%20interested%20in%20the%20Adventure%20Boat%20Ride%20package."
-                class="btn">Book Now</a>
-        </div>
-        <div class="package-card">
-            <h3>Pre-Wedding Photoshoot</h3>
-            <p>Capturing the Love Before the Big Day</p>
-            <p>Duration: 1 hour</p>
-            <p>Price:2200rs/hour</p>
-            <a href="https://wa.me/919449358010?text=Hello%2C%20I%20am%20interested%20in%20the%20Pre-Wedding%20Photoshoot%20package%21"
-                class="btn">Book Now</a>
+    <!-- Highlights -->
+
+
+    <section id="highlights" class="relative py-16 overflow-hidden">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-60">
+            <source src="https://sharavati-boating.github.io/honnavar/video.mp4" type="video/mp4">
+        </video>
+        <div class="relative z-10">
+
+            <div class="mx-auto max-w-7xl px-6">
+                <div class="mb-10 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold" data-i18n="why.title">Why Mahalakshmi Boating?</h2>
+                    <p class="mt-2 text-slate-600" data-i18n="why.subtitle">Fast booking • Clear pricing • Friendly crew
+                    </p>
+                </div>
+                <div class="grid gap-6 md:grid-cols-3">
+                    <div class="card">
+                        <div class="text-3xl">⚓</div>
+                        <h3 class="mt-3 text-xl font-semibold" data-i18n="why.safeTitle">Licensed & Safe</h3>
+                        <p class="mt-1 text-slate-600" data-i18n="why.safeDesc">Life jackets for all, safety briefing,
+                            and
+                            experienced boat operators.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-3xl">🏝️</div>
+                        <h3 class="mt-3 text-xl font-semibold" data-i18n="why.scenicTitle">Scenic Spots</h3>
+                        <p class="mt-1 text-slate-600" data-i18n="why.scenicDesc">Palm‑lined backwaters, islands and
+                            calm
+                            channels perfect for photos.</p>
+                    </div>
+                    <div class="card">
+                        <div class="text-3xl">💬</div>
+                        <h3 class="mt-3 text-xl font-semibold" data-i18n="why.easyTitle">Easy WhatsApp Booking</h3>
+                        <p class="mt-1 text-slate-600" data-i18n="why.easyDesc">Quick replies, timing suggestions and
+                            simple
+                            UPI payment.</p>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <h2>Gallery</h2>
-        <div class="gallery-container">
-            <img src="boating_pic1.jpg" alt="Boating Image 1">
-            <img src="image2.webp" alt="Boating Image 2">
-            <img src="image3.jpg" alt="Boating Image 3">
-            <img src="image5.jpeg" alt="Boating Image 3">
-            <img src="image6.jpeg" alt="Boating Image 3">
-            <img src="image7.jpeg" alt="Boating Image 3">
+    <!-- Packages -->
+    <section id="packages" class="bg-gradient-to-b from-white to-sky-50 py-16">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="mb-10 flex items-end justify-between">
+                <div>
+                    <h2 class="text-3xl font-bold md:text-4xl" data-i18n="pkg.title">Popular Packages</h2>
+                    <p class="mt-2 text-slate-600" data-i18n="pkg.subtitle">Transparent pricing. Ask us for group
+                        discounts.</p>
+                </div>
+                <a href="https://wa.me/919449358010" target="_blank" class="hidden md:inline-flex btn-primary"
+                    data-i18n="cta.askWhatsapp">Ask on WhatsApp</a>
+            </div>
 
+            <div class="grid gap-6 md:grid-cols-3">
+                <div class="card relative overflow-hidden">
+                    <span
+                        class="absolute right-4 top-4 rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700"
+                        data-i18n="badge.mostPopular">Most Popular</span>
+                    <h3 class="text-2xl font-semibold" data-i18n="pkg.advTitle">Adventure Ride</h3>
+                    <p class="mt-1 text-slate-600" data-i18n="pkg.advDesc">High‑energy ride across 3 scenic spots.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-slate-700">
+                        <li data-i18n="pkg.advLine1">• Duration: ~2 hours</li>
+                        <li data-i18n="pkg.advLine2">• Up to 5 people</li>
+                        <li data-i18n="pkg.advLine3">• Safety gear included</li>
+                    </ul>
+                    <div class="mt-5 text-2xl font-bold">₹1,500</div>
+                    <p class="text-xs text-slate-500" data-i18n="pkg.advNote">6+ guests: ₹200 / person extra</p>
+                    <div class="mt-5 flex flex-wrap gap-3">
+                        <a href="https://wa.me/919449358010?text=I%20want%20to%20book%20the%20Adventure%20Ride"
+                            target="_blank" class="btn-primary" data-i18n="cta.bookNow">Book Now</a>
+                        <a href="#faq" class="btn-ghost" data-i18n="cta.expect">What to expect?</a>
+                    </div>
+                </div>
+                <div class="card relative overflow-hidden">
+                    <span
+                        class="absolute right-4 top-4 rounded-full bg-sky-100 px-3 py-1 text-sm font-medium text-sky-700"
+                        data-i18n="badge.bestPhotos">Best for Photos</span>
+                    <h3 class="text-2xl font-semibold" data-i18n="pkg.pwTitle">Pre‑Wedding Photoshoot</h3>
+                    <p class="mt-1 text-slate-600" data-i18n="pkg.pwDesc">Golden‑hour backdrops & calm waters.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-slate-700">
+                        <li data-i18n="pkg.pwLine1">• Charged per hour</li>
+                        <li data-i18n="pkg.pwLine2">• Boat & crew included</li>
+                        <li data-i18n="pkg.pwLine3">• Timing suggestions</li>
+                    </ul>
+                    <div class="mt-5 text-2xl font-bold">₹2,200 / hr</div>
+                    <p class="text-xs text-slate-500" data-i18n="pkg.pwNote">Props/camera crew by client</p>
+                    <div class="mt-5 flex flex-wrap gap-3">
+                        <a href="https://wa.me/919449358010?text=I%20want%20to%20book%20a%20Photoshoot%20Boat"
+                            target="_blank" class="btn-primary" data-i18n="cta.enquire">Enquire</a>
+                        <a href="#gallery" class="btn-ghost" data-i18n="cta.seeExamples">See examples</a>
+                    </div>
+                </div>
+                <div class="card relative overflow-hidden">
+                    <span
+                        class="absolute right-4 top-4 rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-700"
+                        data-i18n="badge.family">Family Friendly</span>
+                    <h3 class="text-2xl font-semibold" data-i18n="pkg.sunsetTitle">Sunset Chill Ride</h3>
+                    <p class="mt-1 text-slate-600" data-i18n="pkg.sunsetDesc">Relaxed ride timed to the sunset.</p>
+                    <ul class="mt-4 space-y-2 text-sm text-slate-700">
+                        <li data-i18n="pkg.sunsetLine1">• Duration: ~60–90 mins</li>
+                        <li data-i18n="pkg.sunsetLine2">• Calm channels & islands</li>
+                        <li data-i18n="pkg.sunsetLine3">• Drinking water included</li>
+                    </ul>
+                    <div class="mt-5 text-2xl font-bold">₹1,200</div>
+                    <div class="mt-5 flex flex-wrap gap-3">
+                        <a href="https://wa.me/919449358010?text=I%20want%20the%20Sunset%20Ride" target="_blank"
+                            class="btn-primary" data-i18n="cta.bookNow">Book Now</a>
+                        <a href="#faq" class="btn-ghost" data-i18n="cta.knowMore">Know more</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile sticky booking bar -->
+            <div class="sticky-book mt-6 md:hidden">
+                <div class="mx-auto max-w-7xl px-4">
+                    <div
+                        class="rounded-2xl bg-white p-4 shadow-xl ring-1 ring-slate-200 flex items-center justify-between">
+                        <span class="font-semibold" data-i18n="sticky.ready">Ready to book?</span>
+                        <a href="https://wa.me/919449358010" target="_blank" class="btn-primary">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <h2>What Our Customers Say</h2>
-        <p>"Amazing experience! The Boat riding was breathtaking." -Vishwa Gouda </p>
-        <p>"Highly recommend for anyone looking to relax and enjoy nature." -Naveen Patagar</p>
+    <!-- Gallery with lightbox -->
+    <section id="gallery" class="bg-white py-16">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="mb-8 flex items-end justify-between">
+                <div>
+                    <h2 class="text-3xl font-bold md:text-4xl" data-i18n="gallery.title">Gallery</h2>
+                    <p class="mt-2 text-slate-600" data-i18n="gallery.subtitle">Real photos from the area. Tap to
+                        enlarge.</p>
+                </div>
+                <a href="#packages" class="hidden md:inline btn-ghost" data-i18n="gallery.viewPkgs">View Packages</a>
+            </div>
+            <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
+                <a href="https://www.honnavarboating.com/assets/images/HonnavarBoating24.jpg"
+                    class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
+                    <img src="https://www.honnavarboating.com/assets/images/HonnavarBoating24.jpg"
+                        alt="Honnavar boating view 1"
+                        class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105" />
+                </a>
+                <a href="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-1.jpg"
+                    class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-1.jpg"
+                        alt="Honnavar tourism scenic view 2"
+                        class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105" />
+                </a>
+                <a href="https://honavarboating.com/wp-content/uploads/2025/01/Screenshot_20250101-230021_Maps.jpg"
+                    class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
+                    <img src="https://honavarboating.com/wp-content/uploads/2025/01/Screenshot_20250101-230021_Maps.jpg"
+                        alt="Sharavati map location image"
+                        class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105" />
+                </a>
+                <a href="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-12.jpg"
+                    class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-12.jpg"
+                        alt="Honnavar boating sunset"
+                        class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105" />
+                </a>
+            </div>
+        </div>
+        <div class="lightbox" id="lightbox"><img alt="preview" id="lightbox-img"><button id="lightbox-close"
+                class="absolute right-4 top-4 rounded-full bg-white/10 px-3 py-1 text-white ring-1 ring-white/30"
+                data-i18n="gallery.close">Close ✕</button></div>
     </section>
 
-
-    <!-- Google Map Section -->
-    <section id="location">
-        <h2>Our Location</h2>
-        <p>Visit us and enjoy a memorable boating experience at Mahalaxmi Boating Honnavar.</p>
-
-        <!-- Embedded Google Map -->
-        <div class="map-container">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1515.4605824532434!2d74.45766341958212!3d14.278409530914761!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbc3b4dac1f8c25%3A0xda23cd8ee603a33d!2sMahalakshmi%20Boating!5e1!3m2!1sen!2sin!4v1730726800415!5m2!1sen!2sin"
-                width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+    <!-- Reviews -->
+    <section id="reviews" class="bg-gradient-to-b from-sky-50 to-white py-16">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="mb-8 text-center">
+                <h2 class="text-3xl font-bold md:text-4xl" data-i18n="reviews.title">What Guests Say</h2>
+                <p class="mt-2 text-slate-600" data-i18n="reviews.subtitle">Happy memories from our riders</p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-3">
+                <div class="card">
+                    <div class="text-amber-500">★★★★★</div>
+                    <p class="mt-2 text-slate-700" data-i18n="reviews.r1">Amazing experience! Calm waters and great
+                        crew.</p>
+                    <div class="mt-3 text-sm font-semibold">— Vishwa Gouda</div>
+                </div>
+                <div class="card">
+                    <div class="text-amber-500">★★★★★</div>
+                    <p class="mt-2 text-slate-700" data-i18n="reviews.r2">Perfect for a family evening. Kids loved it!
+                    </p>
+                    <div class="mt-3 text-sm font-semibold">— Naveen Patagar</div>
+                </div>
+                <div class="card">
+                    <div class="text-amber-500">★★★★★</div>
+                    <p class="mt-2 text-slate-700" data-i18n="reviews.r3">Beautiful backwaters, got amazing photos at
+                        sunset.</p>
+                    <div class="mt-3 text-sm font-semibold">— Happy Guest</div>
+                </div>
+            </div>
         </div>
-
-        <!-- Get Directions Button -->
-        <a href="https://maps.app.goo.gl/4os2BZkZbXxHG69u5" target="_blank" class="btn-direction">Get Directions</a>
     </section>
 
-    <!-- Contact Section -->
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>For inquiries, feel free to reach us on WhatsApp or through any of our channels below!</p>
-
-        <!-- Profile Picture -->
-        <div class="profile">
-            <img src="mava.jpg" alt="Profile Picture">
+    <!-- FAQ -->
+    <section id="faq" class="bg-white py-16">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="mb-8 text-center">
+                <h2 class="text-3xl font-bold md:text-4xl" data-i18n="faq.title">FAQ</h2>
+                <p class="mt-2 text-slate-600" data-i18n="faq.subtitle">Quick answers before you book</p>
+            </div>
+            <div class="grid gap-4 md:grid-cols-2">
+                <details class="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200">
+                    <summary class="cursor-pointer text-lg font-semibold" data-i18n="faq.q1">What should we bring?
+                    </summary>
+                    <p class="mt-2 text-slate-700" data-i18n="faq.a1">Sunglasses, hat, sunscreen, and your phone/camera.
+                        Life jackets are provided.</p>
+                </details>
+                <details class="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200">
+                    <summary class="cursor-pointer text-lg font-semibold" data-i18n="faq.q2">Do you cancel for bad
+                        weather?</summary>
+                    <p class="mt-2 text-slate-700" data-i18n="faq.a2">Yes, safety first. We reschedule or refund if the
+                        weather is unsafe.</p>
+                </details>
+                <details class="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200">
+                    <summary class="cursor-pointer text-lg font-semibold" data-i18n="faq.q3">How do we pay?</summary>
+                    <p class="mt-2 text-slate-700" data-i18n="faq.a3">UPI or cash. On busy days we may request a small
+                        advance.</p>
+                </details>
+                <details class="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200">
+                    <summary class="cursor-pointer text-lg font-semibold" data-i18n="faq.q4">Is it kid‑friendly?
+                    </summary>
+                    <p class="mt-2 text-slate-700" data-i18n="faq.a4">Yes. Kids must wear life jackets and be
+                        accompanied by adults.</p>
+                </details>
+            </div>
         </div>
-
-        <!-- Contact Information -->
-        <div class="contact-info">
-            <p><strong>Phone:</strong> +91 8884642195</p>
-            <p><strong>Email:</strong> <a href="mailto:nageshgouda47508@gmail.com">nageshgouda47508@gmail.com</a></p>
-        </div>
-
-        <!-- Social Media Links -->
-        <div class="social-media">
-            <a href="https://wa.me/919449358010" target="_blank">
-                <img class="whatlogo"src="whatsapp-icon.png" alt="WhatsApp">
-            </a>
-            <a href="https://facebook.com/profile.php?id=61563417681730" target="_blank">
-                <img class="flogo" src="facebook-icon.png" alt="Facebook">
-            </a>
-        </div>
-
-        <!-- Button to Book on WhatsApp -->
-        <a href="https://wa.me/919449358010/?text=Hello Nagesh, I want to know about Boating Service. Please call me or tell about the pricing, Thank you!"
-            class="btn">Book Now on WhatsApp</a>
     </section>
-    <!-- Footer Section -->
-<footer id="footer">
-    <p>&copy; Sharavati Boating 2024. All Rights Reserved.</p>
-</footer>
 
+    <!-- Map & Directions -->
+    <section id="map" class="bg-sky-900 py-16 text-sky-50">
+        
+        <div class="mx-auto max-w-7xl px-6">
+            
+            <div class="grid gap-8 md:grid-cols-2 items-start">
+                <div>
+                    <h2 class="text-3xl font-bold md:text-4xl" data-i18n="map.title">Find Us</h2>
+                    <p class="mt-2 opacity-90" data-i18n="map.subtitle">Tap the map for directions. Call or WhatsApp if
+                        you need help with parking.</p>
+                    <div class="mt-6 overflow-hidden rounded-3xl ring-1 ring-white/20">
+                        <iframe title="Mahalakshmi Boating – Map"
+                            src="https://www.google.com/maps?q=Mahalaxmi%20Boating%20Honnavar&output=embed" width="100%"
+                            height="320" style="border:0" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="mt-4 grid gap-3 text-sm md:grid-cols-2">
+                        <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/20" data-i18n="map.tip1">🅿️ Free
+                            parking guidance</div>
+                        <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/20" data-i18n="map.tip2">🌅 Best time:
+                            4–6:30 PM</div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="rounded-3xl bg-white/10 p-6 ring-1 ring-white/20">
+                        <h3 class="text-xl font-semibold" data-i18n="contact.title">Contact</h3>
+                        <p class="mt-2">📞 <a href="tel:+919449358010" class="underline">+91 94493 58010</a></p>
+                        <p>💬 <a href="https://wa.me/919449358010" target="_blank" class="underline"
+                                data-i18n="contact.whatsapp">Chat on WhatsApp</a></p>
+                        <p>✉️ <a href="mailto:nageshgouda47508@gmail.com"
+                                class="underline">nageshgouda47508@gmail.com</a></p>
+                    </div>
+                    <div class="rounded-3xl bg-white/10 p-6 ring-1 ring-white/20">
+                        <h3 class="text-xl font-semibold" data-i18n="tips.title">Tips</h3>
+                        <ul class="mt-2 space-y-1 text-sky-50/90 text-sm">
+                            <li data-i18n="tips.l1">• Arrive 10–15 mins early for life‑jacket fitting.</li>
+                            <li data-i18n="tips.l2">• Golden hour light is great for photos.</li>
+                            <li data-i18n="tips.l3">• Keep phones secure; use a lanyard if possible.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white py-10 text-sm">
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
+            <p>© <span id="y"></span> <span data-i18n="brand.name">Mahalakshmi Boating</span>, Honnavar. <span
+                    data-i18n="footer.rights">All rights reserved.</span></p>
+            <div class="flex items-center gap-4">
+                <a href="#home" class="hover:text-sky-700" data-i18n="nav.home">Home</a>
+                <a href="#packages" class="hover:text-sky-700" data-i18n="nav.packages">Packages</a>
+                <a href="#gallery" class="hover:text-sky-700" data-i18n="nav.gallery">Gallery</a>
+                <a href="#map" class="hover:text-sky-700" data-i18n="contact.link">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/919449358010" target="_blank"
+        class="fixed bottom-5 right-5 inline-flex items-center justify-center rounded-full bg-emerald-500 p-4 text-white shadow-2xl hover:bg-emerald-600"
+        aria-label="WhatsApp">🟢</a>
+    <a href="tel:+919449358010"
+        class="fixed bottom-5 right-20 hidden md:inline-flex items-center justify-center rounded-full bg-sky-600 p-4 text-white shadow-2xl hover:bg-sky-700"
+        aria-label="Call">📞</a>
+
+    <script>
+        // year
+        document.getElementById('y').textContent = new Date().getFullYear();
+
+        // simple lightbox
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbClose = document.getElementById('lightbox-close');
+        document.querySelectorAll('.lightbox-link').forEach(a => {
+            a.addEventListener('click', e => { e.preventDefault(); lb.classList.add('open'); lbImg.src = a.href; });
+        });
+        lbClose.addEventListener('click', () => lb.classList.remove('open'));
+        lb.addEventListener('click', (e) => { if (e.target === lb) lb.classList.remove('open'); });
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+        // i18n
+        const i18n = {
+            en: {
+                'bar.safety': '🦺 Safety first • Licensed crew • Life jackets for all',
+                'bar.call': 'Call:',
+                'brand.name': 'Mahalakshmi Boating',
+                'nav.home': 'Home',
+                'nav.packages': 'Packages',
+                'nav.highlights': 'Highlights',
+                'nav.gallery': 'Gallery',
+                'nav.reviews': 'Reviews',
+                'nav.faq': 'FAQ',
+                'nav.map': 'Map',
+                'cta.whatsapp': 'Book on WhatsApp',
+                'cta.seePackages': 'See Packages',
+                'cta.whyUs': 'Why choose us?',
+                'hero.badge': 'Honnavar • Sharavati Backwaters',
+                'hero.title': 'Boat Rides that feel like a mini‑vacation.',
+                'hero.subtitle': 'Choose adventure rides, golden‑hour photoshoots or family trips. We keep it safe, scenic and on time.',
+                'badge.lifejackets': '🦺 Life jackets',
+                'badge.licensed': '⛵ Licensed crew',
+                'badge.photos': '📸 Photo spots',
+                'why.title': 'Why Mahalakshmi Boating?',
+                'why.subtitle': 'Fast booking • Clear pricing • Friendly crew',
+                'why.safeTitle': 'Licensed & Safe',
+                'why.safeDesc': 'Life jackets for all, safety briefing, and experienced boat operators.',
+                'why.scenicTitle': 'Scenic Spots',
+                'why.scenicDesc': 'Palm‑lined backwaters, islands and calm channels perfect for photos.',
+                'why.easyTitle': 'Easy WhatsApp Booking',
+                'why.easyDesc': 'Quick replies, timing suggestions and simple UPI payment.',
+                'pkg.title': 'Popular Packages',
+                'pkg.subtitle': 'Transparent pricing. Ask us for group discounts.',
+                'badge.mostPopular': 'Most Popular',
+                'pkg.advTitle': 'Adventure Ride',
+                'pkg.advDesc': 'High‑energy ride across 3 scenic spots.',
+                'pkg.advLine1': '• Duration: ~2 hours',
+                'pkg.advLine2': '• Up to 5 people',
+                'pkg.advLine3': '• Safety gear included',
+                'pkg.advNote': '6+ guests: ₹200 / person extra',
+                'cta.bookNow': 'Book Now',
+                'cta.expect': 'What to expect?',
+                'badge.bestPhotos': 'Best for Photos',
+                'pkg.pwTitle': 'Pre‑Wedding Photoshoot',
+                'pkg.pwDesc': 'Golden‑hour backdrops & calm waters.',
+                'pkg.pwLine1': '• Charged per hour',
+                'pkg.pwLine2': '• Boat & crew included',
+                'pkg.pwLine3': '• Timing suggestions',
+                'pkg.pwNote': 'Props/camera crew by client',
+                'cta.enquire': 'Enquire',
+                'cta.seeExamples': 'See examples',
+                'badge.family': 'Family Friendly',
+                'pkg.sunsetTitle': 'Sunset Chill Ride',
+                'pkg.sunsetDesc': 'Relaxed ride timed to the sunset.',
+                'pkg.sunsetLine1': '• Duration: ~60–90 mins',
+                'pkg.sunsetLine2': '• Calm channels & islands',
+                'pkg.sunsetLine3': '• Drinking water included',
+                'cta.knowMore': 'Know more',
+                'sticky.ready': 'Ready to book?',
+                'gallery.title': 'Gallery',
+                'gallery.subtitle': 'Real photos from the area. Tap to enlarge.',
+                'gallery.viewPkgs': 'View Packages',
+                'gallery.close': 'Close ✕',
+                'reviews.title': 'What Guests Say',
+                'reviews.subtitle': 'Happy memories from our riders',
+                'reviews.r1': 'Amazing experience! Calm waters and great crew.',
+                'reviews.r2': 'Perfect for a family evening. Kids loved it!',
+                'reviews.r3': 'Beautiful backwaters, got amazing photos at sunset.',
+                'faq.title': 'FAQ',
+                'faq.subtitle': 'Quick answers before you book',
+                'faq.q1': 'What should we bring?',
+                'faq.a1': 'Sunglasses, hat, sunscreen, and your phone/camera. Life jackets are provided.',
+                'faq.q2': 'Do you cancel for bad weather?',
+                'faq.a2': 'Yes, safety first. We reschedule or refund if the weather is unsafe.',
+                'faq.q3': 'How do we pay?',
+                'faq.a3': 'UPI or cash. On busy days we may request a small advance.',
+                'faq.q4': 'Is it kid‑friendly?',
+                'faq.a4': 'Yes. Kids must wear life jackets and be accompanied by adults.',
+                'map.title': 'Find Us',
+                'map.subtitle': 'Tap the map for directions. Call or WhatsApp if you need help with parking.',
+                'map.tip1': '🅿️ Free parking guidance',
+                'map.tip2': '🌅 Best time: 4–6:30 PM',
+                'contact.title': 'Contact',
+                'contact.whatsapp': 'Chat on WhatsApp',
+                'tips.title': 'Tips',
+                'tips.l1': '• Arrive 10–15 mins early for life‑jacket fitting.',
+                'tips.l2': '• Golden hour light is great for photos.',
+                'tips.l3': '• Keep phones secure; use a lanyard if possible.',
+                'footer.rights': 'All rights reserved.',
+                'contact.link': 'Contact'
+            },
+            kn: {
+                'bar.safety': '🦺 ಸುರಕ್ಷತೆ ಮೊದಲೇ • ಲೈಸೆನ್ಸ್ಡ್ ಸಿಬ್ಬಂದಿ • ಎಲ್ಲರಿಗೂ ಲೈಫ್ ಜಾಕೆಟ್',
+                'bar.call': 'ಕಾಲ್:',
+                'brand.name': 'ಮಹಾಲಕ್ಷ್ಮಿ ಬೋಟಿಂಗ್',
+                'nav.home': 'ಮುಖಪುಟ',
+                'nav.packages': 'ಪ್ಯಾಕೇಜುಗಳು',
+                'nav.highlights': 'ಹೈಲೈಟ್ಸ್',
+                'nav.gallery': 'ಗ್ಯಾಲರಿ',
+                'nav.reviews': 'ವಿಮರ್ಶೆಗಳು',
+                'nav.faq': 'ಪ್ರಶ್ನೋತ್ತರ',
+                'nav.map': 'ನಕ್ಷೆ',
+                'cta.whatsapp': 'ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಬುಕ್ ಮಾಡಿ',
+                'cta.seePackages': 'ಪ್ಯಾಕೇಜುಗಳನ್ನು ನೋಡಿ',
+                'cta.whyUs': 'ನಮ್ಮನ್ನು ಏಕೆ ಆಯ್ಕೆ?',
+                'hero.badge': 'ಹೊನ್ನಾವರ • ಶರಾವತಿ ಬ್ಯಾಕ್‌ವಾಟರ್ಸ್',
+                'hero.title': 'ಮಿನಿ ರಜೆಯಂತೆ ಅನುಭವವಾಗುವ ಬೋಟ್ ರೈಡ್ಸ್.',
+                'hero.subtitle': 'ಅಡ್ವೆಂಚರ್ ರೈಡ್ಸ್, ಗೋಲ್ಡನ್-ಆವರ್ ಫೋಟೋಶೂಟ್ ಅಥವಾ ಫ್ಯಾಮಿಲಿ ಟ್ರಿಪ್ಸ್ ಆಯ್ಕೆ ಮಾಡಿ. ನಾವು ಸುರಕ್ಷತೆ, ಸೌಂದರ್ಯ ಮತ್ತು ಸಮಯ ಪಾಲನೆಯನ್ನು ಖಚಿತಪಡಿಸುತ್ತೇವೆ.',
+                'badge.lifejackets': '🦺 ಲೈಫ್ ಜಾಕೆಟ್‌ಗಳು',
+                'badge.licensed': '⛵ ಲೈಸೆನ್ಸ್ಡ್ ಸಿಬ್ಬಂದಿ',
+                'badge.photos': '📸 ಫೋಟೋ ಸ್ಪಾಟ್ಸ್',
+                'why.title': 'ಮಹಾಲಕ್ಷ್ಮಿ ಬೋಟಿಂಗ್ ಏಕೆ?',
+                'why.subtitle': 'ಶೀಘ್ರ ಬುಕ್ಕಿಂಗ್ • ಸ್ಪಷ್ಟ ದರ • ಸ್ನೇಹಿ ಸಿಬ್ಬಂದಿ',
+                'why.safeTitle': 'ಲೈಸೆನ್ಸ್ಡ್ & ಸುರಕ್ಷಿತ',
+                'why.safeDesc': 'ಎಲ್ಲರಿಗೂ ಲೈಫ್ ಜಾಕೆಟ್, ಸುರಕ್ಷತಾ ಸೂಚನೆ, ಅನುಭವೀ ಬೋಟು ಸಿಬ್ಬಂದಿ.',
+                'why.scenicTitle': 'ಸುಂದರ ಸ್ಥಳಗಳು',
+                'why.scenicDesc': 'ತಾಳೆ ಮರಗಳ ಬ್ಯಾಕ್‌ವಾಟರ್ಸ್, ದ್ವೀಪಗಳು ಮತ್ತು ಶಾಂತ ಕಾಲುವೆಗಳು — ಫೋಟೋಗಳಿಗೆ ಸೂಕ್ತ.',
+                'why.easyTitle': 'ಸರಳ ವಾಟ್ಸಾಪ್ ಬುಕ್ಕಿಂಗ್',
+                'why.easyDesc': 'ವೇಗದ ಪ್ರತಿಕ್ರಿಯೆ, ಸಮಯ ಸಲಹೆಗಳು, ಸುಲಭ UPI ಪೇಮೆಂಟ್.',
+                'pkg.title': 'ಜನಪ್ರಿಯ ಪ್ಯಾಕೇಜುಗಳು',
+                'pkg.subtitle': 'ಸ್ಪಷ್ಟ ದರ. ಗುಂಪಿನ ರಿಯಾಯಿತಿಗಾಗಿ ವಿಚಾರಿಸಿ.',
+                'badge.mostPopular': 'ಅತ್ಯಂತ ಜನಪ್ರಿಯ',
+                'pkg.advTitle': 'ಅಡ್ವೆಂಚರ್ ರೈಡ್',
+                'pkg.advDesc': '3 ಸುಂದರ ಸ್ಥಳಗಳಲ್ಲಿ ಹೈ-ಎನರ್ಜಿ ರೈಡ್.',
+                'pkg.advLine1': '• ಅವಧಿ: ~2 ಗಂಟೆ',
+                'pkg.advLine2': '• ಗರಿಷ್ಠ 5 ಜನ',
+                'pkg.advLine3': '• ಸುರಕ್ಷತಾ ಉಪಕರಣ ಸೇರಿದೆ',
+                'pkg.advNote': '6+ ಅತಿಥಿಗಳು: ತಲಾ ₹200 ಹೆಚ್ಚುವರಿ',
+                'cta.bookNow': 'ಇಗೆಯೇ ಬುಕ್ ಮಾಡಿ',
+                'cta.expect': 'ಏನು ನಿರೀಕ್ಷಿಸಬಹುದು?',
+                'badge.bestPhotos': 'ಫೋಟೋಗಳಿಗೆ ಉತ್ತಮ',
+                'pkg.pwTitle': 'ಪ್ರೀ-ವೆಡ್ಡಿಂಗ್ ಫೋಟೋಶೂಟ್',
+                'pkg.pwDesc': 'ಗೋಲ್ಡನ್-ಆವರ್ ಬ್ಯಾಕ್‌ಡ್ರಾಪ್ಸ್ • ಶಾಂತ ನೀರು.',
+                'pkg.pwLine1': '• ಪ್ರತಿ ಗಂಟೆಗೆ ಶುಲ್ಕ',
+                'pkg.pwLine2': '• ಬೋಟ್ & ಸಿಬ್ಬಂದಿ ಸೇರಿದೆ',
+                'pkg.pwLine3': '• ಸಮಯ ಸಲಹೆಗಳು',
+                'pkg.pwNote': 'ಪ್ರಾಪ್ಸ್/ಕ್ಯಾಮೆರಾ ತಂಡ ಗ್ರಾಹಕರಿಂದ',
+                'cta.enquire': 'ವಿಚಾರಿಸಿ',
+                'cta.seeExamples': 'ಉದಾಹರಣೆಗಳನ್ನು ನೋಡಿ',
+                'badge.family': 'ಕುಟುಂಬ ಸ್ನೇಹಿ',
+                'pkg.sunsetTitle': 'ಸನ್‌ಸೆಟ್ ಚಿಲ್ ರೈಡ್',
+                'pkg.sunsetDesc': 'ಸಂಜೆ ಸೂರ್ಯಾಸ್ತಕ್ಕೆ ಹೊಂದಿಸಿದ್ದ ಶಾಂತ ರೈಡ್.',
+                'pkg.sunsetLine1': '• ಅವಧಿ: ~60–90 ನಿಮಿಷ',
+                'pkg.sunsetLine2': '• ಶಾಂತ ಕಾಲುವೆಗಳು & ದ್ವೀಪಗಳು',
+                'pkg.sunsetLine3': '• ಕುಡಿಯುವ ನೀರು ಸೇರಿದೆ',
+                'cta.knowMore': 'ಇನ್ನಷ್ಟು ಮಾಹಿತಿ',
+                'sticky.ready': 'ಬುಕ್ ಮಾಡಲು ಸಿದ್ಧವೇ?',
+                'gallery.title': 'ಗ್ಯಾಲರಿ',
+                'gallery.subtitle': 'ಇಲ್ಲಿನ ನಿಜವಾದ ಫೋಟೋಗಳು. ಜೂಮ್ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ.',
+                'gallery.viewPkgs': 'ಪ್ಯಾಕೇಜುಗಳನ್ನು ನೋಡಿ',
+                'gallery.close': 'ಮುಚ್ಚು ✕',
+                'reviews.title': 'ಅತಿಥಿಗಳು ಏನು ಹೇಳಿದ್ದಾರೆ',
+                'reviews.subtitle': 'ನಮ್ಮ ರೈಡರ್‌ಗಳ ಸಂತೋಷದ ನೆನಪುಗಳು',
+                'reviews.r1': 'ಅದ್ಭುತ ಅನುಭವ! ಶಾಂತ ನೀರು ಮತ್ತು ಉತ್ತಮ ಸಿಬ್ಬಂದಿ.',
+                'reviews.r2': 'ಕುಟುಂಬ ಸಂಜೆಗಾಗಿ ಸೂಕ್ತ. ಮಕ್ಕಳಿಗೆ ತುಂಬಾ ಇಷ್ಟ ಆಯ್ತು!',
+                'reviews.r3': 'ಸಂದರ್ಶನೀಯ ಬ್ಯಾಕ್‌ವಾಟರ್ಸ್, ಸನ್‌ಸೆಟ್ ಫೋಟೋಗಳು ಅದ್ಭುತ.',
+                'faq.title': 'ಪ್ರಶ್ನೋತ್ತರ',
+                'faq.subtitle': 'ಬುಕ್ ಮಾಡುವ ಮೊದಲು ತ್ವರಿತ ಉತ್ತರಗಳು',
+                'faq.q1': 'ನಾವು ಏನು ತರಬೇಕು?',
+                'faq.a1': 'ಸನ್‌ಗ್ಲಾಸಸ್, ಹ್ಯಾಟ್, ಸನ್‌ಸ್ಕ್ರೀನ್ ಮತ್ತು ಫೋನ್/ಕ್ಯಾಮೆರಾ. ಲೈಫ್ ಜಾಕೆಟ್ ನೀಡಲಾಗುತ್ತದೆ.',
+                'faq.q2': 'ಕೆಟ್ಟ ಹವಾಮಾನದಲ್ಲಿ ರದ್ದು ಮಾಡುತ್ತೀರಾ?',
+                'faq.a2': 'ಹೌದು, ಸುರಕ್ಷತೆ ಮೊದಲು. ಹವಾಮಾನ ಕೆಟ್ಟರೆ ರೀ-ಶೆಡ್ಯೂಲ್ ಅಥವಾ ರಿಫಂಡ್.',
+                'faq.q3': 'ಪಾವತಿ ಹೇಗೆ?',
+                'faq.a3': 'UPI ಅಥವಾ ನಗದು. ಬ್ಯುಸಿ ದಿನಗಳಲ್ಲಿ ಸ್ವಲ್ಪ ಅಡ್ವಾನ್ಸ್ ಕೇಳಬಹುದು.',
+                'faq.q4': 'ಮಕ್ಕಳಿಗೆ ಸೂಕ್ತವೇ?',
+                'faq.a4': 'ಹೌದು. ಮಕ್ಕಳು ಲೈಫ್ ಜಾಕೆಟ್ ಧರಿಸಬೇಕು ಮತ್ತು ದೊಡ್ಡವರ ಜೊತೆ ಇರಬೇಕು.',
+                'map.title': 'ನಮ್ಮನ್ನು ಕಂಡುಹಿಡಿಯಿರಿ',
+                'map.subtitle': 'ದಾರಿಗಾಗಿ ನಕ್ಷೆ ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ. ಪಾರ್ಕಿಂಗ್ ಸಹಾಯಕ್ಕೆ ಕಾಲ್ ಅಥವಾ ವಾಟ್ಸಾಪ್ ಮಾಡಿ.',
+                'map.tip1': '🅿️ ಉಚಿತ ಪಾರ್ಕಿಂಗ್ ಮಾರ್ಗದರ್ಶನ',
+                'map.tip2': '🌅 ಉತ್ತಮ ಸಮಯ: ಸಂಜೆ 4–6:30',
+                'contact.title': 'ಸಂಪರ್ಕ',
+                'contact.whatsapp': 'ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಚಾಟ್ ಮಾಡಿ',
+                'tips.title': 'ಟಿಪ್ಸ್',
+                'tips.l1': '• ಲೈಫ್-ಜಾಕೆಟ್ ಫಿಟಿಂಗ್‌ಗೆ 10–15 ನಿಮಿಷ ಮುಂಚಿತವಾಗಿ ಬನ್ನಿ.',
+                'tips.l2': '• ಗೋಲ್ಡನ್ ಅವರ್ ಬೆಳಕು ಫೋಟೋಗಳಿಗೆ ಬಹಳ ಚೆನ್ನಾಗಿದೆ.',
+                'tips.l3': '• ಫೋನ್ ಸುರಕ್ಷಿತವಾಗಿ ಇರಿಸಿ; ಲಾನ್ಯಾರ್ಡ್ ಇದ್ದರೆ ಉತ್ತಮ.',
+                'footer.rights': 'ಎಲ್ಲ ಹಕ್ಕುಗಳು ಸಂರಕ್ಷಿತ.',
+                'contact.link': 'ಸಂಪರ್ಕ'
+            },
+            hi: {
+                'bar.safety': '🦺 सुरक्षा पहले • लाइसेंस प्राप्त क्रू • सभी के लिए लाइफ जैकेट',
+                'bar.call': 'कॉल:',
+                'brand.name': 'महालक्ष्मी बोटिंग',
+                'nav.home': 'होम',
+                'nav.packages': 'पैकेज',
+                'nav.highlights': 'हाइलाइट्स',
+                'nav.gallery': 'गैलरी',
+                'nav.reviews': 'रिव्यू',
+                'nav.faq': 'प्रश्नोत्तर',
+                'nav.map': 'मैप',
+                'cta.whatsapp': 'व्हाट्सऐप पर बुक करें',
+                'cta.seePackages': 'पैकेज देखें',
+                'cta.whyUs': 'हमें क्यों चुनें?',
+                'hero.badge': 'होन्नावर • शरावती बैकवॉटर्स',
+                'hero.title': 'ऐसी बोट राइड्स जो मिनी-वेकेशन जैसी लगें।',
+                'hero.subtitle': 'एडवेंचर राइड, गोल्डन-आवर फोटोशूट या फैमिली ट्रिप चुनें। हम सुरक्षा, सुंदर दृश्य और समय-पालन का ध्यान रखते हैं।',
+                'badge.lifejackets': '🦺 लाइफ जैकेट्स',
+                'badge.licensed': '⛵ लाइसेंस प्राप्त क्रू',
+                'badge.photos': '📸 फोटो स्पॉट्स',
+                'why.title': 'महालक्ष्मी बोटिंग क्यों?',
+                'why.subtitle': 'तेज़ बुकिंग • स्पष्ट कीमत • दोस्ताना क्रू',
+                'why.safeTitle': 'लाइसेंस प्राप्त & सुरक्षित',
+                'why.safeDesc': 'सभी के लिए लाइफ जैकेट, सेफ़्टी ब्रीफिंग और अनुभवी ऑपरेटर।',
+                'why.scenicTitle': 'खूबसूरत जगहें',
+                'why.scenicDesc': 'खजूर-घिरी बैकवॉटर्स, द्वीप और शांत चैनल – तस्वीरों के लिए परफ़ेक्ट।',
+                'why.easyTitle': 'आसान व्हाट्सऐप बुकिंग',
+                'why.easyDesc': 'फास्ट रिप्लाई, टाइमिंग सुझाव और आसान UPI पेमेंट।',
+                'pkg.title': 'लोकप्रिय पैकेज',
+                'pkg.subtitle': 'पारदर्शी कीमतें। ग्रुप डिस्काउंट के लिए पूछें।',
+                'badge.mostPopular': 'सबसे लोकप्रिय',
+                'pkg.advTitle': 'एडवेंचर राइड',
+                'pkg.advDesc': '3 दर्शनीय स्थानों पर हाई-एनर्जी राइड।',
+                'pkg.advLine1': '• अवधि: ~2 घंटे',
+                'pkg.advLine2': '• अधिकतम 5 लोग',
+                'pkg.advLine3': '• सेफ़्टी गियर शामिल',
+                'pkg.advNote': '6+ मेहमान: प्रति व्यक्ति ₹200 अतिरिक्त',
+                'cta.bookNow': 'अभी बुक करें',
+                'cta.expect': 'क्या उम्मीद करें?',
+                'badge.bestPhotos': 'फोटो के लिए बेस्ट',
+                'pkg.pwTitle': 'प्री-वेडिंग फोटोशूट',
+                'pkg.pwDesc': 'गोल्डन-आवर बैकड्रॉप्स और शांत पानी।',
+                'pkg.pwLine1': '• प्रति घंटे शुल्क',
+                'pkg.pwLine2': '• बोट और क्रू शामिल',
+                'pkg.pwLine3': '• टाइमिंग सुझाव',
+                'pkg.pwNote': 'प्रॉप्स/कैमरा क्रू क्लाइंट द्वारा',
+                'cta.enquire': 'पूछताछ',
+                'cta.seeExamples': 'उदाहरण देखें',
+                'badge.family': 'परिवार-मित्र',
+                'pkg.sunsetTitle': 'सनसेट चिल राइड',
+                'pkg.sunsetDesc': 'सूर्यास्त के समय की आरामदायक राइड।',
+                'pkg.sunsetLine1': '• अवधि: ~60–90 मिनट',
+                'pkg.sunsetLine2': '• शांत चैनल और द्वीप',
+                'pkg.sunsetLine3': '• पीने का पानी शामिल',
+                'cta.knowMore': 'और जानें',
+                'sticky.ready': 'बुक करने के लिए तैयार?',
+                'gallery.title': 'गैलरी',
+                'gallery.subtitle': 'यहीं के असली फोटो। बड़ा करने के लिए टैप करें।',
+                'gallery.viewPkgs': 'पैकेज देखें',
+                'gallery.close': 'बंद करें ✕',
+                'reviews.title': 'मेहमान क्या कहते हैं',
+                'reviews.subtitle': 'हमारे राइडर्स की खुश यादें',
+                'reviews.r1': 'कमाल का अनुभव! शांत पानी और बढ़िया क्रू।',
+                'reviews.r2': 'परिवार की शाम के लिए परफेक्ट। बच्चों को बहुत पसंद आया!',
+                'reviews.r3': 'खूबसूरत बैकवॉटर्स, सनसेट की बेहतरीन तस्वीरें मिलीं।',
+                'faq.title': 'प्रश्नोत्तर',
+                'faq.subtitle': 'बुक करने से पहले त्वरित जवाब',
+                'faq.q1': 'हमें क्या साथ लाना चाहिए?',
+                'faq.a1': 'सनग्लास, कैप/टोपी, सनस्क्रीन और आपका फोन/कैमरा। लाइफ जैकेट उपलब्ध है।',
+                'faq.q2': 'खराब मौसम में क्या रद्द करेंगे?',
+                'faq.a2': 'हाँ, सुरक्षा पहले। मौसम unsafe होने पर हम रीस्‍केड्यूल या रिफंड करते हैं।',
+                'faq.q3': 'पेमेंट कैसे करें?',
+                'faq.a3': 'UPI या नकद। भीड़ वाले दिनों में थोड़ा एडवांस माँगा जा सकता है।',
+                'faq.q4': 'क्या बच्चों के लिए उपयुक्त है?',
+                'faq.a4': 'हाँ। बच्चों के लिए लाइफ जैकेट अनिवार्य है और वयस्कों के साथ रहना होगा।',
+                'map.title': 'हमें खोजें',
+                'map.subtitle': 'दिशाओं के लिए मैप पर टैप करें। पार्किंग मदद के लिए कॉल/व्हाट्सऐप करें।',
+                'map.tip1': '🅿️ फ्री पार्किंग गाइडेंस',
+                'map.tip2': '🌅 सबसे अच्छा समय: 4–6:30 PM',
+                'contact.title': 'संपर्क',
+                'contact.whatsapp': 'व्हाट्सऐप पर चैट करें',
+                'tips.title': 'टिप्स',
+                'tips.l1': '• लाइफ-जैकेट फिटिंग के लिए 10–15 मिनट पहले पहुँचे।',
+                'tips.l2': '• गोल्डन आवर की रोशनी फोटो के लिए शानदार है।',
+                'tips.l3': '• फोन सुरक्षित रखें; संभव हो तो लैनयार्ड इस्तेमाल करें।',
+                'footer.rights': 'सर्वाधिकार सुरक्षित।',
+                'contact.link': 'संपर्क'
+            }
+        };
+
+        function applyTranslations(lang) {
+            const dict = i18n[lang] || i18n.en;
+            document.documentElement.setAttribute('lang', lang);
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.innerText = dict[key];
+            });
+            // Persist choice
+            localStorage.setItem('lang', lang);
+        }
+
+        const select = document.getElementById('langSwitcher');
+        const saved = localStorage.getItem('lang') || 'en';
+        select.value = saved; applyTranslations(saved);
+        select.addEventListener('change', (e) => applyTranslations(e.target.value));
+    </script>
 </body>
 
 </html>
