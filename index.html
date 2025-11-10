@@ -234,10 +234,49 @@
                 </div>
             </div>
             <div class="relative">
-                <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-12.jpg"
-                    alt="Boat gliding on Sharavati"
-                    class="h-full w-full rounded-3xl object-cover shadow-2xl ring-4 ring-white/60 transition duration-500 hover:scale-[1.02]" />
-            </div>
+
+                <div id="slideshow"
+                    class="relative w-full h-[380px] rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/60">
+
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-12.jpg"
+                        alt="Boat gliding on Sharavati"
+                        class="slide absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-100" />
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-1.jpg"
+                        alt="Scenic view of Honnavar"
+                        class="slide absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" />
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-2.jpg"
+                        alt="Sunset at Honnavar"
+                        class="slide absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" />
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-3.jpg"
+                        alt="Sunset at Honnavar"
+                        class="slide absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" />
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-4.jpg"
+                        alt="Sunset at Honnavar"
+                        class="slide absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" />
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-5.jpg"
+                        alt="Sunset at Honnavar"
+                        class="slide absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" />
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-6.jpg"
+                        alt="Sunset at Honnavar"
+                        class="slide absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" />
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-7.jpg"
+                        alt="Sunset at Honnavar"
+                        class="slide absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" />
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-8.jpg"
+                        alt="Sunset at Honnavar"
+                        class="slide absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" />
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-9.jpg"
+                        alt="Sunset at Honnavar"
+                        class="slide absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" />
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-10.jpg"
+                        alt="Sunset at Honnavar"
+                        class="slide absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" />
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-11.jpg"
+                        alt="Sunset at Honnavar"
+                        class="slide absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 opacity-0" />
+                    
+                </div>
+                        </div>
         </div>
 
         <div class="waves">
@@ -873,6 +912,24 @@
         const saved = localStorage.getItem('lang') || 'en';
         select.value = saved; applyTranslations(saved);
         select.addEventListener('change', (e) => applyTranslations(e.target.value));
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = Array.from(document.querySelectorAll('#slideshow .slide'));
+            let i = 0;
+
+            function show(n) {
+                slides.forEach((img, idx) => {
+                    img.classList.toggle('opacity-100', idx === n);
+                    img.classList.toggle('opacity-0', idx !== n);
+                });
+            }
+
+            setInterval(() => {
+                i = (i + 1) % slides.length;
+                show(i);
+            }, 3000); // change every 3s
+        });
     </script>
 </body>
 
