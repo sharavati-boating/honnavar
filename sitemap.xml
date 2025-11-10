@@ -2,27 +2,20 @@
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <!-- Main page -->
   <url>
     <loc>https://sharavati-boating.github.io/honnavar/</loc>
     <lastmod>2025-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
-
-    <!-- Hero / social image - helps image indexing -->
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1704365159814-9d124e3cf952?ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;q=80&amp;w=1932</image:loc>
       <image:caption>Sharavati backwaters scenic view — Mahalakshmi Boating</image:caption>
       <image:title>Sharavati backwaters</image:title>
     </image:image>
-
-    <!-- Representative slideshow image -->
     <image:image>
       <image:loc>https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-12.jpg</image:loc>
       <image:caption>Boat gliding on Sharavati — Honnavar</image:caption>
       <image:title>Boat gliding on Sharavati</image:title>
     </image:image>
   </url>
-
-  <!-- Add other pages or image entries here if needed -->
 </urlset>
