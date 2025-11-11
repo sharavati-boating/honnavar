@@ -227,10 +227,53 @@
             bottom: 0;
             z-index: 40
         }
+
+         #preloader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            z-index: 100;
+        }
+
+        #preloader-logo {
+            animation: expandLogo 1s ease-in-out forwards;
+        }
+
+        /* Animation for the logo */
+        @keyframes expandLogo {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            70% {
+                transform: scale(10);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(50);
+                opacity: 0;
+            }
+        }
+
+        /* Hide main content initially */
+        #main-content {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
     </style>
 </head>
 
 <body class="bg-sky-50 text-slate-800">
+    
+    <div id="preloader" class="fixed inset-0 z-[100] flex items-center justify-center bg-white">
+        <div id="preloader-logo" class="h-20 w-20 rounded-full bg-sky-900 flex items-center justify-center">
+            <img src="favicon.png"
+                alt="Mahalakshmi Boating Logo" class="h-12 w-12 object-cover" />
+        </div>
+    </div>
     <!-- Announcement bar -->
     <div class="bg-gradient-to-r from-sky-900 via-sky-700 to-sky-600 text-white text-sm">
         <div class="mx-auto max-w-7xl px-6 py-2 flex items-center justify-between">
@@ -734,7 +777,17 @@
             id="lightbox-close"
             class="absolute right-4 top-4 rounded-full bg-white/10 px-3 py-1 text-white ring-1 ring-white/30">Close
             ✕</button></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const preloader = document.getElementById('preloader');
+            const mainContent = document.getElementById('main-content');
 
+            setTimeout(() => {
+                preloader.style.display = 'none'; 
+                mainContent.style.opacity = '1'; 
+            }, 1000); 
+        });
+    </script>
     <script>
         // year
         document.getElementById('y').textContent = new Date().getFullYear();
