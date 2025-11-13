@@ -92,6 +92,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://widgets.sociablekit.com/google-reviews/widget.js" defer></script>
+
 
     <style>
         html {
@@ -229,7 +231,7 @@
             z-index: 40
         }
 
-         #preloader {
+        #preloader {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -268,11 +270,10 @@
 </head>
 
 <body class="bg-sky-50 text-slate-800">
-    
+
     <div id="preloader" class="fixed inset-0 z-[100] flex items-center justify-center bg-white">
         <div id="preloader-logo" class="h-20 w-20 rounded-full bg-sky-900 flex items-center justify-center">
-            <img src="favicon.png"
-                alt="Mahalakshmi Boating Logo" class="h-12 w-12 object-cover" />
+            <img src="favicon.png" alt="Mahalakshmi Boating Logo" class="h-12 w-12 object-cover" />
         </div>
     </div>
     <!-- Announcement bar -->
@@ -507,7 +508,7 @@
                     <span
                         class="absolute right-4 top-4 rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700"
                         data-i18n="badge.mostPopular">Most Popular</span>
-                     <br/>
+                    <br />
                     <h3 class="text-2xl font-semibold" data-i18n="pkg.advTitle">Adventure Ride</h3>
                     <p class="mt-1 text-slate-600" data-i18n="pkg.advDesc">High-energy ride across 3 scenic spots.</p>
                     <ul class="mt-4 space-y-2 text-sm text-slate-700">
@@ -527,7 +528,7 @@
                     <span
                         class="absolute right-4 top-4 rounded-full bg-sky-100 px-3 py-1 text-sm font-medium text-sky-700"
                         data-i18n="badge.bestPhotos">Best for Photos</span>
-                     <br/>
+                    <br />
                     <h3 class="text-2xl font-semibold" data-i18n="pkg.pwTitle">Pre-Wedding Photoshoot</h3>
                     <p class="mt-1 text-slate-600" data-i18n="pkg.pwDesc">Golden-hour backdrops & calm waters.</p>
                     <ul class="mt-4 space-y-2 text-sm text-slate-700">
@@ -547,7 +548,7 @@
                     <span
                         class="absolute right-4 top-4 rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-700"
                         data-i18n="badge.family">Family Friendly</span>
-                     <br/>
+                    <br />
                     <h3 class="text-2xl font-semibold" data-i18n="pkg.sunsetTitle">Sunset Chill Ride</h3>
                     <p class="mt-1 text-slate-600" data-i18n="pkg.sunsetDesc">Relaxed ride timed to the sunset.</p>
                     <ul class="mt-4 space-y-2 text-sm text-slate-700">
@@ -634,34 +635,27 @@
     </section>
 
     <!-- Reviews -->
+    <!-- START: Dynamic Reviews (SociableKIT iframe) -->
     <section id="reviews" class="bg-gradient-to-b from-sky-50 to-white py-16">
         <div class="mx-auto max-w-7xl px-6">
             <div class="mb-8 text-center">
-                <h2 class="text-3xl font-bold md:text-4xl" data-i18n="reviews.title">What Guests Say</h2>
-                <p class="mt-2 text-slate-600" data-i18n="reviews.subtitle">Happy memories from our riders</p>
+                <h2 class="text-3xl font-bold md:text-4xl">What Guests Say</h2>
+                <p class="mt-2 text-slate-600">Happy memories from our riders</p>
             </div>
-            <div class="grid gap-6 md:grid-cols-3">
-                <div class="card">
-                    <div class="text-amber-500">★★★★★</div>
-                    <p class="mt-2 text-slate-700" data-i18n="reviews.r1">Amazing experience! Calm waters and great
-                        crew.</p>
-                    <div class="mt-3 text-sm font-semibold">— Vishwa Gouda</div>
-                </div>
-                <div class="card">
-                    <div class="text-amber-500">★★★★★</div>
-                    <p class="mt-2 text-slate-700" data-i18n="reviews.r2">Perfect for a family evening. Kids loved it!
-                    </p>
-                    <div class="mt-3 text-sm font-semibold">— Naveen Patagar</div>
-                </div>
-                <div class="card">
-                    <div class="text-amber-500">★★★★★</div>
-                    <p class="mt-2 text-slate-700" data-i18n="reviews.r3">Beautiful backwaters, got amazing photos at
-                        sunset.</p>
-                    <div class="mt-3 text-sm font-semibold">— Poorvi Mumbai</div>
-                </div>
+
+            <div class="card p-6">
+                <iframe src="https://widgets.sociablekit.com/google-reviews/iframe/25621971" width="100%" height="500"
+                    style="border:none; overflow:hidden;" loading="lazy" title="Google reviews"></iframe>
+                <noscript class="mt-6 block text-center text-sm text-slate-500">
+                    Please enable JavaScript to see live Google reviews.
+                </noscript>
             </div>
         </div>
     </section>
+    <!-- END: Dynamic Reviews -->
+
+
+
 
     <!-- FAQ -->
     <section id="faq" class="bg-white py-16">
@@ -790,9 +784,9 @@
             const mainContent = document.getElementById('main-content');
 
             setTimeout(() => {
-                preloader.style.display = 'none'; 
-                mainContent.style.opacity = '1'; 
-            }, 1000); 
+                preloader.style.display = 'none';
+                mainContent.style.opacity = '1';
+            }, 1000);
         });
     </script>
     <script>
@@ -1128,69 +1122,69 @@
         });
     </script>
     <script>
-// Disable Right Click
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-}, false);
+        // Disable Right Click
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        }, false);
 
-// Disable Dragging (images, text, etc.)
-document.addEventListener('dragstart', function(event) {
-    event.preventDefault();
-});
+        // Disable Dragging (images, text, etc.)
+        document.addEventListener('dragstart', function (event) {
+            event.preventDefault();
+        });
 
-// Disable Text Selection
-document.addEventListener('selectstart', function(e) {
-    e.preventDefault();
-});
+        // Disable Text Selection
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        });
 
-// Disable common inspect shortcuts
-document.onkeydown = function(e) {
+        // Disable common inspect shortcuts
+        document.onkeydown = function (e) {
 
-    // F12
-    if (e.keyCode == 123) {
-        return false;
-    }
-    // Ctrl+Shift+I
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-        return false;
-    }
-    // Ctrl+Shift+J
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-        return false;
-    }
-    // Ctrl+Shift+C
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 67) {
-        return false;
-    }
-    // Ctrl+U
-    if (e.ctrlKey && e.keyCode == 85) {
-        return false;
-    }
-    // Ctrl+S
-    if (e.ctrlKey && e.keyCode == 83) {
-        return false;
-    }
-    // Ctrl+C
-    if (e.ctrlKey && e.keyCode == 67) {
-        return false;
-    }
-    // Ctrl+X
-    if (e.ctrlKey && e.keyCode == 88) {
-        return false;
-    }
-    // Ctrl+P
-    if (e.ctrlKey && e.keyCode == 80) {
-        return false;
-    }
-};
+            // F12
+            if (e.keyCode == 123) {
+                return false;
+            }
+            // Ctrl+Shift+I
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+                return false;
+            }
+            // Ctrl+Shift+J
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+                return false;
+            }
+            // Ctrl+Shift+C
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 67) {
+                return false;
+            }
+            // Ctrl+U
+            if (e.ctrlKey && e.keyCode == 85) {
+                return false;
+            }
+            // Ctrl+S
+            if (e.ctrlKey && e.keyCode == 83) {
+                return false;
+            }
+            // Ctrl+C
+            if (e.ctrlKey && e.keyCode == 67) {
+                return false;
+            }
+            // Ctrl+X
+            if (e.ctrlKey && e.keyCode == 88) {
+                return false;
+            }
+            // Ctrl+P
+            if (e.ctrlKey && e.keyCode == 80) {
+                return false;
+            }
+        };
 
-// Detect DevTools opening
-let devtools = function() {};
-devtools.toString = function() {
-    // When DevTools is opened, console panel opens, triggering this
-   // alert("Inspecting is blocked on this site.");
-};
-console.log('%c', devtools);
+        // Detect DevTools opening
+        let devtools = function () { };
+        devtools.toString = function () {
+            // When DevTools is opened, console panel opens, triggering this
+            // alert("Inspecting is blocked on this site.");
+        };
+        console.log('%c', devtools);
     </script>
 </body>
 
