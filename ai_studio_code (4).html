@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+
+    <title>Mahalakshmi Boating Honnavar | Escape to Paradise</title>
+
+    <meta name="description"
+        content="Experience the Sharavati Backwaters with Mahalakshmi Boating. Premium sunset cruises, adventure rides & photoshoots. Book instantly on WhatsApp." />
+    <link rel="icon" type="image/png" sizes="192x192" href="https://sharavati-boating.github.io/honnavar/favicon.png">
+    <link rel="canonical" href="https://sharavati-boating.github.io/honnavar/" />
+
+    <!-- Fonts: Outfit (Modern/Clean) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind & Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://widgets.sociablekit.com/google-reviews/widget.js" defer></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        ocean: {
+                            light: '#38bdf8',
+                            DEFAULT: '#0284c7',
+                            dark: '#0c4a6e',
+                        },
+                        sunset: {
+                            light: '#fcd34d',
+                            DEFAULT: '#f59e0b',
+                            dark: '#b45309',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'slow-zoom': 'slowZoom 20s linear infinite alternate',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slowZoom: {
+                            '0%': { transform: 'scale(1)' },
+                            '100%': { transform: 'scale(1.15)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Vibe */
+        body { background-color: #f8fafc; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+        
+        .glass-dark {
+            background: rgba(2, 6, 23, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Text Gradients */
+        .text-gradient-gold {
+            background: linear-gradient(to right, #fbbf24, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .text-gradient-ocean {
+            background: linear-gradient(to right, #38bdf8, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Horizontal Scroll Snap for Mobile Cards */
+        .scrolling-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding: 1rem 0.5rem 2rem 0.5rem; /* Extra bottom padding for shadow */
+            scrollbar-width: none; 
+        }
+        .scrolling-wrapper::-webkit-scrollbar { display: none; }
+        .scrolling-card { flex: 0 0 88%; scroll-snap-align: center; }
+
+        /* Sexy Button */
+        .btn-shiny {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.4);
+        }
+        .btn-shiny::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+            transform: skewX(-25deg);
+            transition: 0.5s;
+        }
+        .btn-shiny:hover { transform: translateY(-3px); box-shadow: 0 15px 30px -5px rgba(14, 165, 233, 0.5); }
+        .btn-shiny:hover::after { left: 150%; transition: 0.7s ease-in-out; }
+
+        /* Preloader */
+        #preloader { transition: opacity 0.6s ease, visibility 0.6s; }
+        
+        /* Ambient Glow Backgrounds */
+        .ambient-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Reveal */
+        .reveal-on-scroll { opacity: 0; }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
+</head>
+
+<body class="text-slate-800 antialiased selection:bg-sky-200 selection:text-sky-900 pb-24 md:pb-0 overflow-x-hidden">
+
+    <!-- PRELOADER -->
+    <div id="preloader" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-900">
+        <div class="relative">
+            <div class="w-16 h-16 border-4 border-sky-500/30 border-t-sky-400 rounded-full animate-spin"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <i class="fa-solid fa-anchor text-sky-400 text-lg animate-pulse"></i>
+            </div>
+        </div>
+        <p class="font-display font-semibold text-sky-100 mt-4 tracking-[0.3em] text-xs uppercase animate-pulse">Preparing Your Voyage</p>
+    </div>
+
+    <!-- MOBILE NAV BAR (Glassy) -->
+    <div class="md:hidden fixed bottom-4 left-4 right-4 z-50 glass-panel rounded-2xl flex justify-between items-center px-6 py-3 shadow-2xl shadow-sky-900/10 pb-safe">
+        <a href="#home" class="flex flex-col items-center text-slate-400 hover:text-sky-600 active:scale-95 transition gap-1">
+            <i class="fa-solid fa-house-chimney-window text-lg"></i>
+        </a>
+        <a href="#packages" class="flex flex-col items-center text-slate-400 hover:text-sky-600 active:scale-95 transition gap-1">
+            <i class="fa-solid fa-ticket text-lg"></i>
+        </a>
+        <!-- Main CTA Floating Button -->
+        <a href="https://wa.me/919449358010?text=Hi!%20I'm%20ready%20for%20an%20adventure." target="_blank" class="relative -top-8 bg-gradient-to-tr from-sky-500 to-blue-600 text-white h-16 w-16 rounded-full flex items-center justify-center shadow-lg shadow-sky-300 hover:scale-110 active:scale-90 transition duration-300 border-4 border-white">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+        </a>
+        <a href="#gallery" class="flex flex-col items-center text-slate-400 hover:text-sky-600 active:scale-95 transition gap-1">
+            <i class="fa-solid fa-images text-lg"></i>
+        </a>
+        <a href="tel:+919449358010" class="flex flex-col items-center text-slate-400 hover:text-sky-600 active:scale-95 transition gap-1">
+            <i class="fa-solid fa-phone-volume text-lg"></i>
+        </a>
+    </div>
+
+    <!-- HEADER (Desktop) -->
+    <nav class="fixed top-0 w-full z-40 transition-all duration-500" id="navbar">
+        <div class="glass-dark absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500" id="nav-bg"></div>
+        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-20 items-center justify-between">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 group cursor-pointer">
+                    <div class="h-11 w-11 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 p-0.5 shadow-lg group-hover:rotate-12 transition duration-500">
+                        <img class="h-full w-full rounded-full object-cover border-2 border-white" 
+                             src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzB0TQpbrboUWeQAYzK1CvBpUi5PlYghil6664IjdtdONVU9DWuIUg_XlADgV2f9f04xgWl7pjaNz2CPx17VCIyJTw5iUuB98hAcZUeJ0LVdIVVTrczT-KTHgfNppAqYXfRrT4NcQ=s1360-w1360-h1020-rw" 
+                             alt="Logo">
+                    </div>
+                    <div>
+                        <span class="font-display font-bold text-2xl text-white tracking-tight leading-none block">Mahalakshmi</span>
+                        <span class="font-sans text-xs font-medium text-sky-300 tracking-widest uppercase">Premium Boating</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="flex space-x-1 bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10">
+                        <a href="#home" class="text-white/80 hover:text-white hover:bg-white/10 px-4 py-1.5 rounded-full text-sm font-medium transition" data-i18n="nav.home">Home</a>
+                        <a href="#packages" class="text-white/80 hover:text-white hover:bg-white/10 px-4 py-1.5 rounded-full text-sm font-medium transition" data-i18n="nav.packages">Experiences</a>
+                        <a href="#gallery" class="text-white/80 hover:text-white hover:bg-white/10 px-4 py-1.5 rounded-full text-sm font-medium transition" data-i18n="nav.gallery">Moments</a>
+                    </div>
+
+                    <div class="flex items-center gap-3 pl-4 border-l border-white/10">
+                        <select id="langSwitcher" class="bg-transparent border border-white/30 text-white text-xs rounded-lg px-2 py-1.5 focus:outline-none focus:border-sky-400 hover:bg-white/5 cursor-pointer transition">
+                            <option value="en" class="text-slate-900">English</option>
+                            <option value="kn" class="text-slate-900">ಕನ್ನಡ</option>
+                            <option value="hi" class="text-slate-900">हिन्दी</option>
+                        </select>
+                        <a href="https://wa.me/919449358010" target="_blank" class="btn-shiny text-white px-6 py-2 rounded-full font-bold text-sm tracking-wide">
+                            Let's Go!
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mobile Lang -->
+                <div class="md:hidden">
+                     <select id="langSwitcherMobile" class="bg-black/30 backdrop-blur border border-white/20 text-white text-xs rounded-full px-3 py-1 focus:outline-none">
+                        <option value="en" class="text-slate-900">ENG</option>
+                        <option value="kn" class="text-slate-900">KAN</option>
+                        <option value="hi" class="text-slate-900">HIN</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative h-[105vh] min-h-[650px] flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Ken Burns Effect -->
+        <div class="absolute inset-0 w-full h-full z-0">
+            <img src="https://images.unsplash.com/photo-1704365159814-9d124e3cf952?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1932" 
+                 class="w-full h-full object-cover object-center animate-slow-zoom" 
+                 alt="Sharavati Backwaters">
+            <!-- Cinematic Overlay Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-transparent to-slate-900"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center mt-10">
+            
+            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/20 text-sky-200 text-xs font-bold tracking-widest uppercase mb-8 animate-fade-up shadow-2xl hover:bg-white/10 transition duration-300 cursor-default" style="animation-delay: 0.1s;">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+                </span>
+                Honnavar's Hidden Gem
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold text-white leading-[1.1] mb-6 animate-fade-up drop-shadow-lg" style="animation-delay: 0.2s;" data-i18n-html="hero.title">
+                Escape to the <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-200 to-teal-300 filter drop-shadow-lg">Unknown.</span>
+            </h1>
+
+            <p class="max-w-xl mx-auto text-lg md:text-xl text-slate-200 mb-10 font-light leading-relaxed animate-fade-up drop-shadow-md" style="animation-delay: 0.3s;" data-i18n-html="hero.p">
+                Drift through the mystical mangroves of Sharavati. Private sunsets, endless adventure, and memories made in gold.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5 animate-fade-up" style="animation-delay: 0.4s;">
+                <a href="https://wa.me/919449358010?text=Hi!%20I%20am%20interested%20in%20booking." target="_blank" class="w-full sm:w-auto btn-shiny text-white px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-3 group shadow-sky-500/30 shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span data-i18n="cta.whatsapp">Start Adventure</span>
+                </a>
+                <a href="#packages" class="w-full sm:w-auto glass-panel text-slate-800 hover:text-sky-600 hover:bg-white border-white/50 px-10 py-4 rounded-full font-bold text-lg transition duration-300 flex items-center justify-center gap-2" data-i18n="cta.seePackages">
+                    Explore Options
+                </a>
+            </div>
+
+            <!-- Floating Trust Indicators -->
+            <div class="mt-16 pt-8 border-t border-white/10 flex justify-center gap-8 md:gap-16 animate-fade-up text-white/80" style="animation-delay: 0.6s;">
+                <div class="text-center group">
+                    <p class="text-3xl font-display font-bold text-white group-hover:text-sky-300 transition">4.9</p>
+                    <div class="flex text-amber-400 text-xs mb-1 justify-center"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-[10px] uppercase tracking-widest">Google Reviews</p>
+                </div>
+                <div class="text-center group">
+                    <p class="text-3xl font-display font-bold text-white group-hover:text-emerald-300 transition">100%</p>
+                    <div class="flex text-emerald-400 text-xs mb-1 justify-center"><i class="fa-solid fa-shield-halved"></i></div>
+                    <p class="text-[10px] uppercase tracking-widest">Safe & Licensed</p>
+                </div>
+                <div class="text-center group">
+                    <p class="text-3xl font-display font-bold text-white group-hover:text-amber-300 transition">24/7</p>
+                    <div class="flex text-amber-400 text-xs mb-1 justify-center"><i class="fa-solid fa-bolt"></i></div>
+                    <p class="text-[10px] uppercase tracking-widest">Instant Booking</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 animate-bounce hidden md:block">
+            <i class="fa-solid fa-chevron-down text-xl"></i>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHTS (Bento Grid) -->
+    <section id="highlights" class="py-24 px-4 relative overflow-hidden">
+        <!-- Ambient Orbs -->
+        <div class="ambient-glow w-96 h-96 bg-sky-200 top-0 left-0"></div>
+        <div class="ambient-glow w-80 h-80 bg-amber-100 bottom-0 right-0"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-xs font-bold text-sky-600 uppercase tracking-[0.3em] mb-3">The Experience</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-bold text-slate-900" data-i18n="why.title">More than just a boat ride.</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Card 1 -->
+                <div class="glass-panel p-10 rounded-[2rem] hover:shadow-2xl hover:shadow-sky-100 transition-all duration-500 group reveal-on-scroll transform hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-100 to-sky-50 text-sky-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-sm">
+                        <i class="fa-solid fa-life-ring"></i>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold text-slate-900 mb-3" data-i18n="why.safeTitle">Worry-Free Bliss</h4>
+                    <p class="text-slate-600 leading-relaxed" data-i18n="why.safeDesc">Relax completely. We provide premium life jackets for all sizes and licensed captains who know these waters like the back of their hand.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-panel p-10 rounded-[2rem] hover:shadow-2xl hover:shadow-amber-100 transition-all duration-500 group reveal-on-scroll transform hover:-translate-y-2" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-50 text-amber-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300 shadow-sm">
+                        <i class="fa-solid fa-camera-retro"></i>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold text-slate-900 mb-3" data-i18n="why.scenicTitle">Cinematic Routes</h4>
+                    <p class="text-slate-600 leading-relaxed" data-i18n="why.scenicDesc">Discover secret mangrove tunnels and island shores perfect for your Instagram feed or pre-wedding masterpiece.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-panel p-10 rounded-[2rem] hover:shadow-2xl hover:shadow-emerald-100 transition-all duration-500 group reveal-on-scroll transform hover:-translate-y-2" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-100 to-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-sm">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold text-slate-900 mb-3" data-i18n="why.easyTitle">Book in Seconds</h4>
+                    <p class="text-slate-600 leading-relaxed" data-i18n="why.easyDesc">Skip the forms. One WhatsApp message connects you directly to the captain. Instant confirmation via UPI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKAGES (Netflix Style) -->
+    <section id="packages" class="py-24 bg-slate-50 overflow-hidden relative">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+             <div class="absolute top-1/4 -right-24 w-[30rem] h-[30rem] bg-purple-200/30 rounded-full blur-3xl animate-pulse-slow"></div>
+             <div class="absolute bottom-1/4 -left-24 w-[30rem] h-[30rem] bg-sky-200/30 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 px-2">
+                <div class="reveal-on-scroll">
+                    <h2 class="text-xs font-bold text-sky-600 uppercase tracking-[0.3em] mb-3" data-i18n="nav.packages">Curated Packages</h2>
+                    <h3 class="text-4xl md:text-5xl font-display font-bold text-slate-900" data-i18n="pkg.title">Choose Your Voyage</h3>
+                </div>
+                <!-- Desktop arrow cues -->
+                <div class="hidden md:flex gap-4 text-slate-400 reveal-on-scroll">
+                    <div class="group flex items-center gap-2">
+                         <span class="text-sm font-medium text-slate-500 group-hover:text-sky-600 transition">Scroll to explore</span>
+                         <i class="fa-solid fa-arrow-right-long animate-float text-sky-500"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCROLLABLE CONTAINER -->
+            <div class="scrolling-wrapper md:grid md:grid-cols-3 md:gap-10 pb-8">
+                
+                <!-- Adventure Package -->
+                <div class="scrolling-card bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col transform transition hover:scale-[1.02] hover:shadow-2xl hover:shadow-sky-200/50 h-full group">
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute inset-0 bg-slate-900/20 z-10 group-hover:bg-slate-900/0 transition duration-500"></div>
+                        <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-5.jpg" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" alt="Adventure Ride">
+                        <div class="absolute top-4 right-4 z-20 bg-white/95 backdrop-blur px-4 py-1.5 rounded-full text-xs font-bold text-sky-700 shadow-lg flex items-center gap-1">
+                            <i class="fa-solid fa-fire text-orange-500"></i> Most Popular
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow relative">
+                        <h4 class="text-3xl font-display font-bold text-slate-800 mb-2" data-i18n="pkg.advTitle">The Explorer</h4>
+                        <p class="text-slate-500 mb-6 line-clamp-2" data-i18n="pkg.advDesc">High-energy tour of 3 islands, hidden coves & mangroves.</p>
+                        
+                        <div class="space-y-4 mb-8 flex-grow">
+                            <div class="flex items-center gap-4 text-slate-600">
+                                <div class="w-8 h-8 rounded-full bg-sky-50 flex items-center justify-center text-sky-500"><i class="fa-regular fa-clock"></i></div>
+                                <span class="font-medium" data-i18n="pkg.advLine1">60 - 90 Minutes</span>
+                            </div>
+                            <div class="flex items-center gap-4 text-slate-600">
+                                <div class="w-8 h-8 rounded-full bg-sky-50 flex items-center justify-center text-sky-500"><i class="fa-solid fa-users"></i></div>
+                                <span class="font-medium" data-i18n="pkg.advLine2">Up to 5 Adventurers</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto border-t border-slate-100 pt-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <div>
+                                    <span class="block text-xs text-slate-400 uppercase font-bold">Total Price</span>
+                                    <span class="text-3xl font-display font-bold text-slate-900">₹800</span>
+                                </div>
+                                <div class="text-right">
+                                     <span class="text-xs text-emerald-500 font-bold bg-emerald-50 px-2 py-1 rounded">Great Deal</span>
+                                </div>
+                            </div>
+                            <a href="https://wa.me/919449358010?text=I%20want%20to%20book%20the%20Explorer%20Ride" class="block w-full btn-shiny text-white text-center py-4 rounded-xl font-bold shadow-lg tracking-wide" data-i18n="cta.bookNow">Book Adventure</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunset Package -->
+                <div class="scrolling-card bg-white rounded-[2rem] shadow-xl shadow-amber-100/50 overflow-hidden flex flex-col transform transition hover:scale-[1.02] hover:shadow-2xl hover:shadow-amber-200/50 h-full group relative border border-amber-100">
+                    <div class="absolute top-0 left-0 w-full bg-gradient-to-r from-amber-400 to-orange-500 text-white text-center text-xs font-bold py-1.5 tracking-[0.2em] uppercase z-20 shadow-md">Golden Hour Special</div>
+                    <div class="relative h-64 overflow-hidden mt-7">
+                        <div class="absolute inset-0 bg-gradient-to-t from-amber-900/40 to-transparent z-10"></div>
+                        <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-2.jpg" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" alt="Sunset Ride">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h4 class="text-3xl font-display font-bold text-slate-800 mb-2" data-i18n="pkg.sunsetTitle">Dreamy Sunset</h4>
+                        <p class="text-slate-500 mb-6 line-clamp-2" data-i18n="pkg.sunsetDesc">Slow cruise. Golden light. The perfect end to your day.</p>
+                        
+                        <div class="space-y-4 mb-8 flex-grow">
+                            <div class="flex items-center gap-4 text-slate-600">
+                                <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-amber-500"><i class="fa-regular fa-clock"></i></div>
+                                <span class="font-medium" data-i18n="pkg.sunsetLine1">90 Minutes Bliss</span>
+                            </div>
+                            <div class="flex items-center gap-4 text-slate-600">
+                                <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-amber-500"><i class="fa-solid fa-camera-sparkles"></i></div>
+                                <span class="font-medium">Photography Heaven</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto border-t border-slate-100 pt-6">
+                             <div class="flex justify-between items-center mb-4">
+                                <div>
+                                    <span class="block text-xs text-slate-400 uppercase font-bold">Total Price</span>
+                                    <span class="text-3xl font-display font-bold text-slate-900">₹1,000</span>
+                                </div>
+                            </div>
+                            <a href="https://wa.me/919449358010?text=I%20want%20to%20book%20the%20Sunset%20Ride" class="block w-full bg-slate-900 hover:bg-slate-800 text-white text-center py-4 rounded-xl font-bold shadow-lg transition duration-300" data-i18n="cta.bookNow">Chase the Sunset</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wedding Package -->
+                <div class="scrolling-card bg-white rounded-[2rem] shadow-xl shadow-pink-100/50 overflow-hidden flex flex-col transform transition hover:scale-[1.02] hover:shadow-2xl hover:shadow-pink-200/50 h-full group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-10.jpg" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" alt="Couple Shoot">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-xs font-bold text-pink-600 shadow-lg">
+                            ❤ Couples Only
+                        </div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h4 class="text-3xl font-display font-bold text-slate-800 mb-2" data-i18n="pkg.pwTitle">Love & Frames</h4>
+                        <p class="text-slate-500 mb-6 line-clamp-2" data-i18n="pkg.pwDesc">Exclusive boat access for pre-wedding shoots & romantic dates.</p>
+                        
+                        <div class="space-y-4 mb-8 flex-grow">
+                            <div class="flex items-center gap-4 text-slate-600">
+                                <div class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center text-pink-500"><i class="fa-solid fa-hourglass-half"></i></div>
+                                <span class="font-medium">Hourly Charter</span>
+                            </div>
+                            <div class="flex items-center gap-4 text-slate-600">
+                                <div class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center text-pink-500"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                                <span class="font-medium">Full Crew Support</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto border-t border-slate-100 pt-6">
+                             <div class="flex justify-between items-center mb-4">
+                                <div>
+                                    <span class="block text-xs text-slate-400 uppercase font-bold">Hourly Rate</span>
+                                    <span class="text-3xl font-display font-bold text-slate-900">₹2,200</span>
+                                </div>
+                            </div>
+                            <a href="https://wa.me/919449358010?text=I%20am%20interested%20in%20the%20Photoshoot%20package" class="block w-full bg-white border-2 border-slate-200 text-slate-700 hover:border-pink-300 hover:text-pink-600 hover:bg-pink-50 text-center py-4 rounded-xl font-bold transition duration-300" data-i18n="cta.enquire">Inquire Availability</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY (Updated: Sexy, Floating, Focus-Mode) -->
+    <section id="gallery" class="py-24 px-4 relative overflow-hidden bg-slate-50">
+        <!-- Animated Background Blobs for depth -->
+        <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-sky-200/40 rounded-full blur-[100px] -z-10 animate-pulse-slow"></div>
+        <div class="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-amber-100/40 rounded-full blur-[100px] -z-10"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-20 reveal-on-scroll">
+                <h2 class="text-xs font-bold text-sky-600 uppercase tracking-[0.3em] mb-3">Visual Diary</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-bold text-slate-900" data-i18n="gallery.title">Captured Moments</h3>
+                <p class="text-slate-500 mt-3 text-lg font-light">Memories floating on the Sharavati river.</p>
+            </div>
+
+            <!-- Focus-Mode Grid Container -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] group/gallery">
+                
+                <!-- Item 1 (Large) -->
+                <div class="col-span-2 row-span-2 relative rounded-[2rem] overflow-hidden cursor-pointer lightbox-link shadow-2xl shadow-slate-300/50 group/item transition-all duration-500 hover:z-20 hover:scale-[1.02] group-hover/gallery:opacity-80 hover:!opacity-100 animate-float" style="animation-delay: 0s;" href="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-1.jpg">
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-1.jpg" alt="Gallery 1" class="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110">
+                    <!-- Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                        <p class="text-white font-bold text-2xl translate-y-4 group-hover/item:translate-y-0 transition-transform duration-500">River Cruising</p>
+                        <p class="text-sky-300 text-sm translate-y-4 group-hover/item:translate-y-0 transition-transform duration-500 delay-75">Sharavati Backwaters</p>
+                    </div>
+                    <!-- Floating Icon -->
+                    <div class="absolute top-6 right-6 w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white opacity-0 group-hover/item:opacity-100 transition duration-500 rotate-45 group-hover/item:rotate-0"><i class="fa-solid fa-expand"></i></div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="relative rounded-[2rem] overflow-hidden cursor-pointer lightbox-link shadow-xl group/item transition-all duration-500 hover:z-20 hover:scale-[1.05] group-hover/gallery:opacity-80 hover:!opacity-100 animate-float" style="animation-delay: 1.5s;" href="https://www.honnavarboating.com/assets/images/HonnavarBoating24.jpg">
+                    <img src="https://www.honnavarboating.com/assets/images/HonnavarBoating24.jpg" alt="Gallery 2" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                         <p class="text-white font-semibold translate-y-2 group-hover/item:translate-y-0 transition">Golden Hour</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative rounded-[2rem] overflow-hidden cursor-pointer lightbox-link shadow-xl group/item transition-all duration-500 hover:z-20 hover:scale-[1.05] group-hover/gallery:opacity-80 hover:!opacity-100 animate-float" style="animation-delay: 0.5s;" href="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-12.jpg">
+                    <img src="https://honnavartourism.com/wp-content/uploads/2024/04/honnavar-tourism-12.jpg" alt="Gallery 3" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                         <p class="text-white font-semibold translate-y-2 group-hover/item:translate-y-0 transition">Nature's Path</p>
+                    </div>
+                </div>
+                
+                <!-- Item 4 (Wide) -->
+                <div class="col-span-2 relative rounded-[2rem] overflow-hidden cursor-pointer lightbox-link shadow-xl group/item transition-all duration-500 hover:z-20 hover:scale-[1.02] group-hover/gallery:opacity-80 hover:!opacity-100 animate-float" style="animation-delay: 2s;" href="https://images.unsplash.com/photo-1544550581-5f7ceaf7f992?auto=format&fit=crop&q=80&w=800">
+                    <img src="https://images.unsplash.com/photo-1544550581-5f7ceaf7f992?auto=format&fit=crop&q=80&w=800" alt="Gallery 4" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                         <p class="text-white font-semibold text-xl translate-y-2 group-hover/item:translate-y-0 transition">Into the Wild</p>
+                    </div>
+                </div>
+                
+                <!-- Item 5 (Map) -->
+                <div class="col-span-2 relative rounded-[2rem] overflow-hidden cursor-pointer lightbox-link shadow-xl group/item transition-all duration-500 hover:z-20 hover:scale-[1.02] group-hover/gallery:opacity-80 hover:!opacity-100 animate-float" style="animation-delay: 1s;" href="https://honavarboating.com/wp-content/uploads/2025/01/Screenshot_20250101-230021_Maps.jpg">
+                    <img src="https://honavarboating.com/wp-content/uploads/2025/01/Screenshot_20250101-230021_Maps.jpg" alt="Map View" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110">
+                    <div class="absolute inset-0 bg-slate-900/30 group-hover/item:bg-slate-900/0 transition duration-500"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-14 h-14 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-white group-hover/item:scale-125 transition duration-300 shadow-lg border border-white/30"><i class="fa-solid fa-location-dot text-xl"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="https://wa.me/919449358010" target="_blank" class="inline-flex items-center gap-3 text-slate-500 hover:text-sky-600 transition font-medium group bg-white px-6 py-3 rounded-full shadow-sm hover:shadow-md">
+                    <i class="fa-brands fa-instagram text-xl bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 bg-clip-text text-transparent group-hover:rotate-12 transition"></i>
+                    <span>See more on Instagram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="py-24 bg-slate-50 relative">
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-display font-bold text-slate-900">Loved by Travelers</h2>
+                <div class="flex justify-center gap-1 text-amber-400 mt-4 text-xl">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+            </div>
+            <div class="bg-white rounded-[2rem] shadow-2xl shadow-slate-200 p-2 md:p-6 overflow-hidden transform hover:-translate-y-1 transition duration-500">
+                <iframe src="https://widgets.sociablekit.com/google-reviews/iframe/25621971" width="100%" height="450" style="border:none; overflow:hidden;" loading="lazy" title="Google reviews"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (Accordion) -->
+    <section id="faq" class="py-24 bg-white px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-display font-bold text-slate-900" data-i18n="faq.title">Common Questions</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <details class="group bg-slate-50 p-6 rounded-2xl [&_summary::-webkit-details-marker]:hidden border border-transparent hover:border-sky-100 hover:shadow-lg transition duration-300">
+                    <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-bold text-lg">
+                        <span data-i18n="faq.q1">What should we bring?</span>
+                        <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-sky-500 shadow-sm group-open:-rotate-180 transition-transform duration-300">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-slate-600 leading-relaxed pl-2 border-l-2 border-sky-200" data-i18n="faq.a1">
+                        Just your vibe! Plus sunglasses, a hat, sunscreen, and your phone/camera. We provide premium, sanitized life jackets for everyone.
+                    </p>
+                </details>
+
+                <!-- FAQ Item 2 -->
+                <details class="group bg-slate-50 p-6 rounded-2xl [&_summary::-webkit-details-marker]:hidden border border-transparent hover:border-sky-100 hover:shadow-lg transition duration-300">
+                    <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-bold text-lg">
+                        <span data-i18n="faq.q2">What about bad weather?</span>
+                         <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-sky-500 shadow-sm group-open:-rotate-180 transition-transform duration-300">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-slate-600 leading-relaxed pl-2 border-l-2 border-sky-200" data-i18n="faq.a2">
+                        Your safety is our obsession. If the weather looks grumpy, we offer a full refund or a hassle-free reschedule. You never lose money with us.
+                    </p>
+                </details>
+                 <!-- FAQ Item 3 -->
+                <details class="group bg-slate-50 p-6 rounded-2xl [&_summary::-webkit-details-marker]:hidden border border-transparent hover:border-sky-100 hover:shadow-lg transition duration-300">
+                    <summary class="flex cursor-pointer items-center justify-between text-slate-900 font-bold text-lg">
+                        <span data-i18n="faq.q3">How do we pay?</span>
+                         <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-sky-500 shadow-sm group-open:-rotate-180 transition-transform duration-300">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-slate-600 leading-relaxed pl-2 border-l-2 border-sky-200" data-i18n="faq.a3">
+                        Super easy. We accept UPI (GPay/PhonePe) or Cash. For large groups, a tiny advance secures your golden hour slot.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & MAP -->
+    <section id="map" class="bg-slate-900 text-white pt-24 pb-12 rounded-t-[3rem] relative overflow-hidden">
+        <!-- Footer decor -->
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-sky-500 via-purple-500 to-orange-500"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <div>
+                    <h2 class="text-3xl font-display font-bold mb-8">Find Us</h2>
+                    <!-- FIXED: Removed grayscale and opacity classes -->
+                    <div class="rounded-3xl overflow-hidden shadow-2xl ring-8 ring-white/5 h-80 relative group transform transition hover:scale-[1.01]">
+                        <iframe title="Mahalakshmi Boating – Map"
+                            src="https://www.google.com/maps?q=Mahalakshmi%20Boating%20Honnavar&output=embed"
+                            class="w-full h-full border-0 transition duration-700" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Mahalakshmi+Boating+Honnavar" target="_blank" class="inline-flex items-center gap-2 mt-6 text-sky-400 hover:text-white font-bold tracking-wide transition">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+                    </a>
+                </div>
+
+                <div class="space-y-10">
+                    <div>
+                        <h3 class="text-2xl font-display font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Meet Your Captain</h3>
+                        <div class="flex items-center gap-6 mb-8 bg-white/5 p-4 rounded-2xl backdrop-blur-sm border border-white/10">
+                            <img src="https://ui-avatars.com/api/?name=Nagesh+Gouda&background=0ea5e9&color=fff&size=128" alt="Nagesh Gouda" class="w-16 h-16 rounded-full border-2 border-sky-500 shadow-lg shadow-sky-500/20">
+                            <div>
+                                <p class="font-bold text-xl text-white">Nagesh Gouda</p>
+                                <p class="text-sm text-sky-300">Owner & Lead Captain</p>
+                            </div>
+                        </div>
+                        <div class="space-y-5">
+                            <a href="tel:+919449358010" class="flex items-center gap-4 text-slate-300 hover:text-white transition group">
+                                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-sky-500 transition duration-300"><i class="fa-solid fa-phone text-sm"></i></div>
+                                <span class="font-medium">+91 94493 58010</span>
+                            </a>
+                            <a href="https://wa.me/919449358010" class="flex items-center gap-4 text-slate-300 hover:text-white transition group">
+                                <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition duration-300"><i class="fa-brands fa-whatsapp text-lg"></i></div>
+                                <span class="font-medium">Chat on WhatsApp</span>
+                            </a>
+                            <a href="mailto:nageshgouda47508@gmail.com" class="flex items-center gap-4 text-slate-300 hover:text-white transition group">
+                                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-purple-500 transition duration-300"><i class="fa-solid fa-envelope text-sm"></i></div>
+                                <span class="font-medium">nageshgouda47508@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-slate-500">© <span id="y"></span> Mahalakshmi Boating.</p>
+                        <p class="text-xs text-slate-600">Made with <i class="fa-solid fa-heart text-red-500"></i> in Honnavar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl hidden items-center justify-center opacity-0 transition-opacity duration-500" id="lightbox">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-5xl hover:text-sky-400 transition transform hover:rotate-90 duration-300">&times;</button>
+        <img id="lightbox-img" src="" alt="Fullscreen" class="max-h-[90vh] max-w-[95vw] rounded-lg shadow-2xl">
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // --- 1. Preloader ---
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => { preloader.style.visibility = 'hidden'; }, 600);
+        });
+
+        // --- 2. Navbar Scroll Effect ---
+        const navbar = document.getElementById('navbar');
+        const navBg = document.getElementById('nav-bg');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navBg.style.opacity = '1';
+                navbar.classList.add('py-0');
+            } else {
+                navBg.style.opacity = '0';
+                navbar.classList.remove('py-0');
+            }
+            
+            // Reveal Animations
+            const reveals = document.querySelectorAll('.reveal-on-scroll');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('animate-fade-up');
+                    el.style.opacity = '1';
+                }
+            });
+        });
+
+        // --- 3. Lightbox Logic ---
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbClose = document.getElementById('lightbox-close');
+        
+        document.querySelectorAll('.lightbox-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = link.getAttribute('href');
+                lbImg.src = src;
+                lb.classList.remove('hidden');
+                setTimeout(() => { lb.classList.remove('opacity-0'); }, 50);
+            });
+        });
+        
+        const closeLightbox = () => {
+            lb.classList.add('opacity-0');
+            setTimeout(() => { lb.classList.add('hidden'); }, 500);
+        }
+        
+        lbClose.addEventListener('click', closeLightbox);
+        lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
+
+        // --- 4. Year Update ---
+        document.getElementById('y').textContent = new Date().getFullYear();
+
+        // --- 5. Translations (Optimistic Vibe) ---
+        const i18n = {
+            en: {
+                'hero.title': 'Escape to the <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-200 to-teal-300">Unknown.</span>',
+                'hero.p': 'Drift through the mystical mangroves of Sharavati. Private sunsets, endless adventure, and memories made in gold.',
+                'cta.whatsapp': 'Start Adventure',
+                'cta.seePackages': 'Explore Options',
+                'nav.home': 'Home', 'nav.packages': 'Experiences', 'nav.gallery': 'Moments',
+                'why.title': 'More than just a boat ride.',
+                'pkg.title': 'Choose Your Voyage',
+                'pkg.advTitle': 'The Explorer', 'pkg.advDesc': 'High-energy tour of 3 islands, hidden coves & mangroves.',
+                'pkg.advLine1': '60 - 90 Minutes', 'pkg.advLine2': 'Up to 5 Adventurers',
+                'pkg.sunsetTitle': 'Dreamy Sunset', 'pkg.sunsetDesc': 'Slow cruise. Golden light. The perfect end to your day.',
+                'pkg.sunsetLine1': '90 Minutes Bliss',
+                'pkg.pwTitle': 'Love & Frames', 'pkg.pwDesc': 'Exclusive boat access for pre-wedding shoots & romantic dates.',
+                'cta.bookNow': 'Book Adventure', 'cta.enquire': 'Inquire Availability',
+                'gallery.title': 'Captured Moments',
+                'faq.title': 'Common Questions',
+                'faq.q1': 'What should we bring?', 'faq.a1': 'Just your vibe! Plus sunglasses, a hat, sunscreen, and your phone/camera.',
+                'faq.q2': 'What about bad weather?', 'faq.a2': 'Your safety is our obsession. Full refund or reschedule if the weather acts up.',
+                'faq.q3': 'How do we pay?', 'faq.a3': 'Super easy. UPI (GPay/PhonePe) or Cash.'
+            },
+            kn: {
+                'hero.title': '<span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-emerald-300">ಶರಾವತಿ ಹಿನ್ನೀರಿನ</span> <br>ಅಂದವನ್ನು ಅನುಭವಿಸಿ',
+                'hero.p': 'ನಿಮಗಾಗಿ ಪ್ರತ್ಯೇಕ ಸನ್‌ಸೆಟ್ ಕ್ರೂಸ್, ಸಾಹಸಮಯ ಬೋಟ್ ರೈಡ್ ಮತ್ತು ಫೋಟೋಶೂಟ್.',
+                'cta.whatsapp': 'ವಾಟ್ಸಾಪ್ ಬುಕ್ಕಿಂಗ್',
+                'cta.seePackages': 'ಪ್ಯಾಕೇಜ್ ನೋಡಿ',
+                'nav.home': 'ಮುಖಪುಟ', 'nav.packages': 'ಪ್ಯಾಕೇಜ್', 'nav.gallery': 'ಗ್ಯಾಲರಿ',
+                'why.title': 'ಕೇವಲ ಬೋಟ್ ರೈಡ್ ಅಲ್ಲ',
+                'pkg.title': 'ನಿಮ್ಮ ಸಾಹಸವನ್ನು ಆರಿಸಿ',
+                'pkg.advTitle': 'ಅಡ್ವೆಂಚರ್ ರೈಡ್', 'pkg.advDesc': '3 ದ್ವೀಪಗಳು ಮತ್ತು ಕಾಂಡ್ಲಾ ಕಾಡುಗಳ ರೋಚಕ ದರ್ಶನ.',
+                'pkg.advLine1': '60 - 90 ನಿಮಿಷ', 'pkg.advLine2': 'ಗರಿಷ್ಠ 5 ಜನ',
+                'pkg.sunsetTitle': 'ಸನ್‌ಸೆಟ್ ರೈಡ್', 'pkg.sunsetDesc': 'ಸಂಜೆ ಸೂರ್ಯಾಸ್ತದ ಸಮಯದಲ್ಲಿ ಶಾಂತವಾದ ವಿಹಾರ.',
+                'pkg.sunsetLine1': '90 ನಿಮಿಷ',
+                'pkg.pwTitle': 'ಫೋಟೋಶೂಟ್', 'pkg.pwDesc': 'ಪ್ರೀ-ವೆಡ್ಡಿಂಗ್ ಫೋಟೋಗಳಿಗೆ ವಿಶೇಷ ಬೋಟ್ ಸೇವೆ.',
+                'cta.bookNow': 'ಬುಕ್ ಮಾಡಿ', 'cta.enquire': 'ವಿಚಾರಿಸಿ',
+                'gallery.title': 'ಗ್ಯಾಲರಿ',
+                'faq.title': 'ಪ್ರಶ್ನೋತ್ತರ',
+                'faq.q1': 'ಏನು ತರಬೇಕು?', 'faq.a1': 'ಸನ್‌ಗ್ಲಾಸ್, ಟೋಪಿ ಮತ್ತು ಕ್ಯಾಮೆರಾ. ಲೈಫ್ ಜಾಕೆಟ್ ನಾವೇ ಕೊಡುತ್ತೇವೆ.',
+                'faq.q2': 'ಮಳೆ ಬಂದರೆ?', 'faq.a2': 'ಸುರಕ್ಷತೆ ಮುಖ್ಯ. ಹವಾಮಾನ ಸರಿಯಿಲ್ಲದಿದ್ದರೆ ಪೂರ್ತಿ ಹಣ ವಾಪಸ್.',
+                'faq.q3': 'ಪೇಮೆಂಟ್ ಹೇಗೆ?', 'faq.a3': 'UPI (GPay/PhonePe) ಅಥವಾ ನಗದು.'
+            },
+            hi: {
+                'hero.title': '<span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-emerald-300">शरावती बैकवाटर्स</span> <br>का जादू अनुभव करें',
+                'hero.p': 'निजी सनसेट क्रूज़, एडवेंचर राइड और प्री-वेडिंग शूट खास आपके लिए।',
+                'cta.whatsapp': 'व्हाट्सएप बुकिंग',
+                'cta.seePackages': 'पैकेज देखें',
+                'nav.home': 'होम', 'nav.packages': 'पैकेज', 'nav.gallery': 'गैलरी',
+                'why.title': 'सिर्फ एक बोट राइड नहीं',
+                'pkg.title': 'अपना एडवेंचर चुनें',
+                'pkg.advTitle': 'एडवेंचर राइड', 'pkg.advDesc': '3 द्वीपों और मैंग्रोव की रोमांचक सैर।',
+                'pkg.advLine1': '60 - 90 मिनट', 'pkg.advLine2': '5 लोग तक',
+                'pkg.sunsetTitle': 'सनसेट चिल', 'pkg.sunsetDesc': 'सूर्यास्त के समय आरामदायक क्रूज़।',
+                'pkg.sunsetLine1': '90 मिनट',
+                'pkg.pwTitle': 'फोटोशूट', 'pkg.pwDesc': 'प्री-वेडिंग शूट के लिए विशेष बोट।',
+                'cta.bookNow': 'बुक करें', 'cta.enquire': 'पूछताछ',
+                'gallery.title': 'गैलरी',
+                'faq.title': 'सवाल-जवाब',
+                'faq.q1': 'क्या साथ लाएं?', 'faq.a1': 'धूप का चश्मा, टोपी और कैमरा। लाइफ जैकेट हम देते हैं।',
+                'faq.q2': 'क्या खराब मौसम में कैंसिल होगा?', 'faq.a2': 'हाँ, सुरक्षा पहले है। मौसम खराब होने पर पूरा रिफंड मिलेगा।',
+                'faq.q3': 'पेमेंट कैसे करें?', 'faq.a3': 'UPI या कैश।'
+            }
+        };
+
+        const applyLang = (lang) => {
+            const dict = i18n[lang] || i18n.en;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(dict[key]) el.innerText = dict[key];
+            });
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if(dict[key]) el.innerHTML = dict[key];
+            });
+            localStorage.setItem('lang', lang);
+        };
+
+        const desktopSelect = document.getElementById('langSwitcher');
+        const mobileSelect = document.getElementById('langSwitcherMobile');
+        const savedLang = localStorage.getItem('lang') || 'en';
+        
+        if(desktopSelect) { desktopSelect.value = savedLang; desktopSelect.addEventListener('change', e => applyLang(e.target.value)); }
+        if(mobileSelect) { mobileSelect.value = savedLang; mobileSelect.addEventListener('change', e => applyLang(e.target.value)); }
+        applyLang(savedLang);
+        
+        // Prevent Inspection
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = e => { if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && [73, 74, 67].includes(e.keyCode)) || (e.ctrlKey && [85, 83].includes(e.keyCode))) return false; };
+
+    </script>
+</body>
+</html>
