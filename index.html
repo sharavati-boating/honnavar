@@ -93,7 +93,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://widgets.sociablekit.com/google-reviews/widget.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'slow-zoom': 'slowZoom 20s linear infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'shimmer-lightning': 'shimmerLightning 2s linear infinite',
+                    },
+                    keyframes: {
+                        slowZoom: {
+                            '0%': { transform: 'scale(1)' },
+                            '100%': { transform: 'scale(1.15)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        shimmerLightning: {
+                            '0%': { backgroundPosition: '200% 0' },
+                            '100%': { backgroundPosition: '-200% 0' },
+                        },
+                        heartbeat: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '25%': { transform: 'scale(1.3)' },
+                            '50%': { transform: 'scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
         html {
@@ -106,20 +145,39 @@
 
         .btn-primary {
             border-radius: 0.75rem;
-            background: #0284c7;
+            background: linear-gradient(90deg, #0284c7 0%, #0284c7 30%, #06b6d4 50%, #0284c7 70%, #0284c7 100%);
+            background-size: 200% 100%;
             color: #fff;
             padding: 0.75rem 1.25rem;
             font-weight: 600;
             box-shadow: 0 10px 15px -3px rgba(2, 132, 199, .3), 0 4px 6px -2px rgba(2, 132, 199, .2);
-            transition: transform .05s, background-color .2s, box-shadow .2s
+            animation: buttonShimmer 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow .2s;
+        }
+
+        @keyframes buttonShimmer {
+            0% {
+                background-position: 200% 0;
+            }
+
+            50% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
         }
 
         .btn-primary:hover {
-            background: #0369a1
+            box-shadow: 0 15px 30px -5px rgba(2, 132, 199, .5),
+                0 0 30px rgba(6, 182, 212, .4);
         }
 
         .btn-primary:active {
-            transform: scale(.99)
+            transform: scale(.99);
         }
 
         .btn-ghost {
@@ -136,10 +194,19 @@
 
         .card {
             border-radius: 1.5rem;
-            background: #fff;
+            background: #ffffff;
             padding: 1.5rem;
             border: 1px solid rgb(226, 232, 240);
             box-shadow: 0 10px 15px -3px rgba(2, 6, 23, .05), 0 4px 6px -2px rgba(2, 6, 23, .04)
+        }
+
+        .card:hover {
+            border-radius: 1.5rem;
+            background: #ffffff;
+            padding: 1.5rem;
+            border: 1px solid rgb(184, 211, 246);
+            box-shadow: 0 10px 30px -5px rgba(2, 132, 199, .5),
+            0 0 20px rgba(6, 182, 212, .4);
         }
 
         .shimmer {
@@ -266,6 +333,28 @@
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
         }
+
+        /* Heartbeat Animation */
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.3);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        .heart-beat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+            display: inline-block;
+        }
     </style>
 </head>
 
@@ -273,7 +362,8 @@
 
     <div id="preloader" class="fixed inset-0 z-[100] flex items-center justify-center bg-white">
         <div id="preloader-logo" class="h-20 w-20 rounded-full bg-sky-900 flex items-center justify-center">
-            <img src="favicon.png" alt="Mahalakshmi Boating Logo" class="h-12 w-12 object-cover" />
+            <img src="https://sharavati-boating.github.io/honnavar/favicon.png" alt="Mahalakshmi Boating Logo"
+                class="h-12 w-12 object-cover" />
         </div>
     </div>
     <!-- Announcement bar -->
@@ -308,7 +398,7 @@
                 </nav>
                 <div class="flex items-center gap-3">
                     <select id="langSwitcher" aria-label="Language"
-                        class="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm">
+                        class="rounded-xl border border-slate-300 bg-white px-2 py-2 text-sm">
                         <option value="en">English</option>
                         <option value="kn">ಕನ್ನಡ</option>
                         <option value="hi">हिन्दी</option>
@@ -321,51 +411,83 @@
     </header>
 
     <!-- Hero -->
-    <section id="home" class="relative isolate flex min-h-[92vh] items-center overflow-hidden bg-slate-900 pt-36">
-        <!-- Hero background image -->
+    <section id="home"
+        class="relative isolate flex min-h-[92vh] items-center justify-center overflow-hidden bg-slate-900 pt-36">
+        <!-- Hero background image with Ken Burns zoom effect -->
         <img src="https://images.unsplash.com/photo-1704365159814-9d124e3cf952?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1932"
-            class="absolute inset-0 -z-20 h-full w-full object-cover opacity-80"
+            class="absolute inset-0 -z-20 h-full w-full object-cover opacity-90 animate-slow-zoom"
             alt="Sharavati backwaters scenic view" />
         <div class="absolute inset-0 -z-10 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-slate-900/60 via-transparent to-slate-900"></div>
         <div class="shimmer"></div>
 
-        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 w-full">
             <div class="text-white">
-                <p class="mb-3 inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wider ring-1 ring-white/20"
-                    data-i18n="hero.badge">
-                    Honnavar • Sharavati Backwaters</p>
+                <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/20 text-sky-200 text-xs font-bold tracking-widest uppercase mb-8 shadow-2xl hover:bg-white/10 transition duration-300 cursor-default animate-fade-up w-full md:w-auto justify-center md:justify-start"
+                    style="animation-delay: 0.1s;">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+                    </span>
+                    Honnavar • Sharavati Backwaters
+                </div>
 
                 <!-- HERO: translatable H1 and paragraph -->
-                <h1 data-i18n="hero.title" class="text-4xl font-extrabold leading-tight md:text-6xl">
+                <h1 data-i18n="hero.title"
+                    class="text-4xl font-extrabold leading-tight md:text-6xl text-white mb-6 animate-fade-up drop-shadow-lg text-center md:text-left"
+                    style="animation-delay: 0.2s;">
                     Honnavar Boating — Boat Rides that feel like a mini-vacation
                 </h1>
 
-                <p data-i18n-html="hero.p" class="mt-4 max-w-xl text-slate-200">
+                <p data-i18n-html="hero.p"
+                    class="mt-4 max-w-xl text-slate-200 text-lg leading-relaxed font-light animate-fade-up drop-shadow-md text-center md:text-left"
+                    style="animation-delay: 0.3s;">
                     Welcome to <strong>Mahalakshmi Boating</strong> — your local gateway to the scenic <strong>Sharavati
                         backwaters</strong> in <strong>Honnavar</strong>. We offer private boat rides, family-friendly
                     sunset cruises, adventurous rides across hidden channels, and tailored pre-wedding photoshoot trips.
                     Our licensed crew led by <em>Nagesh Gouda</em> prioritizes safety (life jackets for all) and a great
                     photo-friendly route so you get calm waters and golden-hour light. Book quickly over WhatsApp for
                     same-day slots or ask for timing suggestions. Whether you want a relaxed 60–90 minute sunset ride or
-                    an action-packed 2-hour adventure, we’ll guide you to the best spots for views and photography.
+                    an action-packed 2-hour adventure, we'll guide you to the best spots for views and photography.
                     Perfect for families, couples, and nature photographers looking for authentic Honnavar experiences.
                 </p>
 
-                <div class="mt-6 flex flex-wrap gap-3">
-                    <a href="#packages" class="btn-primary" data-i18n="cta.seePackages">See Packages</a>
-                    <a href="#highlights" class="btn-ghost" data-i18n="cta.whyUs">Why choose us?</a>
+                <div class="mt-6 flex flex-wrap gap-3 animate-fade-up justify-center md:justify-start"
+                    style="animation-delay: 0.4s;">
+                    <a href="#packages" class="btn-primary inline-flex items-center justify-center gap-2"
+                        data-i18n="cta.seePackages">See Packages</a>
+                    <a href="#highlights" class="btn-ghost inline-flex items-center justify-center gap-2"
+                        data-i18n="cta.whyUs">Why choose us?</a>
                 </div>
 
-                <div class="mt-6 grid grid-cols-3 gap-4 text-sm text-slate-200/95">
-                    <div class="rounded-2xl bg-white/10 p-3 ring-1 ring-white/20" data-i18n="badge.lifejackets">🦺 Life
-                        jackets</div>
-                    <div class="rounded-2xl bg-white/10 p-3 ring-1 ring-white/20" data-i18n="badge.licensed">⛵ Licensed
-                        crew</div>
-                    <div class="rounded-2xl bg-white/10 p-3 ring-1 ring-white/20" data-i18n="badge.photos">📸 Photo
-                        spots</div>
+                <!-- Floating Trust Indicators -->
+                <div class="mt-16 pt-8 border-t border-white/10 flex justify-center md:justify-start gap-8 md:gap-12 animate-fade-up text-white/80 flex-wrap"
+                    style="animation-delay: 0.6s;">
+                    <div class="text-center md:text-left group">
+                        <p class="text-3xl font-bold text-white group-hover:text-sky-300 transition">4.9</p>
+                        <div class="flex text-amber-400 text-xs mb-1 justify-center md:justify-start"><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i></div>
+                        <p class="text-[10px] uppercase tracking-widest">Google Reviews</p>
+                    </div>
+                    <div class="text-center md:text-left group">
+                        <p class="text-3xl font-bold text-white group-hover:text-emerald-300 transition">100%</p>
+                        <div class="flex text-emerald-400 text-xs mb-1 justify-center md:justify-start"><i
+                                class="fa-solid fa-shield-halved"></i></div>
+                        <p class="text-[10px] uppercase tracking-widest">Safe & Licensed</p>
+                    </div>
+                    <div class="text-center md:text-left group">
+                        <p class="text-3xl font-bold text-white group-hover:text-amber-300 transition">24/7</p>
+                        <div class="flex text-amber-400 text-xs mb-1 justify-center md:justify-start"><i
+                                class="fa-solid fa-bolt"></i></div>
+                        <p class="text-[10px] uppercase tracking-widest">Instant Booking</p>
+                    </div>
                 </div>
             </div>
 
+            <!-- Slideshow photo section  -->
             <div class="relative">
                 <div id="slideshow"
                     class="relative w-full h-[380px] rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/60"
@@ -434,6 +556,23 @@
 
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 animate-bounce hidden md:block">
+            <i class="fa-solid fa-chevron-down text-xl"></i>
         </div>
 
         <div class="waves">
@@ -464,21 +603,24 @@
                     </p>
                 </div>
                 <div class="grid gap-6 md:grid-cols-3">
-                    <div class="card">
+
+                    <div class="card shadow-2xl transform transition hover:scale-[1.01] duration-300">
                         <div class="text-3xl">⚓</div>
                         <h3 class="mt-3 text-xl font-semibold" data-i18n="why.safeTitle">Licensed & Safe</h3>
                         <p class="mt-1 text-slate-600" data-i18n="why.safeDesc">Life jackets for all, safety briefing,
                             and
                             experienced boat operators.</p>
                     </div>
-                    <div class="card">
+
+                    <div class="card shadow-2xl transform transition hover:scale-[1.01] duration-300">
                         <div class="text-3xl">🏝️</div>
                         <h3 class="mt-3 text-xl font-semibold" data-i18n="why.scenicTitle">Scenic Spots</h3>
                         <p class="mt-1 text-slate-600" data-i18n="why.scenicDesc">Palm-lined backwaters, islands and
                             calm
                             channels perfect for photos.</p>
                     </div>
-                    <div class="card">
+
+                    <div class="card shadow-2xl transform transition hover:scale-[1.01] duration-300">
                         <div class="text-3xl">💬</div>
                         <h3 class="mt-3 text-xl font-semibold" data-i18n="why.easyTitle">Easy WhatsApp Booking</h3>
                         <p class="mt-1 text-slate-600" data-i18n="why.easyDesc">Quick replies, timing suggestions and
@@ -490,9 +632,9 @@
     </section>
 
     <!-- Packages -->
-    <section id="packages" class="bg-gradient-to-b from-white to-sky-50 py-16">
-        <div class="mx-auto max-w-7xl px-6">
-            <div class="mb-10 flex items-end justify-between">
+    <section id="packages" class="bg-gradient-to-b from-white to-sky-50 py-16  ">
+        <div class="mx-auto max-w-7xl px-6 ">
+            <div class="mb-10 flex items-end justify-between ">
                 <div>
                     <h2 class="text-3xl font-bold md:text-4xl" data-i18n="pkg.title">Popular Packages</h2>
                     <p class="mt-2 text-slate-600" data-i18n="pkg.subtitle">Transparent pricing. Ask us for group
@@ -504,7 +646,8 @@
 
             <div class="grid gap-6 md:grid-cols-3">
 
-                <div class="card relative overflow-hidden">
+
+                <div class="card relative overflow-hidden shadow-2xl transform transition hover:scale-[1.01] duration-300">
                     <span
                         class="absolute right-4 top-4 rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700"
                         data-i18n="badge.mostPopular">Most Popular</span>
@@ -524,7 +667,14 @@
                             href="#adventure-gallery" class="btn-ghost" data-i18n="cta.knowMore">Know more</a></div>
                 </div>
 
-                <div class="card relative overflow-hidden">
+
+
+
+
+
+
+
+                <div class="card relative overflow-hidden shadow-2xl transform transition hover:scale-[1.01] duration-300">
                     <span
                         class="absolute right-4 top-4 rounded-full bg-sky-100 px-3 py-1 text-sm font-medium text-sky-700"
                         data-i18n="badge.bestPhotos">Best for Photos</span>
@@ -544,7 +694,12 @@
                         <a href="#prewedding-gallery" class="btn-ghost" data-i18n="cta.seeExamples">See examples</a>
                     </div>
                 </div>
-                <div class="card relative overflow-hidden">
+
+
+
+
+
+                <div class="card relative overflow-hidden shadow-2xl transform transition hover:scale-[1.01] duration-300">
                     <span
                         class="absolute right-4 top-4 rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-700"
                         data-i18n="badge.family">Family Friendly</span>
@@ -568,7 +723,7 @@
             </div>
 
             <!-- Mobile sticky booking bar -->
-            <div class="sticky-book mt-6 md:hidden">
+            <div class="sticky-book mt-6 md:hidden shadow-2xl transform transition hover:scale-[1.01] duration-300">
                 <div class="mx-auto max-w-7xl px-4">
                     <div
                         class="rounded-2xl bg-white p-4 shadow-xl ring-1 ring-slate-200 flex items-center justify-between">
@@ -661,86 +816,86 @@
         </div>
     </section>
 
-   <!-- Pre-Wedding Photoshoot Gallery -->
-   <section id="prewedding-gallery" class="bg-white py-16">
-    <div class="mx-auto max-w-7xl px-6">
-        <div class="mb-8 flex items-end justify-between">
-            <div>
-                <h2 class="text-3xl font-bold md:text-4xl" data-i18n="gallery.pw.title">Pre-Wedding Photoshoot
-                    Gallery</h2>
-                <p class="mt-2 text-slate-600" data-i18n="gallery.pw.subtitle">Golden-hour backdrops & romantic
-                    moments on the backwaters.</p>
+    <!-- Pre-Wedding Photoshoot Gallery -->
+    <section id="prewedding-gallery" class="bg-white py-16">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="mb-8 flex items-end justify-between">
+                <div>
+                    <h2 class="text-3xl font-bold md:text-4xl" data-i18n="gallery.pw.title">Pre-Wedding Photoshoot
+                        Gallery</h2>
+                    <p class="mt-2 text-slate-600" data-i18n="gallery.pw.subtitle">Golden-hour backdrops & romantic
+                        moments on the backwaters.</p>
+                </div>
+                <a href="#packages" class="hidden md:inline btn-ghost" data-i18n="gallery.backBtn">Back to Packages</a>
             </div>
-            <a href="#packages" class="hidden md:inline btn-ghost" data-i18n="gallery.backBtn">Back to Packages</a>
+
+            <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
+                <a href="https://i.pinimg.com/736x/91/27/a0/9127a00c192461648e7e35cdb2b90d2e.jpg"
+                    class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
+                    <img src="https://i.pinimg.com/736x/91/27/a0/9127a00c192461648e7e35cdb2b90d2e.jpg"
+                        alt="Pre-wedding sunset shoot backdrop"
+                        class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
+                        loading="lazy" />
+                </a>
+
+                <a href="https://i.pinimg.com/736x/1d/d2/de/1dd2de56b18cda2ecc9be8ceff8fadc7.jpg"
+                    class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
+                    <img src="https://i.pinimg.com/736x/1d/d2/de/1dd2de56b18cda2ecc9be8ceff8fadc7.jpg"
+                        alt="Scenic pre-wedding photoshoot location"
+                        class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
+                        loading="lazy" />
+                </a>
+
+                <a href="https://i.pinimg.com/736x/a2/fd/0b/a2fd0bb1b3f9f7e61eb530e1d1edee9f.jpg"
+                    class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
+                    <img src="https://i.pinimg.com/736x/a2/fd/0b/a2fd0bb1b3f9f7e61eb530e1d1edee9f.jpg"
+                        alt="Golden hour reflection for wedding photos"
+                        class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
+                        loading="lazy" />
+                </a>
+
+                <a href="https://i.pinimg.com/1200x/32/3a/d2/323ad2af930e7edf4dc64448dda54527.jpg"
+                    class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
+                    <img src="https://i.pinimg.com/1200x/32/3a/d2/323ad2af930e7edf4dc64448dda54527.jpg"
+                        alt="Couple enjoying sunset for pre-wedding shoot"
+                        class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
+                        loading="lazy" />
+                </a>
+
+                <a href="https://i.pinimg.com/736x/b8/89/b0/b889b08eee3a0c2ed68acb1db20b5e27.jpg"
+                    class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
+                    <img src="https://i.pinimg.com/736x/b8/89/b0/b889b08eee3a0c2ed68acb1db20b5e27.jpg"
+                        alt="Silhouette and sunset for wedding photography"
+                        class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
+                        loading="lazy" />
+                </a>
+
+                <a href="https://i.pinimg.com/736x/db/c0/d6/dbc0d6c0fd8772f51de9d7287423f747.jpg"
+                    class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
+                    <img src="https://i.pinimg.com/736x/db/c0/d6/dbc0d6c0fd8772f51de9d7287423f747.jpg"
+                        alt="Beautiful boating backdrop for photoshoot"
+                        class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
+                        loading="lazy" />
+                </a>
+
+                <a href="https://i.pinimg.com/1200x/e8/21/8b/e8218be98d933a342776fd48d36ca693.jpg"
+                    class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
+                    <img src="https://i.pinimg.com/1200x/e8/21/8b/e8218be98d933a342776fd48d36ca693.jpg"
+                        alt="Pre-wedding golden hour photography spot"
+                        class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
+                        loading="lazy" />
+                </a>
+
+                <a href="https://i.pinimg.com/1200x/e9/a1/a9/e9a1a9b12249b3dca3a17a590e0c5859.jpg"
+                    class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
+                    <img src="https://i.pinimg.com/1200x/e9/a1/a9/e9a1a9b12249b3dca3a17a590e0c5859.jpg"
+                        alt="Scenic location for wedding boat photoshoot"
+                        class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
+                        loading="lazy" />
+                </a>
+            </div>
         </div>
-
-        <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
-            <a href="https://i.pinimg.com/736x/91/27/a0/9127a00c192461648e7e35cdb2b90d2e.jpg"
-                class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
-                <img src="https://i.pinimg.com/736x/91/27/a0/9127a00c192461648e7e35cdb2b90d2e.jpg"
-                    alt="Pre-wedding sunset shoot backdrop"
-                    class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
-                    loading="lazy" />
-            </a>
-
-            <a href="https://i.pinimg.com/736x/1d/d2/de/1dd2de56b18cda2ecc9be8ceff8fadc7.jpg"
-                class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
-                <img src="https://i.pinimg.com/736x/1d/d2/de/1dd2de56b18cda2ecc9be8ceff8fadc7.jpg"
-                    alt="Scenic pre-wedding photoshoot location"
-                    class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
-                    loading="lazy" />
-            </a>
-
-            <a href="https://i.pinimg.com/736x/a2/fd/0b/a2fd0bb1b3f9f7e61eb530e1d1edee9f.jpg"
-                class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
-                <img src="https://i.pinimg.com/736x/a2/fd/0b/a2fd0bb1b3f9f7e61eb530e1d1edee9f.jpg"
-                    alt="Golden hour reflection for wedding photos"
-                    class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
-                    loading="lazy" />
-            </a>
-
-            <a href="https://i.pinimg.com/1200x/32/3a/d2/323ad2af930e7edf4dc64448dda54527.jpg"
-                class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
-                <img src="https://i.pinimg.com/1200x/32/3a/d2/323ad2af930e7edf4dc64448dda54527.jpg"
-                    alt="Couple enjoying sunset for pre-wedding shoot"
-                    class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
-                    loading="lazy" />
-            </a>
-
-            <a href="https://i.pinimg.com/736x/b8/89/b0/b889b08eee3a0c2ed68acb1db20b5e27.jpg"
-                class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
-                <img src="https://i.pinimg.com/736x/b8/89/b0/b889b08eee3a0c2ed68acb1db20b5e27.jpg"
-                    alt="Silhouette and sunset for wedding photography"
-                    class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
-                    loading="lazy" />
-            </a>
-
-            <a href="https://i.pinimg.com/736x/db/c0/d6/dbc0d6c0fd8772f51de9d7287423f747.jpg"
-                class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
-                <img src="https://i.pinimg.com/736x/db/c0/d6/dbc0d6c0fd8772f51de9d7287423f747.jpg"
-                    alt="Beautiful boating backdrop for photoshoot"
-                    class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
-                    loading="lazy" />
-            </a>
-
-            <a href="https://i.pinimg.com/1200x/e8/21/8b/e8218be98d933a342776fd48d36ca693.jpg"
-                class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
-                <img src="https://i.pinimg.com/1200x/e8/21/8b/e8218be98d933a342776fd48d36ca693.jpg"
-                    alt="Pre-wedding golden hour photography spot"
-                    class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
-                    loading="lazy" />
-            </a>
-
-            <a href="https://i.pinimg.com/1200x/e9/a1/a9/e9a1a9b12249b3dca3a17a590e0c5859.jpg"
-                class="group overflow-hidden rounded-2xl ring-1 ring-slate-200 lightbox-link">
-                <img src="https://i.pinimg.com/1200x/e9/a1/a9/e9a1a9b12249b3dca3a17a590e0c5859.jpg"
-                    alt="Scenic location for wedding boat photoshoot"
-                    class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105"
-                    loading="lazy" />
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Sunset Chill Ride Gallery -->
     <section id="sunset-gallery" class="bg-sky-50 py-16">
@@ -843,9 +998,6 @@
     </section>
     <!-- END: Dynamic Reviews -->
 
-
-
-
     <!-- FAQ -->
     <section id="faq" class="bg-white py-16">
         <div class="mx-auto max-w-7xl px-6">
@@ -882,56 +1034,146 @@
     </section>
 
     <!-- Map & Directions -->
-    <section id="map" class="bg-sky-900 py-16 text-sky-50">
-        <div class="mx-auto max-w-7xl px-6">
-            <div class="mb-6">
+    <section id="map"
+        class="bg-gradient-to-b from-slate-900 to-slate-950 py-24 text-white relative overflow-hidden rounded-t-[1rem]">
+        <!-- Top gradient accent line -->
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sky-500 via-purple-500 to-orange-500"></div>
+
+        <!-- Ambient glows for depth -->
+        <div class="absolute top-1/4 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -z-10"></div>
+
+        <div class="mx-auto max-w-7xl px-6 relative z-10">
+            <div class="mb-8 text-center">
                 <h2 class="text-3xl font-bold md:text-4xl" data-i18n="map.title">Find Us</h2>
-                <p class="mt-2 opacity-90" data-i18n="map.subtitle">Tap the map for directions. Call or WhatsApp if you
-                    need help with parking.</p>
+                <p class="mt-2 text-slate-700 text-sky-200/80 font-light" data-i18n="map.subtitle">Tap the map for
+                    directions. Call or WhatsApp if you need help with parking.</p>
             </div>
 
-            <div class="grid gap-8 md:grid-cols-2 items-start">
-                <div class="relative">
-                    <div class="overflow-hidden rounded-3xl ring-1 ring-white/20">
+            <div class="grid gap-12 md:grid-cols-2 items-start">
+                <!-- Map Column -->
+                <div class="relative group">
+                    <div
+                        class="rounded-3xl overflow-hidden ring-1 ring-white/20 h-96 shadow-2xl transform transition hover:scale-[1.01] duration-300">
                         <iframe title="Mahalakshmi Boating – Map"
                             src="https://www.google.com/maps?q=Mahalakshmi%20Boating%20Honnavar&output=embed"
-                            width="100%" height="320" style="border:0" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    <div class="mt-4 grid gap-3 text-sm md:grid-cols-2">
-                        <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/20" data-i18n="map.tip1">🅿️ Free
-                            parking guidance</div>
-                        <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/20" data-i18n="map.tip2">🌅 Best time:
-                            4–6:30 PM</div>
+                            width="100%" height="100%" style="border:0" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" class="transition duration-300"></iframe>
                     </div>
 
                     <!-- Floating Get Directions Button -->
                     <a href="https://www.google.com/maps/dir/?api=1&destination=Mahalakshmi+Boating+Honnavar"
                         target="_blank"
-                        class="absolute top-4 right-4 px-4 py-2 bg-sky-600 text-white text-sm font-medium rounded-lg shadow-md hover:bg-sky-700">
+                        class="absolute top-6 right-6 px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold rounded-full shadow-2xl shadow-sky-500/40 hover:scale-110 transition duration-300 flex items-center gap-2 z-20">
+                        <i class="fa-solid fa-location-dot"></i>
                         Get Directions
                     </a>
+
+                    <!-- Info cards below map -->
+                    <div class="mt-6 grid gap-4 grid-cols-2">
+                        <div
+                            class="rounded-2xl bg-white/10 backdrop-blur-md p-5 border border-white/20 text-center hover:bg-white/15 transition duration-300 group/card cursor-default">
+                            <i
+                                class="text-3xl mb-2 text-sky-300 group-hover/card:scale-110 transition duration-300 inline-block">🅿️</i>
+                            <p class="text-sm font-semibold text-sky-100">Free Parking</p>
+                            <p class="text-xs text-sky-200/60 mt-1">Guidance Available</p>
+                        </div>
+                        <div
+                            class="rounded-2xl bg-white/10 backdrop-blur-md p-5 border border-white/20 text-center hover:bg-white/15 transition duration-300 group/card cursor-default">
+                            <i
+                                class="text-3xl mb-2 text-amber-300 group-hover/card:scale-110 transition duration-300 inline-block">🌅</i>
+                            <p class="text-sm font-semibold text-amber-100">Best Time</p>
+                            <p class="text-xs text-amber-200/60 mt-1">4:00 PM - 6:30 PM</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="flex flex-col gap-4">
-                    <div class="rounded-3xl bg-white/10 p-6 ring-1 ring-white/20 text-center">
-                        <img src="owner.jpg" alt="Owner - Nagesh Gouda" width="56" height="56"
-                            class="mx-auto mb-4 h-14 w-14 rounded-full ring-2 ring-white/30 object-cover shadow-md" />
-                        <p class="font-medium mt-1">Nagesh Gouda</p>
-                        <p class="mt-2">📞 <a href="tel:+919449358010" class="underline">+91 94493 58010</a></p>
-                        <p class="mt-2">📞 <a href="tel:+917019216673" class="underline">+91 70192 16673</a></p>
-                        <p>💬 <a href="https://wa.me/919449358010" target="_blank" class="underline"
-                                data-i18n="contact.whatsapp">Chat on WhatsApp</a></p>
-                        <p>✉️ <a href="mailto:nageshgouda47508@gmail.com"
-                                class="underline">nageshgouda47508@gmail.com</a></p>
+                <!-- Contact & Info Column -->
+                <div class="space-y-8">
+                    <!-- Captain Card -->
+                    <div
+                        class="glass-panel rounded-3xl p-8 border border-white/20 hover:border-sky-400/50 transition duration-300 group">
+                        <div class="flex items-center gap-6 mb-8">
+                            <div class="relative">
+                                <img src="https://sharavati-boating.github.io/honnavar/owner.jpg"
+                                    alt="Owner - Nagesh Gouda"
+                                    class="h-20 w-20 rounded-full ring-4 ring-sky-400/50 object-cover shadow-lg shadow-sky-500/20 group-hover:ring-sky-400 transition duration-300" />
+                                <span
+                                    class="absolute bottom-0 right-0 h-6 w-6 bg-emerald-500 rounded-full border-2 border-white shadow-lg"></span>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-white">Nagesh Gouda</p>
+                                <p class="text-sm text-sky-300 font-medium">Owner & Lead Captain</p>
+                            </div>
+                        </div>
+
+                        <!-- Contact Methods -->
+                        <div class="space-y-4">
+                            <a href="tel:+919449358010"
+                                class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition duration-300 group/contact">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400 group-hover/contact:bg-sky-500 group-hover/contact:text-white transition duration-300">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-sky-200/60 uppercase font-bold tracking-widest">Call</p>
+                                    <p class="text-lg font-bold text-white">+91 94493 58010</p>
+                                </div>
+                            </a>
+
+                            <a href="https://wa.me/919449358010" target="_blank"
+                                class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-emerald-500/20 transition duration-300 group/contact">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover/contact:bg-emerald-500 group-hover/contact:text-white transition duration-300">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-emerald-200/60 uppercase font-bold tracking-widest">WhatsApp
+                                    </p>
+                                    <p class="text-lg font-bold text-white">Chat on WhatsApp</p>
+                                </div>
+                            </a>
+
+                            <a href="mailto:nageshgouda47508@gmail.com"
+                                class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-purple-500/20 transition duration-300 group/contact">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 group-hover/contact:bg-purple-500 group-hover/contact:text-white transition duration-300">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-purple-200/60 uppercase font-bold tracking-widest">Email</p>
+                                    <p class="text-sm font-bold text-white truncate">nageshgouda47508@gmail.com</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
 
-                    <div class="rounded-3xl bg-white/10 p-6 ring-1 ring-white/20">
-                        <h3 class="text-xl font-semibold" data-i18n="tips.title">Tips</h3>
-                        <ul class="mt-2 space-y-1 text-sky-50/90 text-sm">
-                            <li data-i18n="tips.l1">• Arrive 10–15 mins early for life-jacket fitting.</li>
-                            <li data-i18n="tips.l2">• Golden hour light is great for photos.</li>
-                            <li data-i18n="tips.l3">• Keep phones secure; use a lanyard if possible.</li>
+                    <!-- Tips Card -->
+                    <div
+                        class="glass-panel rounded-3xl p-8 border border-white/20 hover:border-amber-400/50 transition duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                            <i class="fa-solid fa-lightbulb text-amber-400"></i>
+                            Pro Tips
+                        </h3>
+                        <ul class="space-y-4 text-sky-100/90">
+                            <li class="flex items-start gap-3 group/tip cursor-default">
+                                <span
+                                    class="text-amber-400 font-bold text-lg group-hover/tip:scale-125 transition duration-300">✓</span>
+                                <span class="text-sm leading-relaxed" data-i18n="tips.l1">Arrive 10–15 mins early for
+                                    life-jacket fitting.</span>
+                            </li>
+                            <li class="flex items-start gap-3 group/tip cursor-default">
+                                <span
+                                    class="text-amber-400 font-bold text-lg group-hover/tip:scale-125 transition duration-300">✓</span>
+                                <span class="text-sm leading-relaxed" data-i18n="tips.l2">Golden hour light is great for
+                                    photos.</span>
+                            </li>
+                            <li class="flex items-start gap-3 group/tip cursor-default">
+                                <span
+                                    class="text-amber-400 font-bold text-lg group-hover/tip:scale-125 transition duration-300">✓</span>
+                                <span class="text-sm leading-relaxed" data-i18n="tips.l3">Keep phones secure; use a
+                                    lanyard if possible.</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -940,28 +1182,55 @@
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-200 bg-white py-10 text-sm">
-        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-            <p>© <span id="y"></span> <span data-i18n="brand.name">Mahalakshmi Boating</span>, Honnavar. <span
-                    data-i18n="footer.rights">All rights reserved.</span></p>
-            <div class="flex items-center gap-4"><a href="#home" class="hover:text-sky-700"
-                    data-i18n="nav.home">Home</a><a href="#packages" class="hover:text-sky-700"
-                    data-i18n="nav.packages">Packages</a><a href="#gallery" class="hover:text-sky-700"
-                    data-i18n="nav.gallery">Gallery</a><a href="#map" class="hover:text-sky-700"
-                    data-i18n="contact.link">Contact</a></div>
+    <footer class="bg-slate-900 text-white pt-10 pb-52 md:pb-12 relative overflow-hidden">
+        <!-- Top gradient accent line -->
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sky-500 via-purple-500 to-orange-500"></div>
+
+        <div class="mx-auto max-w-7xl px-6 relative z-10">
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-slate-400">© <span id="y"></span> Mahalakshmi Boating.</p>
+                <p class="text-xs text-slate-400">Made with <i class="fa-solid fa-heart text-red-500 heart-beat"></i> By
+                    Vishwa</p>
+            </div>
         </div>
     </footer>
 
     <!-- Floating Action Buttons -->
     <a href="https://wa.me/919449358010" target="_blank"
-        class="fixed bottom-5 right-5 inline-flex items-center justify-center rounded-full bg-emerald-500 p-4 text-white shadow-2xl hover:bg-emerald-600"
+        class="fixed bottom-28 right-5 inline-flex items-center justify-center rounded-full bg-emerald-500 p-4 text-white shadow-2xl hover:bg-emerald-600"
         aria-label="WhatsApp"><img
             src="https://cdn2.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-whatsapp-circle-1024.png"
             alt="WhatsApp" class="w-6 h-6 object-contain" /></a>
 
     <a href="tel:+919449358010"
-        class="fixed bottom-5 right-[5.5rem] inline-flex items-center justify-center rounded-full bg-sky-600 p-4 text-white shadow-2xl hover:bg-sky-700"
+        class="fixed bottom-28 right-[5.5rem] inline-flex items-center justify-center rounded-full bg-sky-600 p-4 text-white shadow-2xl hover:bg-sky-700"
         aria-label="Call">📞</a>
+
+    <!-- MOBILE NAV BAR (Glassy) -->
+    <div
+        class="md:hidden fixed bottom-4 left-4 right-4 z-50 bg-white/80 backdrop-blur-md rounded-2xl flex justify-between items-center px-6 py-3 shadow-2xl border border-white/40 pb-safe">
+        <a href="#home"
+            class="flex flex-col items-center text-slate-600 hover:text-sky-600 active:scale-95 transition gap-1">
+            <i class="fa-solid fa-house-chimney-window text-lg"></i>
+        </a>
+        <a href="#packages"
+            class="flex flex-col items-center text-slate-600 hover:text-sky-600 active:scale-95 transition gap-1">
+            <i class="fa-solid fa-ticket text-lg"></i>
+        </a>
+        <!-- Main CTA Floating Button -->
+        <a href="https://wa.me/919449358010?text=Hi!%20I'm%20ready%20for%20an%20adventure." target="_blank"
+            class="relative -top-8 bg-gradient-to-tr from-sky-500 to-blue-600 text-white h-16 w-16 rounded-full flex items-center justify-center shadow-lg shadow-sky-300 hover:scale-110 active:scale-90 transition duration-300 border-4 border-white">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+        </a>
+        <a href="#adventure-gallery"
+            class="flex flex-col items-center text-slate-600 hover:text-sky-600 active:scale-95 transition gap-1">
+            <i class="fa-solid fa-images text-lg"></i>
+        </a>
+        <a href="tel:+919449358010"
+            class="flex flex-col items-center text-slate-600 hover:text-sky-600 active:scale-95 transition gap-1">
+            <i class="fa-solid fa-phone-volume text-lg"></i>
+        </a>
+    </div>
 
     <div class="lightbox" id="lightbox" aria-hidden="true"><img alt="preview" id="lightbox-img"><button
             id="lightbox-close"
