@@ -194,10 +194,19 @@
 
         .card {
             border-radius: 1.5rem;
-            background: #fff;
+            background: #ffffff;
             padding: 1.5rem;
             border: 1px solid rgb(226, 232, 240);
             box-shadow: 0 10px 15px -3px rgba(2, 6, 23, .05), 0 4px 6px -2px rgba(2, 6, 23, .04)
+        }
+
+        .card:hover {
+            border-radius: 1.5rem;
+            background: #ffffff;
+            padding: 1.5rem;
+            border: 1px solid rgb(184, 211, 246);
+            box-shadow: 0 10px 30px -5px rgba(2, 132, 199, .5),
+            0 0 20px rgba(6, 182, 212, .4);
         }
 
         .shimmer {
@@ -389,7 +398,7 @@
                 </nav>
                 <div class="flex items-center gap-3">
                     <select id="langSwitcher" aria-label="Language"
-                        class="rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm">
+                        class="rounded-xl border border-slate-300 bg-white px-2 py-2 text-sm">
                         <option value="en">English</option>
                         <option value="kn">ಕನ್ನಡ</option>
                         <option value="hi">हिन्दी</option>
@@ -406,7 +415,7 @@
         class="relative isolate flex min-h-[92vh] items-center justify-center overflow-hidden bg-slate-900 pt-36">
         <!-- Hero background image with Ken Burns zoom effect -->
         <img src="https://images.unsplash.com/photo-1704365159814-9d124e3cf952?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1932"
-            class="absolute inset-0 -z-20 h-full w-full object-cover opacity-80 animate-slow-zoom"
+            class="absolute inset-0 -z-20 h-full w-full object-cover opacity-90 animate-slow-zoom"
             alt="Sharavati backwaters scenic view" />
         <div class="absolute inset-0 -z-10 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
         <div class="absolute inset-0 -z-10 bg-gradient-to-b from-slate-900/60 via-transparent to-slate-900"></div>
@@ -594,21 +603,24 @@
                     </p>
                 </div>
                 <div class="grid gap-6 md:grid-cols-3">
-                    <div class="card">
+
+                    <div class="card shadow-2xl transform transition hover:scale-[1.01] duration-300">
                         <div class="text-3xl">⚓</div>
                         <h3 class="mt-3 text-xl font-semibold" data-i18n="why.safeTitle">Licensed & Safe</h3>
                         <p class="mt-1 text-slate-600" data-i18n="why.safeDesc">Life jackets for all, safety briefing,
                             and
                             experienced boat operators.</p>
                     </div>
-                    <div class="card">
+
+                    <div class="card shadow-2xl transform transition hover:scale-[1.01] duration-300">
                         <div class="text-3xl">🏝️</div>
                         <h3 class="mt-3 text-xl font-semibold" data-i18n="why.scenicTitle">Scenic Spots</h3>
                         <p class="mt-1 text-slate-600" data-i18n="why.scenicDesc">Palm-lined backwaters, islands and
                             calm
                             channels perfect for photos.</p>
                     </div>
-                    <div class="card">
+
+                    <div class="card shadow-2xl transform transition hover:scale-[1.01] duration-300">
                         <div class="text-3xl">💬</div>
                         <h3 class="mt-3 text-xl font-semibold" data-i18n="why.easyTitle">Easy WhatsApp Booking</h3>
                         <p class="mt-1 text-slate-600" data-i18n="why.easyDesc">Quick replies, timing suggestions and
@@ -620,9 +632,9 @@
     </section>
 
     <!-- Packages -->
-    <section id="packages" class="bg-gradient-to-b from-white to-sky-50 py-16">
-        <div class="mx-auto max-w-7xl px-6">
-            <div class="mb-10 flex items-end justify-between">
+    <section id="packages" class="bg-gradient-to-b from-white to-sky-50 py-16  ">
+        <div class="mx-auto max-w-7xl px-6 ">
+            <div class="mb-10 flex items-end justify-between ">
                 <div>
                     <h2 class="text-3xl font-bold md:text-4xl" data-i18n="pkg.title">Popular Packages</h2>
                     <p class="mt-2 text-slate-600" data-i18n="pkg.subtitle">Transparent pricing. Ask us for group
@@ -635,7 +647,7 @@
             <div class="grid gap-6 md:grid-cols-3">
 
 
-                <div class="card relative overflow-hidden">
+                <div class="card relative overflow-hidden shadow-2xl transform transition hover:scale-[1.01] duration-300">
                     <span
                         class="absolute right-4 top-4 rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-700"
                         data-i18n="badge.mostPopular">Most Popular</span>
@@ -655,7 +667,14 @@
                             href="#adventure-gallery" class="btn-ghost" data-i18n="cta.knowMore">Know more</a></div>
                 </div>
 
-                <div class="card relative overflow-hidden">
+
+
+
+
+
+
+
+                <div class="card relative overflow-hidden shadow-2xl transform transition hover:scale-[1.01] duration-300">
                     <span
                         class="absolute right-4 top-4 rounded-full bg-sky-100 px-3 py-1 text-sm font-medium text-sky-700"
                         data-i18n="badge.bestPhotos">Best for Photos</span>
@@ -675,7 +694,12 @@
                         <a href="#prewedding-gallery" class="btn-ghost" data-i18n="cta.seeExamples">See examples</a>
                     </div>
                 </div>
-                <div class="card relative overflow-hidden">
+
+
+
+
+
+                <div class="card relative overflow-hidden shadow-2xl transform transition hover:scale-[1.01] duration-300">
                     <span
                         class="absolute right-4 top-4 rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-700"
                         data-i18n="badge.family">Family Friendly</span>
@@ -699,7 +723,7 @@
             </div>
 
             <!-- Mobile sticky booking bar -->
-            <div class="sticky-book mt-6 md:hidden">
+            <div class="sticky-book mt-6 md:hidden shadow-2xl transform transition hover:scale-[1.01] duration-300">
                 <div class="mx-auto max-w-7xl px-4">
                     <div
                         class="rounded-2xl bg-white p-4 shadow-xl ring-1 ring-slate-200 flex items-center justify-between">
