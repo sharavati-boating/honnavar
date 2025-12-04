@@ -64,10 +64,10 @@
         "openingHoursSpecification": {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-          "opens": "06:00",
-          "closes": "19:00"
+          "opens": "08:00",
+          "closes": "21:00"
         },
-        "priceRange": "₹1200 - ₹2200",
+        "priceRange": "₹800 - ₹2200",
         "sameAs": [
           "https://www.facebook.com/",
           "https://www.instagram.com/"
@@ -180,6 +180,54 @@
             transform: scale(.99);
         }
 
+
+        
+        .btn-primary1 {
+            border-radius: 0.75rem;
+            background: linear-gradient(90deg, #02c73a 0%, #02c729 30%, #5dff2b 50%, #74ec86 70%, #53e333 100%);
+            background-size: 200% 100%;
+            border: 1rem #000000;
+            color: #fff;
+            padding: 0.75rem 1.25rem;
+            font-weight: 600;
+            box-shadow: 0 10px 15px -3px rgba(2, 199, 54, 0.3), 0 4px 6px -2px rgba(2, 132, 199, .2);
+            animation: buttonShimmer 4s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow .2s;
+        }
+
+        @keyframes buttonShimmer {
+            0% {
+                background-position: 200% 0;
+            }
+
+            50% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .btn-primary1:hover {
+            box-shadow: 0 11px 20px -5px rgba(98, 233, 53, 0.747),
+                0 0 20px rgba(2, 255, 44, 0.826);
+            border: 2rem #000000;
+
+        }
+
+        .btn-primary1:active {
+            transform: scale(.99);
+        }
+
+
+
+
+
+
+
         .btn-ghost {
             border-radius: 0.75rem;
             padding: 0.75rem 1.25rem;
@@ -198,6 +246,14 @@
             padding: 1.5rem;
             border: 1px solid rgb(226, 232, 240);
             box-shadow: 0 10px 15px -3px rgba(2, 6, 23, .05), 0 4px 6px -2px rgba(2, 6, 23, .04)
+        }
+        .sd:hover{
+            border-radius: 1.5rem;
+            background: #ffffff;
+            padding: 1rem;
+            border: 1px solid rgb(184, 246, 235);
+            box-shadow: 0 10px 30px -5px rgba(2, 199, 9, 0.5),
+            0 0 20px rgba(6, 182, 212, .4);
         }
 
         .card:hover {
@@ -307,7 +363,7 @@
         }
 
         #preloader-logo {
-            animation: expandLogo 1s ease-in-out forwards;
+            animation: expandLogo 1.3s ease-in-out forwards;
         }
 
         /* Animation for the logo */
@@ -382,7 +438,7 @@
             <div
                 class="flex items-center justify-between rounded-2xl bg-white/80 backdrop-blur px-4 py-3 shadow-lg ring-1 ring-white/40">
                 <a href="#home" class="flex items-center gap-3" aria-label="Mahalakshmi Boating home">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzB0TQpbrboUWeQAYzK1CvBpUi5PlYghil6664IjdtdONVU9DWuIUg_XlADgV2f9f04xgWl7pjaNz2CPx17VCIyJTw5iUuB98hAcZUeJ0LVdIVVTrczT-KTHgfNppAqYXfRrT4NcQ=s1360-w1360-h1020-rw"
+                    <img src="https://sharavati-boating.github.io/honnavar/favicon.png"
                         alt="Mahalakshmi Boating Logo" width="40" height="40"
                         class="h-10 w-10 rounded-full object-cover" />
                     <span class="text-lg font-extrabold tracking-tight text-sky-900" data-i18n="brand.name">Mahalakshmi
@@ -723,12 +779,12 @@
             </div>
 
             <!-- Mobile sticky booking bar -->
-            <div class="sticky-book mt-6 md:hidden shadow-2xl transform transition hover:scale-[1.01] duration-300">
+            <div class="sticky-book mt-6 md:hidden transform transition hover:scale-[1.01] duration-300">
                 <div class="mx-auto max-w-7xl px-4">
                     <div
-                        class="rounded-2xl bg-white p-4 shadow-xl ring-1 ring-slate-200 flex items-center justify-between">
+                        class="sd rounded-2xl bg-white p-4 shadow-xl ring-1 ring-slate-200 flex items-center justify-between">
                         <span class="font-semibold" data-i18n="sticky.ready">Ready to book?</span>
-                        <a href="https://wa.me/919449358010" target="_blank" class="btn-primary">WhatsApp</a>
+                        <a href="https://wa.me/919449358010" target="_blank" class="btn-primary1">WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -1188,8 +1244,8 @@
 
         <div class="mx-auto max-w-7xl px-6 relative z-10">
             <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-sm text-slate-400">© <span id="y"></span> Mahalakshmi Boating.</p>
-                <p class="text-xs text-slate-400">Made with <i class="fa-solid fa-heart text-red-500 heart-beat"></i> By
+                <p class="text-sm text-slate-200">© <span id="y"></span> Mahalakshmi Boating.</p>
+                <p class="text-xs text-slate-500">Made with <i class="fa-solid fa-heart text-red-500 heart-beat"></i> By
                     Vishwa</p>
             </div>
         </div>
