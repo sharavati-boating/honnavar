@@ -1242,13 +1242,21 @@
 
 
     <!-- Footer-triggered: Explore Uttara Kannada popup (smaller) -->
-    <a id="uk-popup" href="https://namma-uk.vercel.app/" target="_blank" rel="noopener noreferrer"
-        class="hidden md:flex fixed bottom-28 left-4 z-50 items-center gap-2 rounded-full bg-white p-1 shadow-2xl hover:scale-105 transition text-xs"
-        aria-label="Explore Uttara Kannada">
-        <div class="mx-4 h-8 w-8 flex items-center justify-center rounded-full bg-sky-500 text-white text-sm">🌄</div>
-        <div class="font-semibold">Explore UK</div>
-        <button id="uk-popup-close" class="ml-2 text-slate-500 text-sm mx-4 px-4" aria-label="Close">✕</button>
-    </a>
+
+    <div id="uk-popup" class="hidden md:flex fixed bottom-28 left-4 z-50 items-center gap-1 md:gap-2 rounded-full bg-white/95 backdrop-blur shadow-xl ring-1 ring-slate-200
+                    px-2 py-1 md:px-3 md:py-1.5 text-[11px] md:text-sm leading-none">
+        <a href="https://namma-uk.vercel.app/" target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-1 md:gap-2 no-underline text-slate-700 hover:text-slate-900">
+            <span
+                class="mx-1 md:mx-2 h-6 w-6 md:h-8 md:w-8 flex items-center justify-center rounded-full bg-sky-500 text-white text-xs md:text-sm">🌄</span>
+            <span class="font-semibold pr-1 md:pr-2">Explore UK</span>
+        </a>
+
+        <button id="uk-popup-close" type="button" class="ml-1 md:ml-2 h-6 w-8 md:h-9 md:w-9 grid place-items-center rounded-full
+               text-slate-700 hover:text-slate-900 bg-slate-100/80 hover:bg-slate-200
+               ring-1 ring-slate-300 shadow-sm font-semibold leading-none" aria-label="Close">✕</button>
+
+    </div>
 
     <!-- MOBILE NAV BAR (Glassy) -->
     <div
@@ -1712,25 +1720,31 @@
 
     <script>
         // Show the Uttara Kannada popup when footer becomes visible
-        document.addEventListener('DOMContentLoaded', () => {
+         document.addEventListener('DOMContentLoaded', () => {
             const popup = document.getElementById('uk-popup');
-            const closeBtn = document.getElementById('uk-popup-close');
             const footer = document.querySelector('footer');
             if (!popup || !footer) return;
 
-            // Observe footer intersection
+            // Mobile: reveal when footer intersects
             const io = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        popup.classList.remove('hidden');
-                    }
-                });
-            }, { root: null, threshold: 0.1 });
-
+                for (const entry of entries) {
+                    if (entry.isIntersecting) popup.classList.remove('hidden'); // mobile only; desktop already visible
+                }
+            }, { threshold: 0.1 });
             io.observe(footer);
 
-            // Close button hides the popup
-            closeBtn?.addEventListener('click', (e) => { e.preventDefault(); popup.classList.add('hidden'); });
+            // Close: hide everywhere (including desktop overriding md:flex)
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('#uk-popup-close')) return;
+                e.preventDefault();
+                e.stopPropagation();
+                popup.classList.add('hidden', 'md:hidden');
+            }, { capture: true });
+
+            // Optional: ESC closes
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') popup.classList.add('hidden', 'md:hidden');
+            });
         });
     </script>
 </body>
