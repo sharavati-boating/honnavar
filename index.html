@@ -1239,6 +1239,17 @@
         class="hidden md:block fixed bottom-40 right-[5.5rem] inline-flex items-center justify-center rounded-full bg-sky-600 p-4 text-white shadow-2xl hover:bg-sky-700"
         aria-label="Call">📞</a>
 
+
+
+    <!-- Footer-triggered: Explore Uttara Kannada popup (smaller) -->
+    <a id="uk-popup" href="https://namma-uk.vercel.app/" target="_blank" rel="noopener noreferrer"
+        class="hidden md:flex fixed bottom-28 left-4 z-50 items-center gap-2 rounded-full bg-white p-1 shadow-2xl hover:scale-105 transition text-xs"
+        aria-label="Explore Uttara Kannada">
+        <div class="mx-4 h-8 w-8 flex items-center justify-center rounded-full bg-sky-500 text-white text-sm">🌄</div>
+        <div class="font-semibold">Explore UK</div>
+        <button id="uk-popup-close" class="ml-2 text-slate-500 text-sm mx-4 px-4" aria-label="Close">✕</button>
+    </a>
+
     <!-- MOBILE NAV BAR (Glassy) -->
     <div
         class="md:hidden fixed bottom-4 left-4 right-4 z-50 bg-white/80 backdrop-blur-md rounded-2xl flex justify-between items-center px-6 py-3 shadow-2xl border border-white/40 pb-safe">
@@ -1697,6 +1708,30 @@
             // alert("Inspecting is blocked on this site.");
         };
         console.log('%c', devtools);
+    </script>
+
+    <script>
+        // Show the Uttara Kannada popup when footer becomes visible
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('uk-popup');
+            const closeBtn = document.getElementById('uk-popup-close');
+            const footer = document.querySelector('footer');
+            if (!popup || !footer) return;
+
+            // Observe footer intersection
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        popup.classList.remove('hidden');
+                    }
+                });
+            }, { root: null, threshold: 0.1 });
+
+            io.observe(footer);
+
+            // Close button hides the popup
+            closeBtn?.addEventListener('click', (e) => { e.preventDefault(); popup.classList.add('hidden'); });
+        });
     </script>
 </body>
 
