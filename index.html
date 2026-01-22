@@ -54,7 +54,7 @@
     <link rel="preload" as="image"
         href="https://images.unsplash.com/photo-1704365159814-9d124e3cf952?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1932" />
 
-    <!-- JSON-LD structured data (LocalBusiness + TouristAttraction) -->
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -874,7 +874,7 @@
                             const name = document.getElementById("userName").value;
                             const timeSlot = document.getElementById("timeSlot").value;
                             const fileInput = document.getElementById("screenshot");
-                            const API_KEY = "3dac737f0533df7978344b88557be873"; // Replace with your ImgBB API key
+                            const API_KEY = "3dac737f0533df7978344b88557be873"; 
 
                             if (fileInput.files.length === 0) {
                                 alert("Please upload an image.");
@@ -916,9 +916,9 @@
 
                                 const imageUrl = result.data.url;
 
-                                const phoneNumber = "919449358010"; // Replace with the owner's WhatsApp number
+                                const phoneNumber = "919449358010";
                                 const message = `*New Booking Request*\n\n*Name:* ${name}\n*Package:* ${packageName}\n*Timing:* ${timeSlot}\n*Payment Proof:* ${imageUrl}`;
-                                const formattedMessage = encodeURIComponent(message); // Properly encode the message
+                                const formattedMessage = encodeURIComponent(message); 
                                 window.location.href = `https://wa.me/${phoneNumber}?text=${formattedMessage}`;
                             } catch (error) {
                                 console.error("Upload error:", error);
