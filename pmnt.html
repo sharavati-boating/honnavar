@@ -110,38 +110,38 @@
             theme: {
                 extend: {
                     animation: {
-                        'slow-zoom': 'slowZoom 20s linear infinite alternate',
-                        float: 'float 6s ease-in-out infinite',
-                        'fade-up': 'fadeUp 0.8s ease-out forwards',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'shimmer-lightning': 'shimmerLightning 2s linear infinite'
+                        "slow-zoom": "slowZoom 20s linear infinite alternate",
+                        float: "float 6s ease-in-out infinite",
+                        "fade-up": "fadeUp 0.8s ease-out forwards",
+                        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                        "shimmer-lightning": "shimmerLightning 2s linear infinite",
                     },
                     keyframes: {
                         slowZoom: {
-                            '0%': { transform: 'scale(1)' },
-                            '100%': { transform: 'scale(1.3)' }
+                            "0%": { transform: "scale(1)" },
+                            "100%": { transform: "scale(1.3)" },
                         },
                         float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' }
+                            "0%, 100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-10px)" },
                         },
                         fadeUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                            "0%": { opacity: "0", transform: "translateY(30px)" },
+                            "100%": { opacity: "1", transform: "translateY(0)" },
                         },
                         shimmerLightning: {
-                            '0%': { backgroundPosition: '200% 0' },
-                            '100%': { backgroundPosition: '-200% 0' }
+                            "0%": { backgroundPosition: "200% 0" },
+                            "100%": { backgroundPosition: "-200% 0" },
                         },
                         heartbeat: {
-                            '0%, 100%': { transform: 'scale(1)' },
-                            '25%': { transform: 'scale(1.3)' },
-                            '50%': { transform: 'scale(1)' }
-                        }
-                    }
-                }
-            }
-        }
+                            "0%, 100%": { transform: "scale(1)" },
+                            "25%": { transform: "scale(1.3)" },
+                            "50%": { transform: "scale(1)" },
+                        },
+                    },
+                },
+            },
+        };
     </script>
 
     <style>
@@ -150,8 +150,8 @@
         }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto,
-                'Helvetica Neue', Arial, 'Noto Sans';
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+                "Helvetica Neue", Arial, "Noto Sans";
         }
 
         .btn-primary {
@@ -826,92 +826,103 @@
                         <a href="#sunset-gallery" class="btn-ghost" data-i18n="cta.knowMore">Know more</a>
                     </div>
                 </div>
-
+                
                 <script>
                     function openBookingForm(packageName, price) {
                         const formHtml = `
-            <div id="bookingModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
-                <form id="bookingForm" style="background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 400px;">
-                    <h3>Book ${packageName}</h3>
-                    <input type="text" id="userName" placeholder="Your Name" required style="width: 100%; padding: 10px; margin: 10px 0;"><br>
-                    <label>Select Timing:</label><br>
-                    <select id="timeSlot" required style="width: 100%; padding: 10px; margin: 10px 0;">
-                        <option value="" disabled selected>Select a time slot</option>
-                        <option value="Morning (8:00 AM - 10:00 AM)">Morning (8:00 AM - 10:00 AM)</option>
-                        <option value="Afternoon (12:00 PM - 2:00 PM)">Afternoon (12:00 PM - 2:00 PM)</option>
-                        <option value="Evening (4:00 PM - 6:00 PM)">Evening (4:00 PM - 6:00 PM)</option>
-                        <option value="Sunset (6:00 PM - 7:30 PM)">Sunset (6:00 PM - 7:30 PM)</option>
-                    </select><br>
-                    <label>Upload Payment Screenshot:</label><br>
-                    <input type="file" id="screenshot" accept="image/*" required style="margin: 10px 0;"><br>
-                    <button type="submit" id="submitBtn" style="background: #0284c7; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Send to WhatsApp</button>
-                    <button type="button" onclick="closeBookingForm()" style="background: #ccc; color: black; padding: 10px; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">Cancel</button>
-                </form>
-            </div>
-        `
+        <div id="bookingModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+            <form id="bookingForm" style="background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 400px;">
+                <h3>Book ${packageName}</h3>
+                <p><strong>UPI Number:</strong> nageshgouda47508-1@okaxis</p>
+                <p>Scan the QR code below to make the payment:</p>
+                <img src="https://sharavati-boating.github.io/honnavar/images/IMG_20260122_133345.png" alt="UPI QR Code" style="width: 100%; max-width: 200px; margin: 10px auto; display: block;">
+                <input type="text" id="userName" placeholder="Your Name" required style="width: 100%; padding: 10px; margin: 10px 0;"><br>
+                <label>Select Timing:</label><br>
+                <select id="timeSlot" required style="width: 100%; padding: 10px; margin: 10px 0;">
+                    <option value="" disabled selected>Select a time slot</option>
+                    <option value="Morning (8:00 AM - 10:00 AM)">Morning (8:00 AM - 10:00 AM)</option>
+                    <option value="Afternoon (12:00 PM - 2:00 PM)">Afternoon (12:00 PM - 2:00 PM)</option>
+                    <option value="Evening (4:00 PM - 6:00 PM)">Evening (4:00 PM - 6:00 PM)</option>
+                    <option value="Sunset (6:00 PM - 7:30 PM)">Sunset (6:00 PM - 7:30 PM)</option>
+                </select><br>
+                <label>Upload Payment Screenshot:</label><br>
+                <input type="file" id="screenshot" accept="image/*" required style="margin: 10px 0;"><br>
+                <button type="submit" id="submitBtn" style="background: #0284c7; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Send to WhatsApp</button>
+                <button type="button" onclick="closeBookingForm()" style="background: #ccc; color: black; padding: 10px; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">Cancel</button>
+            </form>
+        </div>
+    `;
+                        document.body.insertAdjacentHTML("beforeend", formHtml);
 
-                        document.body.insertAdjacentHTML('beforeend', formHtml)
+                        document.getElementById("bookingForm").onsubmit = async (e) => {
+                            e.preventDefault();
+                            const btn = document.getElementById("submitBtn");
+                            btn.innerText = "Uploading... Please Wait";
+                            btn.disabled = true;
 
-                       document.getElementById('bookingForm').onsubmit = async (e) => {
-    e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    btn.innerText = "Uploading... Please Wait";
-    btn.disabled = true;
+                            const name = document.getElementById("userName").value;
+                            const timeSlot = document.getElementById("timeSlot").value;
+                            const fileInput = document.getElementById("screenshot");
+                            const API_KEY = "3dac737f0533df7978344b88557be873"; // Replace with your ImgBB API key
 
-    const name = document.getElementById('userName').value;
-    const timeSlot = document.getElementById('timeSlot').value;
-    const fileInput = document.getElementById('screenshot');
-    const API_KEY = '3dac737f0533df7978344b88557be873'; // Replace with your ImgBB API key
+                            if (fileInput.files.length === 0) {
+                                alert("Please upload an image.");
+                                btn.innerText = "Send to WhatsApp";
+                                btn.disabled = false;
+                                return;
+                            }
 
-    if (fileInput.files.length === 0) {
-        alert("Please upload an image.");
-        btn.innerText = "Send to WhatsApp";
-        btn.disabled = false;
-        return;
-    }
+                            const file = fileInput.files[0];
+                            const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
 
-    const file = fileInput.files[0];
-    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+                            if (!allowedTypes.includes(file.type)) {
+                                alert(
+                                    "Invalid file type. Please upload a JPG, JPEG, or PNG image."
+                                );
+                                btn.innerText = "Send to WhatsApp";
+                                btn.disabled = false;
+                                return;
+                            }
 
-    if (!allowedTypes.includes(file.type)) {
-        alert("Invalid file type. Please upload a JPG, JPEG, or PNG image.");
-        btn.innerText = "Send to WhatsApp";
-        btn.disabled = false;
-        return;
-    }
+                            const formData = new FormData();
+                            formData.append("image", file);
 
-    const formData = new FormData();
-    formData.append('image', file);
+                            try {
+                                const response = await fetch(
+                                    `https://api.imgbb.com/1/upload?key=${API_KEY}`,
+                                    {
+                                        method: "POST",
+                                        body: formData,
+                                    }
+                                );
+                                const result = await response.json();
 
-    try {
-        const response = await fetch(`https://api.imgbb.com/1/upload?key=${API_KEY}`, {
-            method: 'POST',
-            body: formData
-        });
-        const result = await response.json();
+                                if (!result.success) {
+                                    throw new Error(
+                                        result.error.message || "Image upload failed."
+                                    );
+                                }
 
-        if (!result.success) {
-            throw new Error(result.error.message || "Image upload failed.");
-        }
+                                const imageUrl = result.data.url;
 
-        const imageUrl = result.data.url;
-
-        const phoneNumber = "919483500835"; // Replace with the owner's WhatsApp number
-        const message = `*New Booking Request*%0A%0A*Name:* ${name}%0A*Package:* ${packageName}%0A*Timing:* ${timeSlot}%0A*Payment Proof:* ${imageUrl}`;
-        const formattedMessage = encodeURIComponent(message); // Properly encode the message
-        window.location.href = `https://wa.me/${phoneNumber}?text=${formattedMessage}`;
-    } catch (error) {
-        console.error("Upload error:", error);
-        alert("Upload failed. Please check your internet connection or API key.");
-        btn.innerText = "Send to WhatsApp";
-        btn.disabled = false;
-    }
-};
+                                const phoneNumber = "919483500835"; // Replace with the owner's WhatsApp number
+                                const message = `*New Booking Request*\n\n*Name:* ${name}\n*Package:* ${packageName}\n*Timing:* ${timeSlot}\n*Payment Proof:* ${imageUrl}`;
+                                const formattedMessage = encodeURIComponent(message); // Properly encode the message
+                                window.location.href = `https://wa.me/${phoneNumber}?text=${formattedMessage}`;
+                            } catch (error) {
+                                console.error("Upload error:", error);
+                                alert(
+                                    "Upload failed. Please check your internet connection or API key."
+                                );
+                                btn.innerText = "Send to WhatsApp";
+                                btn.disabled = false;
+                            }
+                        };
                     }
 
                     function closeBookingForm() {
-                        const modal = document.getElementById('bookingModal')
-                        if (modal) modal.remove()
+                        const modal = document.getElementById("bookingModal");
+                        if (modal) modal.remove();
                     }
                 </script>
             </div>
@@ -1491,548 +1502,548 @@
         </button>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const preloader = document.getElementById('preloader')
-            const mainContent = document.getElementById('main-content')
+        document.addEventListener("DOMContentLoaded", () => {
+            const preloader = document.getElementById("preloader");
+            const mainContent = document.getElementById("main-content");
 
             setTimeout(() => {
-                preloader.style.display = 'none'
-                mainContent.style.opacity = '1'
-            }, 1000)
-        })
+                preloader.style.display = "none";
+                mainContent.style.opacity = "1";
+            }, 1000);
+        });
     </script>
     <script>
         // year
-        document.getElementById('y').textContent = new Date().getFullYear()
+        document.getElementById("y").textContent = new Date().getFullYear();
 
         // simple lightbox
-        const lb = document.getElementById('lightbox')
-        const lbImg = document.getElementById('lightbox-img')
-        const lbClose = document.getElementById('lightbox-close')
-        document.querySelectorAll('.lightbox-link').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault()
-                lb.classList.add('open')
-                lbImg.src = a.href
-                lb.setAttribute('aria-hidden', 'false')
-            })
-        })
-        lbClose.addEventListener('click', () => {
-            lb.classList.remove('open')
-            lb.setAttribute('aria-hidden', 'true')
-        })
-        lb.addEventListener('click', e => {
+        const lb = document.getElementById("lightbox");
+        const lbImg = document.getElementById("lightbox-img");
+        const lbClose = document.getElementById("lightbox-close");
+        document.querySelectorAll(".lightbox-link").forEach((a) => {
+            a.addEventListener("click", (e) => {
+                e.preventDefault();
+                lb.classList.add("open");
+                lbImg.src = a.href;
+                lb.setAttribute("aria-hidden", "false");
+            });
+        });
+        lbClose.addEventListener("click", () => {
+            lb.classList.remove("open");
+            lb.setAttribute("aria-hidden", "true");
+        });
+        lb.addEventListener("click", (e) => {
             if (e.target === lb) {
-                lb.classList.remove('open')
-                lb.setAttribute('aria-hidden', 'true')
+                lb.classList.remove("open");
+                lb.setAttribute("aria-hidden", "true");
             }
-        })
-        window.addEventListener('keydown', e => {
-            if (e.key === 'Escape') {
-                lb.classList.remove('open')
-                lb.setAttribute('aria-hidden', 'true')
+        });
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                lb.classList.remove("open");
+                lb.setAttribute("aria-hidden", "true");
             }
-        })
+        });
     </script>
 
     <!-- Improved language-switcher: waits for DOM, supports innerText / innerHTML and attribute translation -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener("DOMContentLoaded", () => {
             const i18n = {
                 en: {
-                    'bar.safety':
-                        '🦺 Safety first • Licensed crew • Life jackets for all',
-                    'bar.call': 'Call:',
-                    'brand.name': 'Mahalakshmi Boating',
-                    'nav.home': 'Home',
-                    'nav.packages': 'Packages',
-                    'nav.highlights': 'Highlights',
-                    'nav.gallery': 'Gallery',
-                    'nav.reviews': 'Reviews',
-                    'nav.faq': 'FAQ',
-                    'nav.map': 'Map',
-                    'cta.whatsapp': 'Book on WhatsApp',
-                    'cta.seePackages': 'See Packages',
-                    'cta.whyUs': 'Why choose us?',
-                    'hero.badge': 'Honnavar • Sharavati Backwaters',
-                    'hero.title':
-                        'Honnavar Boating — Boat Rides that feel like a mini-vacation',
-                    'hero.p':
-                        'Welcome to <strong>Mahalakshmi Boating</strong> — your local gateway to the scenic <strong>Sharavati backwaters</strong> in <strong>Honnavar</strong>. We offer private boat rides, family-friendly sunset cruises, adventurous rides across hidden channels, and tailored pre-wedding photoshoot trips. Our licensed crew led by <em>Nagesh Gouda</em> prioritizes safety (life jackets for all) and a great photo-friendly route so you get calm waters and golden-hour light. Book quickly over WhatsApp for same-day slots or ask for timing suggestions.',
-                    'badge.lifejackets': '🦺 Life jackets',
-                    'badge.licensed': '⛵ Licensed crew',
-                    'badge.photos': '📸 Photo spots',
-                    'why.title': 'Why Mahalakshmi Boating?',
-                    'why.subtitle': 'Fast booking • Clear pricing • Friendly crew',
-                    'why.safeTitle': 'Licensed & Safe',
-                    'why.safeDesc':
-                        'Life jackets for all, safety briefing, and experienced boat operators.',
-                    'why.scenicTitle': 'Scenic Spots',
-                    'why.scenicDesc':
-                        'Palm-lined backwaters, islands and calm channels perfect for photos.',
-                    'why.easyTitle': 'Easy WhatsApp Booking',
-                    'why.easyDesc':
-                        'Quick replies, timing suggestions and simple UPI payment.',
-                    'pkg.title': 'Popular Packages',
-                    'pkg.subtitle': 'Transparent pricing. Ask us for group discounts.',
-                    'badge.mostPopular': 'Most Popular',
-                    'pkg.advTitle': 'Adventure Ride',
-                    'pkg.advDesc': 'High-energy ride across 3 scenic spots.',
-                    'pkg.advLine1': '• Duration: 1-1.5 Hours',
-                    'pkg.advLine2': '• Up to 5 people',
-                    'pkg.advLine3': '• Safety gear included',
-                    'pkg.advNote': '6+ guests: ₹200 / person extra',
-                    'cta.bookNow': 'Book Now',
-                    'cta.expect': 'What to expect?',
-                    'badge.bestPhotos': 'Best for Photos',
-                    'pkg.pwTitle': 'Pre-Wedding Photoshoot',
-                    'pkg.pwDesc': 'Golden-hour backdrops & calm waters.',
-                    'pkg.pwLine1': '• Charged per hour',
-                    'pkg.pwLine2': '• Boat & crew included',
-                    'pkg.pwLine3': '• Timing suggestions',
-                    'pkg.pwNote': 'Props/camera crew by client',
-                    'cta.enquire': 'Enquire',
-                    'cta.seeExamples': 'See examples',
-                    'badge.family': 'Family Friendly',
-                    'pkg.sunsetTitle': 'Sunset Chill Ride',
-                    'pkg.sunsetDesc': 'Relaxed ride timed to the sunset.',
-                    'pkg.sunsetLine1': '• Duration: ~60–90 mins',
-                    'pkg.sunsetLine2': '• Calm channels & islands',
-                    'pkg.sunsetLine3': '• Drinking water included',
-                    'cta.knowMore': 'Know more',
-                    'sticky.ready': 'Ready to book?',
-                    'gallery.title': 'Gallery',
-                    'gallery.subtitle': 'Real photos from the area. Tap to enlarge.',
-                    'gallery.viewPkgs': 'View Packages',
-                    'gallery.close': 'Close ✕',
-                    'gallery.adv.title': 'Adventure Ride Gallery',
-                    'gallery.adv.subtitle':
-                        'High-energy rides across scenic spots. Experience the thrill!',
-                    'gallery.pw.title': 'Pre-Wedding Photoshoot Gallery',
-                    'gallery.pw.subtitle':
-                        'Golden-hour backdrops & romantic moments on the backwaters.',
-                    'gallery.sunset.title': 'Sunset Chill Ride Gallery',
-                    'gallery.sunset.subtitle':
-                        'Relax and enjoy the golden hour over calm backwater channels.',
-                    'gallery.backBtn': 'Back to Packages',
-                    'reviews.title': 'What Guests Say',
-                    'reviews.subtitle': 'Happy memories from our riders',
-                    'reviews.r1': 'Amazing experience! Calm waters and great crew.',
-                    'reviews.r2': 'Perfect for a family evening. Kids loved it!',
-                    'reviews.r3': 'Beautiful backwaters, got amazing photos at sunset.',
-                    'faq.title': 'FAQ',
-                    'faq.subtitle': 'Quick answers before you book',
-                    'faq.q1': 'What should we bring?',
-                    'faq.a1':
-                        'Sunglasses, hat, sunscreen, and your phone/camera. Life jackets are provided.',
-                    'faq.q2': 'Do you cancel for bad weather?',
-                    'faq.a2':
-                        'Yes, safety first. We reschedule or refund if the weather is unsafe.',
-                    'faq.q3': 'How do we pay?',
-                    'faq.a3':
-                        'UPI or cash. On busy days we may request a small advance.',
-                    'faq.q4': 'Is it kid-friendly?',
-                    'faq.a4':
-                        'Yes. Kids must wear life jackets and be accompanied by adults.',
-                    'map.title': 'Find Us',
-                    'map.subtitle':
-                        'Tap the map for directions. Call or WhatsApp if you need help with parking.',
-                    'map.tip1': '🅿️ Free parking guidance',
-                    'map.tip2': '🌅 Best time: 4–6:30 PM',
-                    'contact.title': 'Contact',
-                    'contact.whatsapp': 'Chat on WhatsApp',
-                    'tips.title': 'Tips',
-                    'tips.l1': '• Arrive 10–15 mins early for life-jacket fitting.',
-                    'tips.l2': '• Golden hour light is great for photos.',
-                    'tips.l3': '• Keep phones secure; use a lanyard if possible.',
-                    'footer.rights': 'All rights reserved.',
-                    'contact.link': 'Contact'
+                    "bar.safety":
+                        "🦺 Safety first • Licensed crew • Life jackets for all",
+                    "bar.call": "Call:",
+                    "brand.name": "Mahalakshmi Boating",
+                    "nav.home": "Home",
+                    "nav.packages": "Packages",
+                    "nav.highlights": "Highlights",
+                    "nav.gallery": "Gallery",
+                    "nav.reviews": "Reviews",
+                    "nav.faq": "FAQ",
+                    "nav.map": "Map",
+                    "cta.whatsapp": "Book on WhatsApp",
+                    "cta.seePackages": "See Packages",
+                    "cta.whyUs": "Why choose us?",
+                    "hero.badge": "Honnavar • Sharavati Backwaters",
+                    "hero.title":
+                        "Honnavar Boating — Boat Rides that feel like a mini-vacation",
+                    "hero.p":
+                        "Welcome to <strong>Mahalakshmi Boating</strong> — your local gateway to the scenic <strong>Sharavati backwaters</strong> in <strong>Honnavar</strong>. We offer private boat rides, family-friendly sunset cruises, adventurous rides across hidden channels, and tailored pre-wedding photoshoot trips. Our licensed crew led by <em>Nagesh Gouda</em> prioritizes safety (life jackets for all) and a great photo-friendly route so you get calm waters and golden-hour light. Book quickly over WhatsApp for same-day slots or ask for timing suggestions.",
+                    "badge.lifejackets": "🦺 Life jackets",
+                    "badge.licensed": "⛵ Licensed crew",
+                    "badge.photos": "📸 Photo spots",
+                    "why.title": "Why Mahalakshmi Boating?",
+                    "why.subtitle": "Fast booking • Clear pricing • Friendly crew",
+                    "why.safeTitle": "Licensed & Safe",
+                    "why.safeDesc":
+                        "Life jackets for all, safety briefing, and experienced boat operators.",
+                    "why.scenicTitle": "Scenic Spots",
+                    "why.scenicDesc":
+                        "Palm-lined backwaters, islands and calm channels perfect for photos.",
+                    "why.easyTitle": "Easy WhatsApp Booking",
+                    "why.easyDesc":
+                        "Quick replies, timing suggestions and simple UPI payment.",
+                    "pkg.title": "Popular Packages",
+                    "pkg.subtitle": "Transparent pricing. Ask us for group discounts.",
+                    "badge.mostPopular": "Most Popular",
+                    "pkg.advTitle": "Adventure Ride",
+                    "pkg.advDesc": "High-energy ride across 3 scenic spots.",
+                    "pkg.advLine1": "• Duration: 1-1.5 Hours",
+                    "pkg.advLine2": "• Up to 5 people",
+                    "pkg.advLine3": "• Safety gear included",
+                    "pkg.advNote": "6+ guests: ₹200 / person extra",
+                    "cta.bookNow": "Book Now",
+                    "cta.expect": "What to expect?",
+                    "badge.bestPhotos": "Best for Photos",
+                    "pkg.pwTitle": "Pre-Wedding Photoshoot",
+                    "pkg.pwDesc": "Golden-hour backdrops & calm waters.",
+                    "pkg.pwLine1": "• Charged per hour",
+                    "pkg.pwLine2": "• Boat & crew included",
+                    "pkg.pwLine3": "• Timing suggestions",
+                    "pkg.pwNote": "Props/camera crew by client",
+                    "cta.enquire": "Enquire",
+                    "cta.seeExamples": "See examples",
+                    "badge.family": "Family Friendly",
+                    "pkg.sunsetTitle": "Sunset Chill Ride",
+                    "pkg.sunsetDesc": "Relaxed ride timed to the sunset.",
+                    "pkg.sunsetLine1": "• Duration: ~60–90 mins",
+                    "pkg.sunsetLine2": "• Calm channels & islands",
+                    "pkg.sunsetLine3": "• Drinking water included",
+                    "cta.knowMore": "Know more",
+                    "sticky.ready": "Ready to book?",
+                    "gallery.title": "Gallery",
+                    "gallery.subtitle": "Real photos from the area. Tap to enlarge.",
+                    "gallery.viewPkgs": "View Packages",
+                    "gallery.close": "Close ✕",
+                    "gallery.adv.title": "Adventure Ride Gallery",
+                    "gallery.adv.subtitle":
+                        "High-energy rides across scenic spots. Experience the thrill!",
+                    "gallery.pw.title": "Pre-Wedding Photoshoot Gallery",
+                    "gallery.pw.subtitle":
+                        "Golden-hour backdrops & romantic moments on the backwaters.",
+                    "gallery.sunset.title": "Sunset Chill Ride Gallery",
+                    "gallery.sunset.subtitle":
+                        "Relax and enjoy the golden hour over calm backwater channels.",
+                    "gallery.backBtn": "Back to Packages",
+                    "reviews.title": "What Guests Say",
+                    "reviews.subtitle": "Happy memories from our riders",
+                    "reviews.r1": "Amazing experience! Calm waters and great crew.",
+                    "reviews.r2": "Perfect for a family evening. Kids loved it!",
+                    "reviews.r3": "Beautiful backwaters, got amazing photos at sunset.",
+                    "faq.title": "FAQ",
+                    "faq.subtitle": "Quick answers before you book",
+                    "faq.q1": "What should we bring?",
+                    "faq.a1":
+                        "Sunglasses, hat, sunscreen, and your phone/camera. Life jackets are provided.",
+                    "faq.q2": "Do you cancel for bad weather?",
+                    "faq.a2":
+                        "Yes, safety first. We reschedule or refund if the weather is unsafe.",
+                    "faq.q3": "How do we pay?",
+                    "faq.a3":
+                        "UPI or cash. On busy days we may request a small advance.",
+                    "faq.q4": "Is it kid-friendly?",
+                    "faq.a4":
+                        "Yes. Kids must wear life jackets and be accompanied by adults.",
+                    "map.title": "Find Us",
+                    "map.subtitle":
+                        "Tap the map for directions. Call or WhatsApp if you need help with parking.",
+                    "map.tip1": "🅿️ Free parking guidance",
+                    "map.tip2": "🌅 Best time: 4–6:30 PM",
+                    "contact.title": "Contact",
+                    "contact.whatsapp": "Chat on WhatsApp",
+                    "tips.title": "Tips",
+                    "tips.l1": "• Arrive 10–15 mins early for life-jacket fitting.",
+                    "tips.l2": "• Golden hour light is great for photos.",
+                    "tips.l3": "• Keep phones secure; use a lanyard if possible.",
+                    "footer.rights": "All rights reserved.",
+                    "contact.link": "Contact",
                 },
                 kn: {
-                    'bar.safety':
-                        '🦺 ಸುರಕ್ಷತೆ ಮೊದಲೇ • ಲೈಸೆನ್ಸ್ಡ್ ಸಿಬ್ಬಂದಿ • ಎಲ್ಲರಿಗೂ ಲೈಫ್ ಜಾಕೆಟ್',
-                    'bar.call': 'ಕಾಲ್:',
-                    'brand.name': 'ಮಹಾಲಕ್ಷ್ಮಿ ಬೋಟಿಂಗ್',
-                    'nav.home': 'ಮುಖಪುಟ',
-                    'nav.packages': 'ಪ್ಯಾಕೇಜುಗಳು',
-                    'nav.highlights': 'ಹೈಲೈಟ್ಸ್',
-                    'nav.gallery': 'ಗ್ಯಾಲರಿ',
-                    'nav.reviews': 'ವಿಮರ್ಶೆಗಳು',
-                    'nav.faq': 'ಪ್ರಶ್ನೋತ್ತರ',
-                    'nav.map': 'ನಕ್ಷೆ',
-                    'cta.whatsapp': 'ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಬುಕ್ ಮಾಡಿ',
-                    'cta.seePackages': 'ಪ್ಯಾಕೇಜುಗಳನ್ನು ನೋಡಿ',
-                    'cta.whyUs': 'ನಮ್ಮನ್ನು ಏಕೆ ಆಯ್ಕೆ?',
-                    'hero.badge': 'ಹೊನ್ನಾವರ • ಶರಾವತಿ ಬ್ಯಾಕ್‌ವಾಟರ್ಸ್',
-                    'hero.title':
-                        'ಹೊನ್ನಾವರ ಬೋಟಿಂಗ್ — ಮಿನಿ ರಜೆಯಂತೆ ಅನುಭವವಾಗುವ ಬೋಟ್ ರೈಡ್ಸ್',
-                    'hero.p':
-                        '<strong>ಮಹಾಲಕ್ಷ್ಮಿ ಬೋಟಿಂಗ್</strong>-ಗೆ ಸ್ವಾಗತ — ನಮ್ಮದು ಹೊನ್ನಾವರದ ಸುಂದರ <strong>ಶರಾವತಿ ಬ್ಯಾಕ್‌ವಾಟರ್ಸ್</strong> ಗೆ ನೈಜ ಪ್ರವೇಶ. ನಾವು ಖಾಸಗಿ ಬೋಟ್ ರೈಡ್ಸ್, ಕುಟುಂಬ ಸ್ನೇಹಿ ಸನ್‌ಸೆಟ್ ಕ್ರೂಯ್ಸ್, ರೋಚಕ hidden ಚಾನೆಲ್‌ಗಳ ಮೂಲಕ ಅಡ್ವೆಂಚರ್ ರೈಡ್ಸ್ ಮತ್ತು ಪ್ರೀ-ವೆಡ್ಡಿಂಗ್ ಫೋಟೋಷೂಟ್ ಟ್ರಿಪ್‌ಗಳನ್ನು ನೀಡುತ್ತೇವೆ. ನಮ್ಮ ಅನುಭವಿ ಸಿಬ್ಬಂದಿ (ನಾಗೇಶ್ ಗೌಡ) ಸುರಕ್ಷತೆ (ಎಲ್ಲರಿಗೂ ಲೈಫ್ ಜಾಕೆಟ್) ಕ್ಕೆ ಪ್ರಾಥಮ್ಯ ನೀಡುತ್ತಾರೆ ಮತ್ತು ಫೋಟೋ-ಫ್ರೆಂಡ್ಲಿ ಮಾರ್ಗಗಳನ್ನು ಕೊಡುತ್ತೇವೆ. ವಾಟ್ಸಾಪ್ ಮೂಲಕ ಶೀಘ್ರ ಬುಕ್ಕಿಂಗ್ ಅಥವಾ ಟೈಮಿಂಗ್ ಸಲಹೆಗಾಗಿ ಸಂಪರ್ಕಿಸಿ.',
-                    'badge.lifejackets': '🦺 ಲೈಫ್ ಜಾಕೆಟ್‌ಗಳು',
-                    'badge.licensed': '⛵ ಲೈಸೆನ್ಸ್ಡ್ ಸಿಬ್ಬಂದಿ',
-                    'badge.photos': '📸 ಫೋಟೋ ಸ್ಪಾಟ್ಸ್',
-                    'why.title': 'ಮಹಾಲಕ್ಷ್ಮಿ ಬೋಟಿಂಗ್ ಏಕೆ?',
-                    'why.subtitle': 'ಶೀಘ್ರ ಬುಕ್ಕಿಂಗ್ • ಸ್ಪಷ್ಟ ದರ • ಸ್ನೇಹಿ ಸಿಬ್ಬಂದಿ',
-                    'why.safeTitle': 'ಲೈಸೆನ್ಸ್ಡ್ & ಸುರಕ್ಷಿತ',
-                    'why.safeDesc':
-                        'ಎಲ್ಲರಿಗೂ ಲೈಫ್ ಜಾಕೆಟ್, ಸುರಕ್ಷತಾ ಸೂಚನೆ, ಅನುಭವೀ ಬೋಟು ಸಿಬ್ಬಂದಿ.',
-                    'why.scenicTitle': 'ಸುಂದರ ಸ್ಥಳಗಳು',
-                    'why.scenicDesc':
-                        'ತಾಳೆ ಮರಗಳ ಬ್ಯಾಕ್‌ವಾಟರ್ಸ್, ದ್ವೀಪಗಳು ಮತ್ತು ಶಾಂತ ಕಾಲುವೆಗಳು — ಫೋಟೋಗಳಿಗೆ ಸೂಕ್ತ.',
-                    'why.easyTitle': 'ಸರಳ ವಾಟ್ಸಾಪ್ ಬುಕ್ಕಿಂಗ್',
-                    'why.easyDesc': 'ವೇಗದ ಪ್ರತಿಕ್ರಿಯೆ, ಸಮಯ ಸಲಹೆಗಳು, ಸುಲಭ UPI ಪೇಮೆಂಟ್.',
-                    'pkg.title': 'ಜನಪ್ರಿಯ ಪ್ಯಾಕೇಜುಗಳು',
-                    'pkg.subtitle': 'ಸ್ಪಷ್ಟ ದರ. ಗುಂಪಿನ ರಿಯಾಯಿತಿಗಾಗಿ ವಿಚಾರಿಸಿ.',
-                    'badge.mostPopular': 'ಅತ್ಯಂತ ಜನಪ್ರಿಯ',
-                    'pkg.advTitle': 'ಅಡ್ವೆಂಚರ್ ರೈಡ್',
-                    'pkg.advDesc': '3 ಸುಂದರ ಸ್ಥಳಗಳಲ್ಲಿ ಹೈ-ಎನರ್ಜಿ ರೈಡ್.',
-                    'pkg.advLine1': '• ಅವಧಿ: 1-1.5 ಗಂಟೆ',
-                    'pkg.advLine2': '• ಗರಿಷ್ಠ 5 ಜನ',
-                    'pkg.advLine3': '• ಸುರಕ್ಷತಾ ಉಪಕರಣ ಸೇರಿದೆ',
-                    'pkg.advNote': '6+ ಅತಿಥಿಗಳು: ತಲಾ ₹200 ಹೆಚ್ಚುವರಿ',
-                    'cta.bookNow': 'ಇಗೆಯೇ ಬುಕ್ ಮಾಡಿ',
-                    'cta.expect': 'ಏನು ನಿರೀಕ್ಷಿಸಬಹುದು?',
-                    'badge.bestPhotos': 'ಫೋಟೋಗಳಿಗೆ ಉತ್ತಮ',
-                    'pkg.pwTitle': 'ಪ್ರೀ-ವೆಡ್ಡಿಂಗ್ ಫೋಟೋಶೂಟ್',
-                    'pkg.pwDesc': 'ಗೋಲ್ಡನ್-ಆವರ್ ಬ್ಯಾಕ್‌ಡ್ರಾಪ್ಸ್ • ಶಾಂತ ನೀರು.',
-                    'pkg.pwLine1': '• ಪ್ರತಿ ಗಂಟೆಗೆ ಶುಲ್ಕ',
-                    'pkg.pwLine2': '• ಬೋಟ್ & ಸಿಬ್ಬಂದಿ ಸೇರಿದೆ',
-                    'pkg.pwLine3': '• ಸಮಯ ಸಲಹೆಗಳು',
-                    'pkg.pwNote': 'ಪ್ರಾಪ್ಸ್/ಕ್ಯಾಮೆರಾ ತಂಡ ಗ್ರಾಹಕರಿಂದ',
-                    'cta.enquire': 'ವಿಚಾರಿಸಿ',
-                    'cta.seeExamples': 'ಉದಾಹರಣೆಗಳನ್ನು ನೋಡಿ',
-                    'badge.family': 'ಕುಟುಂಬ ಸ್ನೇಹಿ',
-                    'pkg.sunsetTitle': 'ಸನ್‌ಸೆಟ್ ಚಿಲ್ ರೈಡ್',
-                    'pkg.sunsetDesc': 'ಸಂಜೆ ಸೂರ್ಯಾಸ್ತಕ್ಕೆ ಹೊಂದಿಸಿದ್ದ ಶಾಂತ ರೈಡ್.',
-                    'pkg.sunsetLine1': '• ಅವಧಿ: ~60–90 ನಿಮಿಷ',
-                    'pkg.sunsetLine2': '• ಶಾಂತ ಕಾಲುವೆಗಳು & ದ್ವೀಪಗಳು',
-                    'pkg.sunsetLine3': '• ಕುಡಿಯುವ ನೀರು ಸೇರಿದೆ',
-                    'cta.knowMore': 'ಇನ್ನಷ್ಟು ಮಾಹಿತಿ',
-                    'sticky.ready': 'ಬುಕ್ ಮಾಡಲು ಸಿದ್ಧವೇ?',
-                    'gallery.title': 'ಗ್ಯಾಲರಿ',
-                    'gallery.subtitle':
-                        'ಇಲ್ಲಿನ ನಿಜವಾದ ಫೋಟೋಗಳು. ಜೂಮ್ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ.',
-                    'gallery.viewPkgs': 'ಪ್ಯಾಕೇಜುಗಳನ್ನು ನೋಡಿ',
-                    'gallery.close': 'ಮುಚ್ಚು ✕',
-                    'gallery.adv.title': 'ಅಡ್ವೆಂಚರ್ ರೈಡ್ ಗ್ಯಾಲರಿ',
-                    'gallery.adv.subtitle':
-                        'ಸುಂದರ ಸ್ಥಳಗಳಲ್ಲಿ ಹೈ-ಎನರ್ಜಿ ರೈಡ್. ರೋಮಾಂಚನ ಅನುಭವಿಸಿ!',
-                    'gallery.pw.title': 'ಪ್ರೀ-ವೆಡ್ಡಿಂಗ್ ಫೋಟೋಶೂಟ್ ಗ್ಯಾಲರಿ',
-                    'gallery.pw.subtitle':
-                        'ಗೋಲ್ಡನ್-ಆವರ್ ಬ್ಯಾಕ್‌ಡ್ರಾಪ್ಸ್ ಮತ್ತು ಶಾಂತ ನೀರಿನ ಮೇಲೆ ರೊಮ್ಯಾಂಟಿಕ್ ಕ್ಷಣಗಳು.',
-                    'gallery.sunset.title': 'ಸನ್‌ಸೆಟ್ ಚಿಲ್ ರೈಡ್ ಗ್ಯಾಲರಿ',
-                    'gallery.sunset.subtitle':
-                        'ಶಾಂತ ಬ್ಯಾಕ್‌ವಾಟರ್ ಚಾನೆಲ್‌ಗಳ ಮೇಲೆ ಗೋಲ್ಡನ್ ಅವರ್ ಅನ್ನು ಆನಂದಿಸಿ.',
-                    'gallery.backBtn': 'ಪ್ಯಾಕೇಜುಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
-                    'reviews.title': 'ಅತಿಥಿಗಳು ಏನು ಹೇಳಿದ್ದಾರೆ',
-                    'reviews.subtitle': 'ನಮ್ಮ ರೈಡರ್‌ಗಳ ಸಂತೋಷದ ನೆನಪುಗಳು',
-                    'reviews.r1': 'ಅದ್ಭುತ ಅನುಭವ! ಶಾಂತ ನೀರು ಮತ್ತು ಉತ್ತಮ ಸಿಬ್ಬಂದಿ.',
-                    'reviews.r2': 'ಕುಟುಂಬ ಸಂಜೆಗಾಗಿ ಸೂಕ್ತ. ಮಕ್ಕಳಿಗೆ ತುಂಬಾ ಇಷ್ಟ ಆಯ್ತು!',
-                    'reviews.r3': 'ಸಂದರ್ಶನೀಯ ಬ್ಯಾಕ್‌ವಾಟರ್ಸ್, ಸನ್‌ಸೆಟ್ ಫೋಟೋಗಳು ಅದ್ಭುತ.',
-                    'faq.title': 'ಪ್ರಶ್ನೋತ್ತರ',
-                    'faq.subtitle': 'ಬುಕ್ ಮಾಡುವ ಮೊದಲು ತ್ವರಿತ ಉತ್ತರಗಳು',
-                    'faq.q1': 'ನಾವು ಏನು ತರಬೇಕು?',
-                    'faq.a1':
-                        'ಸನ್‌ಗ್ಲಾಸಸ್, ಹ್ಯಾಟ್, ಸನ್‌ಸ್ಕ್ರೀನ್ ಮತ್ತು ಫೋನ್/ಕ್ಯಾಮೆರಾ. ಲೈಫ್ ಜಾಕೆಟ್ ನೀಡಲಾಗುತ್ತದೆ.',
-                    'faq.q2': 'ಕೆಟ್ಟ ಹವಾಮಾನದಲ್ಲಿ ರದ್ದು ಮಾಡುತ್ತೀರಾ?',
-                    'faq.a2':
-                        'ಹೌದು, ಸುರಕ್ಷತೆ ಮೊದಲು. ಹವಾಮಾನ ಕೆಟ್ಟರೆ ರೀ-ಶೆಡ್ಯೂಲ್ ಅಥವಾ ರಿಫಂಡ್.',
-                    'faq.q3': 'ಪಾವತಿ ಹೇಗೆ?',
-                    'faq.a3':
-                        'UPI ಅಥವಾ ನಗದು. ಬ್ಯುಸಿ ದಿನಗಳಲ್ಲಿ ಸ್ವಲ್ಪ ಅಡ್ವಾನ್ಸ್ ಕೇಳಬಹುದು.',
-                    'faq.q4': 'ಮಕ್ಕಳಿಗೆ ಸೂಕ್ತವೇ?',
-                    'faq.a4':
-                        'ಹೌದು. ಮಕ್ಕಳು ಲೈಫ್ ಜಾಕೆಟ್ ಧರಿಸಬೇಕು ಮತ್ತು ದೊಡ್ಡವರ ಜೊತೆ ಇರಬೇಕು.',
-                    'map.title': 'ನಮ್ಮನ್ನು ಕಂಡುಹಿಡಿಯಿರಿ',
-                    'map.subtitle':
-                        'ದಾರಿಗಾಗಿ ನಕ್ಷೆ ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ. ಪಾರ್ಕಿಂಗ್ ಸಹಾಯಕ್ಕೆ ಕಾಲ್ ಅಥವಾ ವಾಟ್ಸಾಪ್ ಮಾಡಿ.',
-                    'map.tip1': '🅿️ ಉಚಿತ ಪಾರ್ಕಿಂಗ್ ಮಾರ್ಗದರ್ಶನ',
-                    'map.tip2': '🌅 ಉತ್ತಮ ಸಮಯ: ಸಂಜೆ 4–6:30',
-                    'contact.title': 'ಸಂಪರ್ಕ',
-                    'contact.whatsapp': 'ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಚಾಟ್ ಮಾಡಿ',
-                    'tips.title': 'ಟಿಪ್ಸ್',
-                    'tips.l1': '• ಲೈಫ-ಜಾಕೆಟ್ ಫಿಟಿಂಗ್‌ಗೆ 10–15 ನಿಮಿಷ ಮುಂಚಿತವಾಗಿ ಬನ್ನಿ.',
-                    'tips.l2': '• ಗೋಲ್ಡನ್ ಅವರ್ ಬೆಳಕು ಫೋಟೋಗಳಿಗೆ ಬಹಳ ಚೆನ್ನಾಗಿದೆ.',
-                    'tips.l3': '• ಫೋನ್ ಸುರಕ್ಷಿತವಾಗಿ ಇರಿಸಿ; ಲಾನ್ಯಾರ್ಡ್ ಇದ್ದರೆ ಉತ್ತಮ.',
-                    'footer.rights': 'ಎಲ್ಲ ಹಕ್ಕುಗಳು ಸಂರಕ್ಷಿತ.',
-                    'contact.link': 'ಸಂಪರ್ಕ'
+                    "bar.safety":
+                        "🦺 ಸುರಕ್ಷತೆ ಮೊದಲೇ • ಲೈಸೆನ್ಸ್ಡ್ ಸಿಬ್ಬಂದಿ • ಎಲ್ಲರಿಗೂ ಲೈಫ್ ಜಾಕೆಟ್",
+                    "bar.call": "ಕಾಲ್:",
+                    "brand.name": "ಮಹಾಲಕ್ಷ್ಮಿ ಬೋಟಿಂಗ್",
+                    "nav.home": "ಮುಖಪುಟ",
+                    "nav.packages": "ಪ್ಯಾಕೇಜುಗಳು",
+                    "nav.highlights": "ಹೈಲೈಟ್ಸ್",
+                    "nav.gallery": "ಗ್ಯಾಲರಿ",
+                    "nav.reviews": "ವಿಮರ್ಶೆಗಳು",
+                    "nav.faq": "ಪ್ರಶ್ನೋತ್ತರ",
+                    "nav.map": "ನಕ್ಷೆ",
+                    "cta.whatsapp": "ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಬುಕ್ ಮಾಡಿ",
+                    "cta.seePackages": "ಪ್ಯಾಕೇಜುಗಳನ್ನು ನೋಡಿ",
+                    "cta.whyUs": "ನಮ್ಮನ್ನು ಏಕೆ ಆಯ್ಕೆ?",
+                    "hero.badge": "ಹೊನ್ನಾವರ • ಶರಾವತಿ ಬ್ಯಾಕ್‌ವಾಟರ್ಸ್",
+                    "hero.title":
+                        "ಹೊನ್ನಾವರ ಬೋಟಿಂಗ್ — ಮಿನಿ ರಜೆಯಂತೆ ಅನುಭವವಾಗುವ ಬೋಟ್ ರೈಡ್ಸ್",
+                    "hero.p":
+                        "<strong>ಮಹಾಲಕ್ಷ್ಮಿ ಬೋಟಿಂಗ್</strong>-ಗೆ ಸ್ವಾಗತ — ನಮ್ಮದು ಹೊನ್ನಾವರದ ಸುಂದರ <strong>ಶರಾವತಿ ಬ್ಯಾಕ್‌ವಾಟರ್ಸ್</strong> ಗೆ ನೈಜ ಪ್ರವೇಶ. ನಾವು ಖಾಸಗಿ ಬೋಟ್ ರೈಡ್ಸ್, ಕುಟುಂಬ ಸ್ನೇಹಿ ಸನ್‌ಸೆಟ್ ಕ್ರೂಯ್ಸ್, ರೋಚಕ hidden ಚಾನೆಲ್‌ಗಳ ಮೂಲಕ ಅಡ್ವೆಂಚರ್ ರೈಡ್ಸ್ ಮತ್ತು ಪ್ರೀ-ವೆಡ್ಡಿಂಗ್ ಫೋಟೋಷೂಟ್ ಟ್ರಿಪ್‌ಗಳನ್ನು ನೀಡುತ್ತೇವೆ. ನಮ್ಮ ಅನುಭವಿ ಸಿಬ್ಬಂದಿ (ನಾಗೇಶ್ ಗೌಡ) ಸುರಕ್ಷತೆ (ಎಲ್ಲರಿಗೂ ಲೈಫ್ ಜಾಕೆಟ್) ಕ್ಕೆ ಪ್ರಾಥಮ್ಯ ನೀಡುತ್ತಾರೆ ಮತ್ತು ಫೋಟೋ-ಫ್ರೆಂಡ್ಲಿ ಮಾರ್ಗಗಳನ್ನು ಕೊಡುತ್ತೇವೆ. ವಾಟ್ಸಾಪ್ ಮೂಲಕ ಶೀಘ್ರ ಬುಕ್ಕಿಂಗ್ ಅಥವಾ ಟೈಮಿಂಗ್ ಸಲಹೆಗಾಗಿ ಸಂಪರ್ಕಿಸಿ.",
+                    "badge.lifejackets": "🦺 ಲೈಫ್ ಜಾಕೆಟ್‌ಗಳು",
+                    "badge.licensed": "⛵ ಲೈಸೆನ್ಸ್ಡ್ ಸಿಬ್ಬಂದಿ",
+                    "badge.photos": "📸 ಫೋಟೋ ಸ್ಪಾಟ್ಸ್",
+                    "why.title": "ಮಹಾಲಕ್ಷ್ಮಿ ಬೋಟಿಂಗ್ ಏಕೆ?",
+                    "why.subtitle": "ಶೀಘ್ರ ಬುಕ್ಕಿಂಗ್ • ಸ್ಪಷ್ಟ ದರ • ಸ್ನೇಹಿ ಸಿಬ್ಬಂದಿ",
+                    "why.safeTitle": "ಲೈಸೆನ್ಸ್ಡ್ & ಸುರಕ್ಷಿತ",
+                    "why.safeDesc":
+                        "ಎಲ್ಲರಿಗೂ ಲೈಫ್ ಜಾಕೆಟ್, ಸುರಕ್ಷತಾ ಸೂಚನೆ, ಅನುಭವೀ ಬೋಟು ಸಿಬ್ಬಂದಿ.",
+                    "why.scenicTitle": "ಸುಂದರ ಸ್ಥಳಗಳು",
+                    "why.scenicDesc":
+                        "ತಾಳೆ ಮರಗಳ ಬ್ಯಾಕ್‌ವಾಟರ್ಸ್, ದ್ವೀಪಗಳು ಮತ್ತು ಶಾಂತ ಕಾಲುವೆಗಳು — ಫೋಟೋಗಳಿಗೆ ಸೂಕ್ತ.",
+                    "why.easyTitle": "ಸರಳ ವಾಟ್ಸಾಪ್ ಬುಕ್ಕಿಂಗ್",
+                    "why.easyDesc": "ವೇಗದ ಪ್ರತಿಕ್ರಿಯೆ, ಸಮಯ ಸಲಹೆಗಳು, ಸುಲಭ UPI ಪೇಮೆಂಟ್.",
+                    "pkg.title": "ಜನಪ್ರಿಯ ಪ್ಯಾಕೇಜುಗಳು",
+                    "pkg.subtitle": "ಸ್ಪಷ್ಟ ದರ. ಗುಂಪಿನ ರಿಯಾಯಿತಿಗಾಗಿ ವಿಚಾರಿಸಿ.",
+                    "badge.mostPopular": "ಅತ್ಯಂತ ಜನಪ್ರಿಯ",
+                    "pkg.advTitle": "ಅಡ್ವೆಂಚರ್ ರೈಡ್",
+                    "pkg.advDesc": "3 ಸುಂದರ ಸ್ಥಳಗಳಲ್ಲಿ ಹೈ-ಎನರ್ಜಿ ರೈಡ್.",
+                    "pkg.advLine1": "• ಅವಧಿ: 1-1.5 ಗಂಟೆ",
+                    "pkg.advLine2": "• ಗರಿಷ್ಠ 5 ಜನ",
+                    "pkg.advLine3": "• ಸುರಕ್ಷತಾ ಉಪಕರಣ ಸೇರಿದೆ",
+                    "pkg.advNote": "6+ ಅತಿಥಿಗಳು: ತಲಾ ₹200 ಹೆಚ್ಚುವರಿ",
+                    "cta.bookNow": "ಇಗೆಯೇ ಬುಕ್ ಮಾಡಿ",
+                    "cta.expect": "ಏನು ನಿರೀಕ್ಷಿಸಬಹುದು?",
+                    "badge.bestPhotos": "ಫೋಟೋಗಳಿಗೆ ಉತ್ತಮ",
+                    "pkg.pwTitle": "ಪ್ರೀ-ವೆಡ್ಡಿಂಗ್ ಫೋಟೋಶೂಟ್",
+                    "pkg.pwDesc": "ಗೋಲ್ಡನ್-ಆವರ್ ಬ್ಯಾಕ್‌ಡ್ರಾಪ್ಸ್ • ಶಾಂತ ನೀರು.",
+                    "pkg.pwLine1": "• ಪ್ರತಿ ಗಂಟೆಗೆ ಶುಲ್ಕ",
+                    "pkg.pwLine2": "• ಬೋಟ್ & ಸಿಬ್ಬಂದಿ ಸೇರಿದೆ",
+                    "pkg.pwLine3": "• ಸಮಯ ಸಲಹೆಗಳು",
+                    "pkg.pwNote": "ಪ್ರಾಪ್ಸ್/ಕ್ಯಾಮೆರಾ ತಂಡ ಗ್ರಾಹಕರಿಂದ",
+                    "cta.enquire": "ವಿಚಾರಿಸಿ",
+                    "cta.seeExamples": "ಉದಾಹರಣೆಗಳನ್ನು ನೋಡಿ",
+                    "badge.family": "ಕುಟುಂಬ ಸ್ನೇಹಿ",
+                    "pkg.sunsetTitle": "ಸನ್‌ಸೆಟ್ ಚಿಲ್ ರೈಡ್",
+                    "pkg.sunsetDesc": "ಸಂಜೆ ಸೂರ್ಯಾಸ್ತಕ್ಕೆ ಹೊಂದಿಸಿದ್ದ ಶಾಂತ ರೈಡ್.",
+                    "pkg.sunsetLine1": "• ಅವಧಿ: ~60–90 ನಿಮಿಷ",
+                    "pkg.sunsetLine2": "• ಶಾಂತ ಕಾಲುವೆಗಳು & ದ್ವೀಪಗಳು",
+                    "pkg.sunsetLine3": "• ಕುಡಿಯುವ ನೀರು ಸೇರಿದೆ",
+                    "cta.knowMore": "ಇನ್ನಷ್ಟು ಮಾಹಿತಿ",
+                    "sticky.ready": "ಬುಕ್ ಮಾಡಲು ಸಿದ್ಧವೇ?",
+                    "gallery.title": "ಗ್ಯಾಲರಿ",
+                    "gallery.subtitle":
+                        "ಇಲ್ಲಿನ ನಿಜವಾದ ಫೋಟೋಗಳು. ಜೂಮ್ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ.",
+                    "gallery.viewPkgs": "ಪ್ಯಾಕೇಜುಗಳನ್ನು ನೋಡಿ",
+                    "gallery.close": "ಮುಚ್ಚು ✕",
+                    "gallery.adv.title": "ಅಡ್ವೆಂಚರ್ ರೈಡ್ ಗ್ಯಾಲರಿ",
+                    "gallery.adv.subtitle":
+                        "ಸುಂದರ ಸ್ಥಳಗಳಲ್ಲಿ ಹೈ-ಎನರ್ಜಿ ರೈಡ್. ರೋಮಾಂಚನ ಅನುಭವಿಸಿ!",
+                    "gallery.pw.title": "ಪ್ರೀ-ವೆಡ್ಡಿಂಗ್ ಫೋಟೋಶೂಟ್ ಗ್ಯಾಲರಿ",
+                    "gallery.pw.subtitle":
+                        "ಗೋಲ್ಡನ್-ಆವರ್ ಬ್ಯಾಕ್‌ಡ್ರಾಪ್ಸ್ ಮತ್ತು ಶಾಂತ ನೀರಿನ ಮೇಲೆ ರೊಮ್ಯಾಂಟಿಕ್ ಕ್ಷಣಗಳು.",
+                    "gallery.sunset.title": "ಸನ್‌ಸೆಟ್ ಚಿಲ್ ರೈಡ್ ಗ್ಯಾಲರಿ",
+                    "gallery.sunset.subtitle":
+                        "ಶಾಂತ ಬ್ಯಾಕ್‌ವಾಟರ್ ಚಾನೆಲ್‌ಗಳ ಮೇಲೆ ಗೋಲ್ಡನ್ ಅವರ್ ಅನ್ನು ಆನಂದಿಸಿ.",
+                    "gallery.backBtn": "ಪ್ಯಾಕೇಜುಗಳಿಗೆ ಹಿಂತಿರುಗಿ",
+                    "reviews.title": "ಅತಿಥಿಗಳು ಏನು ಹೇಳಿದ್ದಾರೆ",
+                    "reviews.subtitle": "ನಮ್ಮ ರೈಡರ್‌ಗಳ ಸಂತೋಷದ ನೆನಪುಗಳು",
+                    "reviews.r1": "ಅದ್ಭುತ ಅನುಭವ! ಶಾಂತ ನೀರು ಮತ್ತು ಉತ್ತಮ ಸಿಬ್ಬಂದಿ.",
+                    "reviews.r2": "ಕುಟುಂಬ ಸಂಜೆಗಾಗಿ ಸೂಕ್ತ. ಮಕ್ಕಳಿಗೆ ತುಂಬಾ ಇಷ್ಟ ಆಯ್ತು!",
+                    "reviews.r3": "ಸಂದರ್ಶನೀಯ ಬ್ಯಾಕ್‌ವಾಟರ್ಸ್, ಸನ್‌ಸೆಟ್ ಫೋಟೋಗಳು ಅದ್ಭುತ.",
+                    "faq.title": "ಪ್ರಶ್ನೋತ್ತರ",
+                    "faq.subtitle": "ಬುಕ್ ಮಾಡುವ ಮೊದಲು ತ್ವರಿತ ಉತ್ತರಗಳು",
+                    "faq.q1": "ನಾವು ಏನು ತರಬೇಕು?",
+                    "faq.a1":
+                        "ಸನ್‌ಗ್ಲಾಸಸ್, ಹ್ಯಾಟ್, ಸನ್‌ಸ್ಕ್ರೀನ್ ಮತ್ತು ಫೋನ್/ಕ್ಯಾಮೆರಾ. ಲೈಫ್ ಜಾಕೆಟ್ ನೀಡಲಾಗುತ್ತದೆ.",
+                    "faq.q2": "ಕೆಟ್ಟ ಹವಾಮಾನದಲ್ಲಿ ರದ್ದು ಮಾಡುತ್ತೀರಾ?",
+                    "faq.a2":
+                        "ಹೌದು, ಸುರಕ್ಷತೆ ಮೊದಲು. ಹವಾಮಾನ ಕೆಟ್ಟರೆ ರೀ-ಶೆಡ್ಯೂಲ್ ಅಥವಾ ರಿಫಂಡ್.",
+                    "faq.q3": "ಪಾವತಿ ಹೇಗೆ?",
+                    "faq.a3":
+                        "UPI ಅಥವಾ ನಗದು. ಬ್ಯುಸಿ ದಿನಗಳಲ್ಲಿ ಸ್ವಲ್ಪ ಅಡ್ವಾನ್ಸ್ ಕೇಳಬಹುದು.",
+                    "faq.q4": "ಮಕ್ಕಳಿಗೆ ಸೂಕ್ತವೇ?",
+                    "faq.a4":
+                        "ಹೌದು. ಮಕ್ಕಳು ಲೈಫ್ ಜಾಕೆಟ್ ಧರಿಸಬೇಕು ಮತ್ತು ದೊಡ್ಡವರ ಜೊತೆ ಇರಬೇಕು.",
+                    "map.title": "ನಮ್ಮನ್ನು ಕಂಡುಹಿಡಿಯಿರಿ",
+                    "map.subtitle":
+                        "ದಾರಿಗಾಗಿ ನಕ್ಷೆ ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ. ಪಾರ್ಕಿಂಗ್ ಸಹಾಯಕ್ಕೆ ಕಾಲ್ ಅಥವಾ ವಾಟ್ಸಾಪ್ ಮಾಡಿ.",
+                    "map.tip1": "🅿️ ಉಚಿತ ಪಾರ್ಕಿಂಗ್ ಮಾರ್ಗದರ್ಶನ",
+                    "map.tip2": "🌅 ಉತ್ತಮ ಸಮಯ: ಸಂಜೆ 4–6:30",
+                    "contact.title": "ಸಂಪರ್ಕ",
+                    "contact.whatsapp": "ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಚಾಟ್ ಮಾಡಿ",
+                    "tips.title": "ಟಿಪ್ಸ್",
+                    "tips.l1": "• ಲೈಫ-ಜಾಕೆಟ್ ಫಿಟಿಂಗ್‌ಗೆ 10–15 ನಿಮಿಷ ಮುಂಚಿತವಾಗಿ ಬನ್ನಿ.",
+                    "tips.l2": "• ಗೋಲ್ಡನ್ ಅವರ್ ಬೆಳಕು ಫೋಟೋಗಳಿಗೆ ಬಹಳ ಚೆನ್ನಾಗಿದೆ.",
+                    "tips.l3": "• ಫೋನ್ ಸುರಕ್ಷಿತವಾಗಿ ಇರಿಸಿ; ಲಾನ್ಯಾರ್ಡ್ ಇದ್ದರೆ ಉತ್ತಮ.",
+                    "footer.rights": "ಎಲ್ಲ ಹಕ್ಕುಗಳು ಸಂರಕ್ಷಿತ.",
+                    "contact.link": "ಸಂಪರ್ಕ",
                 },
                 hi: {
-                    'bar.safety':
-                        '🦺 सुरक्षा पहले • लाइसेंस प्राप्त क्रू • सभी के लिए लाइफ जैकेट',
-                    'bar.call': 'कॉल:',
-                    'brand.name': 'महालक्ष्मी बोटिंग',
-                    'nav.home': 'होम',
-                    'nav.packages': 'पैकेज',
-                    'nav.highlights': 'हाइलाइट्स',
-                    'nav.gallery': 'गैलरी',
-                    'nav.reviews': 'रिव्यू',
-                    'nav.faq': 'प्रश्नोत्तर',
-                    'nav.map': 'मैप',
-                    'cta.whatsapp': 'व्हाट्सऐप पर बुक करें',
-                    'cta.seePackages': 'पैकेज देखें',
-                    'cta.whyUs': 'हमें क्यों चुनें?',
-                    'hero.badge': 'होन्नावर • शरावती बैकवॉटर्स',
-                    'hero.title':
-                        'होन्नावर बोटिंग — ऐसी बोट राइड्स जो मिनी-वेकेशन जैसी लगें।',
-                    'hero.p':
-                        '<strong>Mahalakshmi Boating</strong> में आपका स्वागत है — यह आपका स्थानीय प्रवेश द्वार है सुंदर <strong>Sharavati बैकवाटर्स</strong> (Honnavar) के लिए। हम निजी बोट राइड, पारिवारिक सनसेट क्रूज़, एडवेंचर राइड्स और प्री-वेडिंग फोटोशूट ट्रिप्स प्रदान करते हैं। हमारी लाइसेंसधारी क्रू (Nagesh Gouda) सुरक्षा (सभी के लिए लाइफ जैकेट) और फोटो फ्रेंडली रूट को प्राथमिकता देती है। वॉट्सऐप पर बुक करें या समय संबंधी सुझाव पूछें।',
-                    'badge.lifejackets': '🦺 लाइफ जैकेट्स',
-                    'badge.licensed': '⛵ लाइसेंस प्राप्त क्रू',
-                    'badge.photos': '📸 फोटो स्पॉट्स',
-                    'why.title': 'महालक्ष्मी बोटिंग क्यों?',
-                    'why.subtitle': 'तेज़ बुकिंग • स्पष्ट कीमत • दोस्ताना क्रू',
-                    'why.safeTitle': 'लाइसेंस प्राप्त & सुरक्षित',
-                    'why.safeDesc':
-                        'सभी के लिए लाइफ जैकेट, सेफ़्टी ब्रीफिंग और अनुभवी ऑपरेटर।',
-                    'why.scenicTitle': 'खूबसूरत जगहें',
-                    'why.scenicDesc':
-                        'खजूर-घिरी बैकवॉटर्स, द्वीप और शांत चैनल – तस्वीरों के लिए परफ़ेक्ट।',
-                    'why.easyTitle': 'आसान व्हाट्सऐप बुकिंग',
-                    'why.easyDesc': 'फास्ट रिप्लाई, टाइमिंग सुझाव और आसान UPI पेमेंट।',
-                    'pkg.title': 'लोकप्रिय पैकेज',
-                    'pkg.subtitle': 'पारदर्शी कीमतें। ग्रुप डिस्काउंट के लिए पूछें।',
-                    'badge.mostPopular': 'सबसे लोकप्रिय',
-                    'pkg.advTitle': 'एडवेंचर राइड',
-                    'pkg.advDesc': '3 दर्शनीय स्थानों पर हाई-एनर्जी राइड।',
-                    'pkg.advLine1': '• अवधि: 1-1.5 घंटे',
-                    'pkg.advLine2': '• अधिकतम 5 लोग',
-                    'pkg.advLine3': '• सेफ़्टी गियर शामिल',
-                    'pkg.advNote': '6+ मेहमान: प्रति व्यक्ति ₹200 अतिरिक्त',
-                    'cta.bookNow': 'अभी बुक करें',
-                    'cta.expect': 'क्या उम्मीद करें?',
-                    'badge.bestPhotos': 'फोटो के लिए बेस्ट',
-                    'pkg.pwTitle': 'प्री-वेडिंग फोटोशूट',
-                    'pkg.pwDesc': 'गोल्डन-आवर बैकड्रॉप्स और शांत पानी।',
-                    'pkg.pwLine1': '• प्रति घंटे शुल्क',
-                    'pkg.pwLine2': '• बोट और क्रू शामिल',
-                    'pkg.pwLine3': '• टाइमिंग सुझाव',
-                    'pkg.pwNote': 'प्रॉप्स/कैमरा क्रू क्लाइंट द्वारा',
-                    'cta.enquire': 'पूछताछ',
-                    'cta.seeExamples': 'उदाहरण देखें',
-                    'badge.family': 'परिवार-मित्र',
-                    'pkg.sunsetTitle': 'सनसेट चिल राइड',
-                    'pkg.sunsetDesc': 'सूर्यास्त के समय की आरामदायक राइड।',
-                    'pkg.sunsetLine1': '• अवधि: ~60–90 मिनट',
-                    'pkg.sunsetLine2': '• शांत चैनल और द्वीप',
-                    'pkg.sunsetLine3': '• पीने का पानी शामिल',
-                    'cta.knowMore': 'और जानें',
-                    'sticky.ready': 'बुक करने के लिए तैयार?',
-                    'gallery.title': 'गैलरी',
-                    'gallery.subtitle': 'यहीं के असली फोटो। बड़ा करने के लिए टैप करें।',
-                    'gallery.viewPkgs': 'पैकेज देखें',
-                    'gallery.close': 'बंद करें ✕',
-                    'gallery.adv.title': 'एडवेंचर राइड गैलरी',
-                    'gallery.adv.subtitle':
-                        'दर्शनीय स्थानों पर हाई-एनर्जी राइड। रोमांच का अनुभव करें!',
-                    'gallery.pw.title': 'प्री-वेडिंग फोटोशूट गैलरी',
-                    'gallery.pw.subtitle':
-                        'गोल्डन-आवर बैकड्रॉप्स और शांत पानी पर रोमांटिक पल।',
-                    'gallery.sunset.title': 'सनसेट चिल राइड गैलरी',
-                    'gallery.sunset.subtitle':
-                        'शांत बैकवाटर चैनल्स पर गोल्डन आवर का आनंद लें।',
-                    'gallery.backBtn': 'पैकेज पर वापस जाएं',
-                    'reviews.title': 'मेहमान क्या कहते हैं',
-                    'reviews.subtitle': 'हमारे राइडर्स की खुश यादें',
-                    'reviews.r1': 'कमाल का अनुभव! शांत पानी और बढ़िया क्रू।',
-                    'reviews.r2':
-                        'परिवार की शाम के लिए परफेक्ट। बच्चों को बहुत पसंद आया!',
-                    'reviews.r3': 'खूबसूरत बैकवॉटर्स, सनसेट की बेहतरीन तस्वीरें मिलीं।',
-                    'faq.title': 'प्रश्नोत्तर',
-                    'faq.subtitle': 'बुक करने से पहले त्वरित जवाब',
-                    'faq.q1': 'हमें क्या साथ लाना चाहिए?',
-                    'faq.a1':
-                        'सनग्लास, कैप/टोपी, सनस्क्रीन और आपका फोन/कैमरा। लाइफ जैकेट उपलब्ध है।',
-                    'faq.q2': 'खराब मौसम में क्या रद्द करेंगे?',
-                    'faq.a2':
-                        'हाँ, सुरक्षा पहले। मौसम unsafe होने पर हम रीस्‍केड्यूल या रिफंड करते हैं।',
-                    'faq.q3': 'पेमेंट कैसे करें?',
-                    'faq.a3':
-                        'UPI या नकद। भीड़ वाले दिनों में थोड़ा एडवांस माँगा जा सकता है।',
-                    'faq.q4': 'क्या बच्चों के लिए उपयुक्त है?',
-                    'faq.a4':
-                        'हाँ। बच्चों के लिए लाइफ जैकेट अनिवार्य है और वयस्कों के साथ रहना होगा।',
-                    'map.title': 'हमें खोजें',
-                    'map.subtitle':
-                        'दिशाओं के लिए मैप पर टैप करें। पार्किंग मदद के लिए कॉल/व्हाट्सऐप करें।',
-                    'map.tip1': '🅿️ फ्री पार्किंग गाइडेंस',
-                    'map.tip2': '🌅 सबसे अच्छा समय: 4–6:30 PM',
-                    'contact.title': 'संपर्क',
-                    'contact.whatsapp': 'व्हाट्सऐप पर चैट करें',
-                    'tips.title': 'टिप्स',
-                    'tips.l1': '• लाइफ-जैकेट फिटिंग के लिए 10–15 मिनट पहले पहुँचे।',
-                    'tips.l2': '• गोल्डन आवर की रोशनी फोटो के लिए शानदार है।',
-                    'tips.l3':
-                        '• फोन सुरक्षित रखें; संभव हो तो लैनयार्ड इस्तेमाल करें।',
-                    'footer.rights': 'सर्वाधिकार सुरक्षित।',
-                    'contact.link': 'संपर्क'
-                }
-            }
+                    "bar.safety":
+                        "🦺 सुरक्षा पहले • लाइसेंस प्राप्त क्रू • सभी के लिए लाइफ जैकेट",
+                    "bar.call": "कॉल:",
+                    "brand.name": "महालक्ष्मी बोटिंग",
+                    "nav.home": "होम",
+                    "nav.packages": "पैकेज",
+                    "nav.highlights": "हाइलाइट्स",
+                    "nav.gallery": "गैलरी",
+                    "nav.reviews": "रिव्यू",
+                    "nav.faq": "प्रश्नोत्तर",
+                    "nav.map": "मैप",
+                    "cta.whatsapp": "व्हाट्सऐप पर बुक करें",
+                    "cta.seePackages": "पैकेज देखें",
+                    "cta.whyUs": "हमें क्यों चुनें?",
+                    "hero.badge": "होन्नावर • शरावती बैकवॉटर्स",
+                    "hero.title":
+                        "होन्नावर बोटिंग — ऐसी बोट राइड्स जो मिनी-वेकेशन जैसी लगें।",
+                    "hero.p":
+                        "<strong>Mahalakshmi Boating</strong> में आपका स्वागत है — यह आपका स्थानीय प्रवेश द्वार है सुंदर <strong>Sharavati बैकवाटर्स</strong> (Honnavar) के लिए। हम निजी बोट राइड, पारिवारिक सनसेट क्रूज़, एडवेंचर राइड्स और प्री-वेडिंग फोटोशूट ट्रिप्स प्रदान करते हैं। हमारी लाइसेंसधारी क्रू (Nagesh Gouda) सुरक्षा (सभी के लिए लाइफ जैकेट) और फोटो फ्रेंडली रूट को प्राथमिकता देती है। वॉट्सऐप पर बुक करें या समय संबंधी सुझाव पूछें।",
+                    "badge.lifejackets": "🦺 लाइफ जैकेट्स",
+                    "badge.licensed": "⛵ लाइसेंस प्राप्त क्रू",
+                    "badge.photos": "📸 फोटो स्पॉट्स",
+                    "why.title": "महालक्ष्मी बोटिंग क्यों?",
+                    "why.subtitle": "तेज़ बुकिंग • स्पष्ट कीमत • दोस्ताना क्रू",
+                    "why.safeTitle": "लाइसेंस प्राप्त & सुरक्षित",
+                    "why.safeDesc":
+                        "सभी के लिए लाइफ जैकेट, सेफ़्टी ब्रीफिंग और अनुभवी ऑपरेटर।",
+                    "why.scenicTitle": "खूबसूरत जगहें",
+                    "why.scenicDesc":
+                        "खजूर-घिरी बैकवॉटर्स, द्वीप और शांत चैनल – तस्वीरों के लिए परफ़ेक्ट।",
+                    "why.easyTitle": "आसान व्हाट्सऐप बुकिंग",
+                    "why.easyDesc": "फास्ट रिप्लाई, टाइमिंग सुझाव और आसान UPI पेमेंट।",
+                    "pkg.title": "लोकप्रिय पैकेज",
+                    "pkg.subtitle": "पारदर्शी कीमतें। ग्रुप डिस्काउंट के लिए पूछें।",
+                    "badge.mostPopular": "सबसे लोकप्रिय",
+                    "pkg.advTitle": "एडवेंचर राइड",
+                    "pkg.advDesc": "3 दर्शनीय स्थानों पर हाई-एनर्जी राइड।",
+                    "pkg.advLine1": "• अवधि: 1-1.5 घंटे",
+                    "pkg.advLine2": "• अधिकतम 5 लोग",
+                    "pkg.advLine3": "• सेफ़्टी गियर शामिल",
+                    "pkg.advNote": "6+ मेहमान: प्रति व्यक्ति ₹200 अतिरिक्त",
+                    "cta.bookNow": "अभी बुक करें",
+                    "cta.expect": "क्या उम्मीद करें?",
+                    "badge.bestPhotos": "फोटो के लिए बेस्ट",
+                    "pkg.pwTitle": "प्री-वेडिंग फोटोशूट",
+                    "pkg.pwDesc": "गोल्डन-आवर बैकड्रॉप्स और शांत पानी।",
+                    "pkg.pwLine1": "• प्रति घंटे शुल्क",
+                    "pkg.pwLine2": "• बोट और क्रू शामिल",
+                    "pkg.pwLine3": "• टाइमिंग सुझाव",
+                    "pkg.pwNote": "प्रॉप्स/कैमरा क्रू क्लाइंट द्वारा",
+                    "cta.enquire": "पूछताछ",
+                    "cta.seeExamples": "उदाहरण देखें",
+                    "badge.family": "परिवार-मित्र",
+                    "pkg.sunsetTitle": "सनसेट चिल राइड",
+                    "pkg.sunsetDesc": "सूर्यास्त के समय की आरामदायक राइड।",
+                    "pkg.sunsetLine1": "• अवधि: ~60–90 मिनट",
+                    "pkg.sunsetLine2": "• शांत चैनल और द्वीप",
+                    "pkg.sunsetLine3": "• पीने का पानी शामिल",
+                    "cta.knowMore": "और जानें",
+                    "sticky.ready": "बुक करने के लिए तैयार?",
+                    "gallery.title": "गैलरी",
+                    "gallery.subtitle": "यहीं के असली फोटो। बड़ा करने के लिए टैप करें।",
+                    "gallery.viewPkgs": "पैकेज देखें",
+                    "gallery.close": "बंद करें ✕",
+                    "gallery.adv.title": "एडवेंचर राइड गैलरी",
+                    "gallery.adv.subtitle":
+                        "दर्शनीय स्थानों पर हाई-एनर्जी राइड। रोमांच का अनुभव करें!",
+                    "gallery.pw.title": "प्री-वेडिंग फोटोशूट गैलरी",
+                    "gallery.pw.subtitle":
+                        "गोल्डन-आवर बैकड्रॉप्स और शांत पानी पर रोमांटिक पल।",
+                    "gallery.sunset.title": "सनसेट चिल राइड गैलरी",
+                    "gallery.sunset.subtitle":
+                        "शांत बैकवाटर चैनल्स पर गोल्डन आवर का आनंद लें।",
+                    "gallery.backBtn": "पैकेज पर वापस जाएं",
+                    "reviews.title": "मेहमान क्या कहते हैं",
+                    "reviews.subtitle": "हमारे राइडर्स की खुश यादें",
+                    "reviews.r1": "कमाल का अनुभव! शांत पानी और बढ़िया क्रू।",
+                    "reviews.r2":
+                        "परिवार की शाम के लिए परफेक्ट। बच्चों को बहुत पसंद आया!",
+                    "reviews.r3": "खूबसूरत बैकवॉटर्स, सनसेट की बेहतरीन तस्वीरें मिलीं।",
+                    "faq.title": "प्रश्नोत्तर",
+                    "faq.subtitle": "बुक करने से पहले त्वरित जवाब",
+                    "faq.q1": "हमें क्या साथ लाना चाहिए?",
+                    "faq.a1":
+                        "सनग्लास, कैप/टोपी, सनस्क्रीन और आपका फोन/कैमरा। लाइफ जैकेट उपलब्ध है।",
+                    "faq.q2": "खराब मौसम में क्या रद्द करेंगे?",
+                    "faq.a2":
+                        "हाँ, सुरक्षा पहले। मौसम unsafe होने पर हम रीस्‍केड्यूल या रिफंड करते हैं।",
+                    "faq.q3": "पेमेंट कैसे करें?",
+                    "faq.a3":
+                        "UPI या नकद। भीड़ वाले दिनों में थोड़ा एडवांस माँगा जा सकता है।",
+                    "faq.q4": "क्या बच्चों के लिए उपयुक्त है?",
+                    "faq.a4":
+                        "हाँ। बच्चों के लिए लाइफ जैकेट अनिवार्य है और वयस्कों के साथ रहना होगा।",
+                    "map.title": "हमें खोजें",
+                    "map.subtitle":
+                        "दिशाओं के लिए मैप पर टैप करें। पार्किंग मदद के लिए कॉल/व्हाट्सऐप करें।",
+                    "map.tip1": "🅿️ फ्री पार्किंग गाइडेंस",
+                    "map.tip2": "🌅 सबसे अच्छा समय: 4–6:30 PM",
+                    "contact.title": "संपर्क",
+                    "contact.whatsapp": "व्हाट्सऐप पर चैट करें",
+                    "tips.title": "टिप्स",
+                    "tips.l1": "• लाइफ-जैकेट फिटिंग के लिए 10–15 मिनट पहले पहुँचे।",
+                    "tips.l2": "• गोल्डन आवर की रोशनी फोटो के लिए शानदार है।",
+                    "tips.l3":
+                        "• फोन सुरक्षित रखें; संभव हो तो लैनयार्ड इस्तेमाल करें।",
+                    "footer.rights": "सर्वाधिकार सुरक्षित।",
+                    "contact.link": "संपर्क",
+                },
+            };
 
             function applyTranslations(lang) {
-                const dict = i18n[lang] || i18n.en
-                document.documentElement.setAttribute('lang', lang)
+                const dict = i18n[lang] || i18n.en;
+                document.documentElement.setAttribute("lang", lang);
 
                 // plain text keys
-                document.querySelectorAll('[data-i18n]').forEach(el => {
-                    const key = el.getAttribute('data-i18n')
-                    if (dict[key] !== undefined) el.innerText = dict[key]
-                })
+                document.querySelectorAll("[data-i18n]").forEach((el) => {
+                    const key = el.getAttribute("data-i18n");
+                    if (dict[key] !== undefined) el.innerText = dict[key];
+                });
 
                 // html-safe keys
-                document.querySelectorAll('[data-i18n-html]').forEach(el => {
-                    const key = el.getAttribute('data-i18n-html')
-                    if (dict[key] !== undefined) el.innerHTML = dict[key]
-                })
+                document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+                    const key = el.getAttribute("data-i18n-html");
+                    if (dict[key] !== undefined) el.innerHTML = dict[key];
+                });
 
                 // attribute mapping: data-i18n-attr="alt:some.key;title:another.key"
-                document.querySelectorAll('[data-i18n-attr]').forEach(el => {
-                    const pairs = el.getAttribute('data-i18n-attr').split(';')
-                    pairs.forEach(pair => {
-                        const [attr, key] = pair.split(':').map(s => s && s.trim())
+                document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
+                    const pairs = el.getAttribute("data-i18n-attr").split(";");
+                    pairs.forEach((pair) => {
+                        const [attr, key] = pair.split(":").map((s) => s && s.trim());
                         if (attr && key && dict[key] !== undefined)
-                            el.setAttribute(attr, dict[key])
-                    })
-                })
+                            el.setAttribute(attr, dict[key]);
+                    });
+                });
 
                 // persisted choice
-                localStorage.setItem('lang', lang)
+                localStorage.setItem("lang", lang);
             }
 
-            const select = document.getElementById('langSwitcher')
-            const saved = localStorage.getItem('lang') || 'en'
-            if (select) select.value = saved
-            applyTranslations(saved)
+            const select = document.getElementById("langSwitcher");
+            const saved = localStorage.getItem("lang") || "en";
+            if (select) select.value = saved;
+            applyTranslations(saved);
 
             if (select)
-                select.addEventListener('change', e =>
+                select.addEventListener("change", (e) =>
                     applyTranslations(e.target.value)
-                )
-        })
+                );
+        });
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener("DOMContentLoaded", () => {
             const slides = Array.from(
-                document.querySelectorAll('#slideshow .slide')
-            )
-            let i = 0
+                document.querySelectorAll("#slideshow .slide")
+            );
+            let i = 0;
             function show(n) {
                 slides.forEach((img, idx) => {
-                    img.classList.toggle('opacity-100', idx === n)
-                    img.classList.toggle('opacity-0', idx !== n)
-                })
+                    img.classList.toggle("opacity-100", idx === n);
+                    img.classList.toggle("opacity-0", idx !== n);
+                });
             }
             setInterval(() => {
-                i = (i + 1) % slides.length
-                show(i)
-            }, 3000)
-        })
+                i = (i + 1) % slides.length;
+                show(i);
+            }, 3000);
+        });
     </script>
     <script>
         // Disable Right Click
         document.addEventListener(
-            'contextmenu',
+            "contextmenu",
             function (e) {
-                e.preventDefault()
+                e.preventDefault();
             },
             false
-        )
+        );
 
         // Disable Dragging (images, text, etc.)
-        document.addEventListener('dragstart', function (event) {
-            event.preventDefault()
-        })
+        document.addEventListener("dragstart", function (event) {
+            event.preventDefault();
+        });
 
         // Disable Text Selection
-        document.addEventListener('selectstart', function (e) {
-            e.preventDefault()
-        })
+        document.addEventListener("selectstart", function (e) {
+            e.preventDefault();
+        });
 
         // Disable common inspect shortcuts
         document.onkeydown = function (e) {
             // F12
             if (e.keyCode == 123) {
-                return false
+                return false;
             }
             // Ctrl+Shift+I
             if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-                return false
+                return false;
             }
             // Ctrl+Shift+J
             if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-                return false
+                return false;
             }
             // Ctrl+Shift+C
             if (e.ctrlKey && e.shiftKey && e.keyCode == 67) {
-                return false
+                return false;
             }
             // Ctrl+U
             if (e.ctrlKey && e.keyCode == 85) {
-                return false
+                return false;
             }
             // Ctrl+S
             if (e.ctrlKey && e.keyCode == 83) {
-                return false
+                return false;
             }
             // Ctrl+C
             if (e.ctrlKey && e.keyCode == 67) {
-                return false
+                return false;
             }
             // Ctrl+X
             if (e.ctrlKey && e.keyCode == 88) {
-                return false
+                return false;
             }
             // Ctrl+P
             if (e.ctrlKey && e.keyCode == 80) {
-                return false
+                return false;
             }
-        }
+        };
 
         // Detect DevTools opening
-        let devtools = function () { }
+        let devtools = function () { };
         devtools.toString = function () {
             // When DevTools is opened, console panel opens, triggering this
             // alert("Inspecting is blocked on this site.");
-        }
-        console.log('%c', devtools)
+        };
+        console.log("%c", devtools);
     </script>
 
     <script>
         // Show the Uttara Kannada popup when footer becomes visible
-        document.addEventListener('DOMContentLoaded', () => {
-            const popup = document.getElementById('uk-popup')
-            const footer = document.querySelector('footer')
-            if (!popup || !footer) return
+        document.addEventListener("DOMContentLoaded", () => {
+            const popup = document.getElementById("uk-popup");
+            const footer = document.querySelector("footer");
+            if (!popup || !footer) return;
 
             // Mobile: reveal when footer intersects
             const io = new IntersectionObserver(
-                entries => {
+                (entries) => {
                     for (const entry of entries) {
-                        if (entry.isIntersecting) popup.classList.remove('hidden') // mobile only; desktop already visible
+                        if (entry.isIntersecting) popup.classList.remove("hidden"); // mobile only; desktop already visible
                     }
                 },
                 { threshold: 0.1 }
-            )
-            io.observe(footer)
+            );
+            io.observe(footer);
 
             // Close: hide everywhere (including desktop overriding md:flex)
             document.addEventListener(
-                'click',
-                e => {
-                    if (!e.target.closest('#uk-popup-close')) return
-                    e.preventDefault()
-                    e.stopPropagation()
-                    popup.classList.add('hidden', 'md:hidden')
+                "click",
+                (e) => {
+                    if (!e.target.closest("#uk-popup-close")) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    popup.classList.add("hidden", "md:hidden");
                 },
                 { capture: true }
-            )
+            );
 
             // Optional: ESC closes
-            document.addEventListener('keydown', e => {
-                if (e.key === 'Escape') popup.classList.add('hidden', 'md:hidden')
-            })
-        })
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") popup.classList.add("hidden", "md:hidden");
+            });
+        });
     </script>
 </body>
 
