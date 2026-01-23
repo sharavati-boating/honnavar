@@ -899,8 +899,20 @@
 
                         // Open Google Pay with UPI link
                         window.openGooglePay = function (amount) {
-                            const upiId = 'nageshgouda47508-1@okaxis'
-                            const payeeName = 'Mahalakshmi Boating'
+                            // Get booking details
+                            const name = document.getElementById('userName').value
+                            const timeSlot = document.getElementById('timeSlot').value
+                            const numPeopleInput = document.getElementById('numPeople')
+                            const durationSelect = document.getElementById('duration')
+
+                            // Validate required fields
+                            if (!name || !timeSlot) {
+                                alert('Please fill in your name and select a timing before proceeding to payment.')
+                                return
+                            }
+
+                            const upiId = 'fantasticpredator390@oksbi'
+                            const payeeName = 'Vishwanath Narayan Gouda'
                             const transactionRef = 'MahalakshmiBoating-' + Date.now()
 
                             // UPI deep link format: upi://pay?pa=UPI_ID&pn=PAYEE_NAME&am=AMOUNT&tn=DESCRIPTION
@@ -912,7 +924,30 @@
                                 return
                             }
 
+                            // Prepare WhatsApp message with booking details
+                            const phoneNumber = '919483500835'
+                            let message = `*New Booking Request - Google Pay*\n\n*Name:* ${name}\n*Package:* ${packageName}\n*Timing:* ${timeSlot}\n*Amount:* ₹${amount}`
+
+                            // Add additional details for Adventure Ride
+                            if (numPeopleInput && durationSelect) {
+                                const numPeople = numPeopleInput.value
+                                const duration = durationSelect.options[durationSelect.selectedIndex].text
+                                message += `\n*Duration:* ${duration}\n*Number of People:* ${numPeople}`
+                            }
+
+                            message += `\n*Transaction Ref:* ${transactionRef}\n\n_Customer has initiated Google Pay payment. Please verify payment receipt._`
+
+                            const formattedMessage = encodeURIComponent(message)
+                            const whatsappLink = `https://wa.me/${phoneNumber}?text=${formattedMessage}`
+
+                            // Open UPI app first
                             window.location.href = upiLink
+
+                            // After a short delay, redirect to WhatsApp
+                            // This gives time for the UPI app to open
+                            setTimeout(() => {
+                                window.location.href = whatsappLink
+                            }, 2000)
                         }
 
                         // Calculate total price based on duration and number of people
@@ -972,7 +1007,7 @@
 
                             // If no screenshot, send with just the booking details
                             if (fileInput.files.length === 0) {
-                                const phoneNumber = '919483500835'
+                                const phoneNumber = '919449358010'
                                 const message = `*New Booking Request*\n\n*Name:* ${name}\n*Package:* ${packageName}\n*Timing:* ${timeSlot}\n*Payment:* User paid via Google Pay`
                                 const formattedMessage = encodeURIComponent(message)
                                 window.location.href = `https://wa.me/${phoneNumber}?text=${formattedMessage}`
