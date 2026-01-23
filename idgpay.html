@@ -893,9 +893,16 @@
                         // Toggle screenshot section visibility
                         window.toggleScreenshot = function () {
                             const section = document.getElementById('screenshotSection')
-                            section.style.display = section.style.display === 'none' ? 'block' : 'none'
                             const input = document.getElementById('screenshot')
-                            input.required = section.style.display !== 'none'
+
+                            if (section.style.display === 'none' || section.style.display === '') {
+                                section.style.display = 'block'
+                                input.required = true
+                            } else {
+                                section.style.display = 'none'
+                                input.required = false
+                                input.value = '' // Clear the file input when hiding
+                            }
                         }
 
                         // Open Google Pay with UPI link
@@ -989,25 +996,28 @@
                         document.getElementById('bookingForm').onsubmit = async e => {
                             e.preventDefault()
                             const btn = document.getElementById('submitBtn')
-                            btn.innerText = 'Uploading... Please Wait'
-                            btn.disabled = true
 
                             const name = document.getElementById('userName').value
                             const timeSlot = document.getElementById('timeSlot').value
                             const fileInput = document.getElementById('screenshot')
+                            const screenshotSection = document.getElementById('screenshotSection')
                             const API_KEY = '3dac737f0533df7978344b88557be873' // Replace with your ImgBB API key
 
-                            // Check if screenshot is required (only if Manual payment section is visible)
-                            const screenshotSection = document.getElementById('screenshotSection')
-                            if (screenshotSection.style.display !== 'none' && fileInput.files.length === 0) {
-                                alert('Please upload an image.')
-                                btn.innerText = 'Send to WhatsApp'
-                                btn.disabled = false
+                            // Check if screenshot section is visible (Manual payment selected)
+                            const isManualPayment = screenshotSection && (screenshotSection.style.display === 'block' || screenshotSection.style.display === '')
+
+                            // If Manual payment is selected, screenshot is REQUIRED
+                            if (isManualPayment && (!fileInput.files || fileInput.files.length === 0)) {
+                                alert('Please upload a payment screenshot before submitting.')
                                 return
                             }
 
-                            // If no screenshot, send with just the booking details
-                            if (fileInput.files.length === 0) {
+                            // Start upload process
+                            btn.innerText = 'Uploading... Please Wait'
+                            btn.disabled = true
+
+                            // If no screenshot (Google Pay flow), send with just the booking details
+                            if (!fileInput.files || fileInput.files.length === 0) {
                                 const phoneNumber = '919449358010'
                                 const message = `*New Booking Request*\n\n*Name:* ${name}\n*Package:* ${packageName}\n*Timing:* ${timeSlot}\n*Payment:* User paid via Google Pay`
                                 const formattedMessage = encodeURIComponent(message)
