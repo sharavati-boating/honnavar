@@ -912,8 +912,8 @@
                                 return
                             }
 
-                            const upiId = 'fantasticpredator390@oksbi'
-                            const payeeName = 'Vishwanath Narayan Gouda'
+                            const upiId = 'nageshgouda47508-1@okaxis'
+                            const payeeName = 'Mahalakshmi Boating'
                             const transactionRef = 'MahalakshmiBoating-' + Date.now()
 
                             // UPI deep link format: upi://pay?pa=UPI_ID&pn=PAYEE_NAME&am=AMOUNT&tn=DESCRIPTION
@@ -926,7 +926,7 @@
                             }
 
                             // Prepare WhatsApp message with booking details
-                            const phoneNumber = '919483500835'
+                            const phoneNumber = '919449358010'
                             let message = `*New Booking Request - Google Pay*\n\n*Name:* ${name}\n*Package:* ${packageName}\n*Timing:* ${timeSlot}\n*Amount:* ₹${amount}`
 
                             // Add additional details for Adventure Ride
@@ -1008,7 +1008,7 @@
 
                             // If no screenshot, send with just the booking details
                             if (fileInput.files.length === 0) {
-                                const phoneNumber = '919483500835'
+                                const phoneNumber = '919449358010'
                                 const message = `*New Booking Request*\n\n*Name:* ${name}\n*Package:* ${packageName}\n*Timing:* ${timeSlot}\n*Payment:* User paid via Google Pay`
                                 const formattedMessage = encodeURIComponent(message)
                                 window.location.href = `https://wa.me/${phoneNumber}?text=${formattedMessage}`
@@ -1048,7 +1048,7 @@
 
                                 const imageUrl = result.data.url
 
-                                const phoneNumber = '919483500835' // Replace with the owner's WhatsApp number
+                                const phoneNumber = '919449358010' // Replace with the owner's WhatsApp number
                                 const message = `*New Booking Request*\n\n*Name:* ${name}\n*Package:* ${packageName}\n*Timing:* ${timeSlot}\n*Payment Proof:* ${imageUrl}`
                                 const formattedMessage = encodeURIComponent(message) // Properly encode the message
                                 window.location.href = `https://wa.me/${phoneNumber}?text=${formattedMessage}`
