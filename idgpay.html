@@ -873,9 +873,10 @@
 
                 <p id="totalPrice" style="font-weight: bold;">Total Price: ₹${price}</p>
 
+
                 <label>Payment Options:</label><br>
                 <div style="display: flex; gap: 10px; margin: 10px 0;">
-                    <button type="button" id="gpayBtn" onclick="openGooglePay(document.getElementById('duration').value)" style="flex: 1; background: #1f2937; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px;">💳 Google Pay</button>
+                    <button type="button" id="gpayBtn" onclick="openGooglePay(${price})" style="flex: 1; background: #1f2937; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px;">💳 Google Pay</button>
                     <button type="button" onclick="toggleScreenshot()" style="flex: 1; background: #06b6d4; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px;">📸 Manual</button>
                 </div>
                 <div id="screenshotSection" style="display: none;">
