@@ -856,16 +856,20 @@
                     <option value="Evening (4:00 PM - 6:00 PM)">Evening (4:00 PM - 6:00 PM)</option>
                     <option value="Sunset (6:00 PM - 7:30 PM)">Sunset (6:00 PM - 7:30 PM)</option>
                 </select><br>
-                <label>Select Duration:</label><br>
-                <select id="duration" required style="width: 100%; padding: 10px; margin: 10px 0;">
-                    <option value="800" selected>1 Hour (₹800)</option>
-                    <option value="1000">1.5 Hours (₹1000)</option>
-                </select><br>
+                <div id="durationSection" style="display: ${packageName === 'Adventure Ride' ? 'block' : 'none'};">
+                    <label>Select Duration:</label><br>
+                    <select id="duration" required style="width: 100%; padding: 10px; margin: 10px 0;">
+                        <option value="800" selected>1 Hour (₹800)</option>
+                        <option value="1000">1.5 Hours (₹1000)</option>
+                    </select><br>
+                </div>
 
-                <label>Number of People:</label><br>
-                <input type="number" id="numPeople" value="1" min="1" required style="width: 100%; padding: 10px; margin: 10px 0;"><br>
+                <div id="peopleSection" style="display: ${packageName === 'Adventure Ride' ? 'block' : 'none'};">
+                    <label>Number of People:</label><br>
+                    <input type="number" id="numPeople" value="1" min="1" required style="width: 100%; padding: 10px; margin: 10px 0;"><br>
+                </div>
 
-                <p id="totalPrice" style="font-weight: bold;">Total Price: ₹800</p>
+                <p id="totalPrice" style="font-weight: bold;">Total Price: ₹${price}</p>
 
                 <label>Payment Options:</label><br>
                 <div style="display: flex; gap: 10px; margin: 10px 0;">
@@ -893,7 +897,7 @@
 
                         // Open Google Pay with UPI link
                         window.openGooglePay = function(amount) {
-                            const upiId = 'fantasticpredator390@oksbi'
+                            const upiId = 'nageshgouda47508-1@okaxis'
                             const payeeName = 'Mahalakshmi Boating'
                             const transactionRef = 'MahalakshmiBoating-' + Date.now()
                             
