@@ -856,9 +856,20 @@
                     <option value="Evening (4:00 PM - 6:00 PM)">Evening (4:00 PM - 6:00 PM)</option>
                     <option value="Sunset (6:00 PM - 7:30 PM)">Sunset (6:00 PM - 7:30 PM)</option>
                 </select><br>
+                <label>Select Duration:</label><br>
+                <select id="duration" required style="width: 100%; padding: 10px; margin: 10px 0;">
+                    <option value="800" selected>1 Hour (₹800)</option>
+                    <option value="1000">1.5 Hours (₹1000)</option>
+                </select><br>
+
+                <label>Number of People:</label><br>
+                <input type="number" id="numPeople" value="1" min="1" required style="width: 100%; padding: 10px; margin: 10px 0;"><br>
+
+                <p id="totalPrice" style="font-weight: bold;">Total Price: ₹800</p>
+
                 <label>Payment Options:</label><br>
                 <div style="display: flex; gap: 10px; margin: 10px 0;">
-                    <button type="button" id="gpayBtn" onclick="openGooglePay('${price}')" style="flex: 1; background: #1f2937; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px;">💳 Google Pay</button>
+                    <button type="button" id="gpayBtn" onclick="openGooglePay(document.getElementById('duration').value)" style="flex: 1; background: #1f2937; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px;">💳 Google Pay</button>
                     <button type="button" onclick="toggleScreenshot()" style="flex: 1; background: #06b6d4; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px;">📸 Manual</button>
                 </div>
                 <div id="screenshotSection" style="display: none;">
@@ -882,7 +893,7 @@
 
                         // Open Google Pay with UPI link
                         window.openGooglePay = function(amount) {
-                            const upiId = 'nageshgouda47508-1@okaxis'
+                            const upiId = 'fantasticpredator390@oksbi'
                             const payeeName = 'Mahalakshmi Boating'
                             const transactionRef = 'MahalakshmiBoating-' + Date.now()
                             
@@ -1295,7 +1306,7 @@
                         Do you cancel for bad weather?
                     </summary>
                     <p class="mt-2 text-slate-700" data-i18n="faq.a2">
-                        Yes, safety first. We reschedule or refund if the weather is
+                        Yes, safety first. We reschedule or refund
                         unsafe.
                     </p>
                 </details>
@@ -1759,7 +1770,7 @@
                     "cta.expect": "ಏನು ನಿರೀಕ್ಷಿಸಬಹುದು?",
                     "badge.bestPhotos": "ಫೋಟೋಗಳಿಗೆ ಉತ್ತಮ",
                     "pkg.pwTitle": "ಪ್ರೀ-ವೆಡ್ಡಿಂಗ್ ಫೋಟೋಶೂಟ್",
-                    "pkg.pwDesc": "ಗೋಲ್ಡನ್-ಆವರ್ ಬ್ಯಾಕ್‌ಡ್ರಾಪ್ಸ್ • ಶಾಂತ ನೀರು.",
+                    "pkg.pwDesc": "ಗೋಲ್ಡನ್-ಆವರ್ ಬ್ಯಾಕ್‌ಡ್ರಾಪ್ಸ್ ಮತ್ತು ಶಾಂತ ನೀರಿನ ಮೇಲೆ ರೊಮ್ಯಾಂಟಿಕ್ ಕ್ಷಣಗಳು.",
                     "pkg.pwLine1": "• ಪ್ರತಿ ಗಂಟೆಗೆ ಶುಲ್ಕ",
                     "pkg.pwLine2": "• ಬೋಟ್ & ಸಿಬ್ಬಂದಿ ಸೇರಿದೆ",
                     "pkg.pwLine3": "• ಸಮಯ ಸಲಹೆಗಳು",
@@ -1798,7 +1809,7 @@
                     "faq.subtitle": "ಬುಕ್ ಮಾಡುವ ಮೊದಲು ತ್ವರಿತ ಉತ್ತರಗಳು",
                     "faq.q1": "ನಾವು ಏನು ತರಬೇಕು?",
                     "faq.a1":
-                        "ಸನ್‌ಗ್ಲಾಸಸ್, ಹ್ಯಾಟ್, ಸನ್‌ಸ್ಕ್ರೀನ್ ಮತ್ತು ಫೋನ್/ಕ್ಯಾಮೆರಾ. ಲೈಫ್ ಜಾಕೆಟ್ ನೀಡಲಾಗುತ್ತದೆ.",
+                        "ಸನ್‌ಗ್ಲಾಸಸ್, ಹ್ಯಾಟ್, ಸುರ್ಯಕಾಂತಿ, ಮತ್ತು ನಿಮ್ಮ ಫೋನ್/ಕ್ಯಾಮೆರಾ. ಲೈಫ್ ಜಾಕೆಟ್ ನೀಡಲಾಗುತ್ತದೆ.",
                     "faq.q2": "ಕೆಟ್ಟ ಹವಾಮಾನದಲ್ಲಿ ರದ್ದು ಮಾಡುತ್ತೀರಾ?",
                     "faq.a2":
                         "ಹೌದು, ಸುರಕ್ಷತೆ ಮೊದಲು. ಹವಾಮಾನ ಕೆಟ್ಟರೆ ರೀ-ಶೆಡ್ಯೂಲ್ ಅಥವಾ ರಿಫಂಡ್.",
@@ -1868,7 +1879,7 @@
                     "cta.expect": "क्या उम्मीद करें?",
                     "badge.bestPhotos": "फोटो के लिए बेस्ट",
                     "pkg.pwTitle": "प्री-वेडिंग फोटोशूट",
-                    "pkg.pwDesc": "गोल्डन-आवर बैकड्रॉप्स और शांत पानी।",
+                    "pkg.pwDesc": "गोल्डन-आवेर बैकड्रॉप्स और शांत पानी।",
                     "pkg.pwLine1": "• प्रति घंटे शुल्क",
                     "pkg.pwLine2": "• बोट और क्रू शामिल",
                     "pkg.pwLine3": "• टाइमिंग सुझाव",
@@ -1892,7 +1903,7 @@
                         "दर्शनीय स्थानों पर हाई-एनर्जी राइड। रोमांच का अनुभव करें!",
                     "gallery.pw.title": "प्री-वेडिंग फोटोशूट गैलरी",
                     "gallery.pw.subtitle":
-                        "गोल्डन-आवर बैकड्रॉप्स और शांत पानी पर रोमांटिक पल।",
+                        "गोल्डन-आवेर बैकड्रॉप्स और शांत पानी पर रोमांटिक पल।",
                     "gallery.sunset.title": "सनसेट चिल राइड गैलरी",
                     "gallery.sunset.subtitle":
                         "शांत बैकवाटर चैनल्स पर गोल्डन आवर का आनंद लें।",
@@ -1929,8 +1940,8 @@
                     "tips.l2": "• गोल्डन आवर की रोशनी फोटो के लिए शानदार है।",
                     "tips.l3":
                         "• फोन सुरक्षित रखें; संभव हो तो लैनयार्ड इस्तेमाल करें।",
-                    "footer.rights": "सर्वाधिकार सुरक्षित।",
-                    "contact.link": "संपर्क",
+                    "footer.rights": "सर्वाधिकार ಸುರಕ್ಷಿತ.",
+                    "contact.link": "ಸಂಪರ್ಕ",
                 },
             };
 
