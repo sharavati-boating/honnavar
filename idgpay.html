@@ -837,13 +837,14 @@
                         <a href="#sunset-gallery" class="btn-ghost" data-i18n="cta.knowMore">Know more</a>
                     </div>
                 </div>
-                
-                 <script>
+
+                <script>
                     function openBookingForm(packageName, price) {
                         const formHtml = `
-        <div id="bookingModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
-            <form id="bookingForm" style="background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 400px;">
-                <h3>Book ${packageName}</h3>
+        <div id="bookingModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000; padding: 20px;">
+            <form id="bookingForm" style="background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 400px; max-height: 90vh; overflow-y: auto; position: relative;">
+                <button type="button" onclick="closeBookingForm()" style="position: absolute; top: 10px; right: 10px; background: #ef4444; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; font-size: 18px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×</button>
+                <h3 style="margin-top: 10px;">Book ${packageName}</h3>
                 <p><strong>UPI Number:</strong> nageshgouda47508-1@okaxis</p>
                 <p>Scan the QR code below to make the payment:</p>
                 <img src="https://sharavati-boating.github.io/honnavar/images/IMG_20260122_133345.png" alt="UPI QR Code" style="width: 100%; max-width: 200px; margin: 10px auto; display: block;">
@@ -859,14 +860,15 @@
                 <div id="durationSection" style="display: ${packageName === 'Adventure Ride' ? 'block' : 'none'};">
                     <label>Select Duration:</label><br>
                     <select id="duration" required style="width: 100%; padding: 10px; margin: 10px 0;">
-                        <option value="800" selected>1 Hour (₹800)</option>
-                        <option value="1000">1.5 Hours (₹1000)</option>
+                        <option value="1" selected>1 Hour (₹800 up to 6 people)</option>
+                        <option value="1.5">1.5 Hours (₹1500 up to 6 people)</option>
                     </select><br>
                 </div>
 
                 <div id="peopleSection" style="display: ${packageName === 'Adventure Ride' ? 'block' : 'none'};">
                     <label>Number of People:</label><br>
                     <input type="number" id="numPeople" value="1" min="1" required style="width: 100%; padding: 10px; margin: 10px 0;"><br>
+                    <button type="button" onclick="calculateTotalPrice()" style="background: #0284c7; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">Calculate Total Price</button>
                 </div>
 
                 <p id="totalPrice" style="font-weight: bold;">Total Price: ₹${price}</p>
@@ -888,7 +890,7 @@
                         document.body.insertAdjacentHTML('beforeend', formHtml)
 
                         // Toggle screenshot section visibility
-                        window.toggleScreenshot = function() {
+                        window.toggleScreenshot = function () {
                             const section = document.getElementById('screenshotSection')
                             section.style.display = section.style.display === 'none' ? 'block' : 'none'
                             const input = document.getElementById('screenshot')
@@ -896,21 +898,56 @@
                         }
 
                         // Open Google Pay with UPI link
-                        window.openGooglePay = function(amount) {
+                        window.openGooglePay = function (amount) {
                             const upiId = 'nageshgouda47508-1@okaxis'
                             const payeeName = 'Mahalakshmi Boating'
                             const transactionRef = 'MahalakshmiBoating-' + Date.now()
-                            
+
                             // UPI deep link format: upi://pay?pa=UPI_ID&pn=PAYEE_NAME&am=AMOUNT&tn=DESCRIPTION
                             const upiLink = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&tn=${encodeURIComponent('Boat Booking - ' + packageName)}&tr=${transactionRef}`
-                            
+
                             // For web fallback, show alert
                             if (!/android|iphone|ipad/i.test(navigator.userAgent)) {
                                 alert('Please use a mobile device to pay with Google Pay or scan the QR code above.')
                                 return
                             }
-                            
+
                             window.location.href = upiLink
+                        }
+
+                        // Calculate total price based on duration and number of people
+                        window.calculateTotalPrice = function () {
+                            const durationSelect = document.getElementById('duration')
+                            const numPeopleInput = document.getElementById('numPeople')
+                            const totalPriceElement = document.getElementById('totalPrice')
+                            const gpayBtn = document.getElementById('gpayBtn')
+
+                            if (!durationSelect || !numPeopleInput) return
+
+                            const duration = parseFloat(durationSelect.value) || 1
+                            const numPeople = parseInt(numPeopleInput.value) || 1
+
+                            let totalPrice = 0
+
+                            // Pricing logic:
+                            // Up to 6 people: ₹800 for 1hr, ₹1500 for 1.5hr
+                            // More than 6 people: ₹200/person for 1hr, ₹250/person for 1.5hr
+                            if (numPeople <= 6) {
+                                totalPrice = duration === 1 ? 800 : 1500
+                            } else {
+                                const pricePerPerson = duration === 1 ? 200 : 250
+                                totalPrice = numPeople * pricePerPerson
+                            }
+
+                            // Update the display
+                            if (totalPriceElement) {
+                                totalPriceElement.innerHTML = `Total Price: ₹${totalPrice}`
+                            }
+
+                            // Update Google Pay button to use the calculated price
+                            if (gpayBtn) {
+                                gpayBtn.setAttribute('onclick', `openGooglePay(${totalPrice})`)
+                            }
                         }
 
                         document.getElementById('bookingForm').onsubmit = async e => {
@@ -1496,7 +1533,7 @@
     </section>
 
     <!-- Footer -->
-        <footer class="bg-slate-900 text-white pt-10 pb-36 md:pb-12 relative overflow-hidden">
+    <footer class="bg-slate-900 text-white pt-10 pb-36 md:pb-12 relative overflow-hidden">
         <!-- Top gradient accent line -->
         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sky-500 via-purple-500 to-orange-500"></div>
 
@@ -1790,8 +1827,7 @@
                     "cta.knowMore": "ಇನ್ನಷ್ಟು ಮಾಹಿತಿ",
                     "sticky.ready": "ಬುಕ್ ಮಾಡಲು ಸಿದ್ಧವೇ?",
                     "gallery.title": "ಗ್ಯಾಲರಿ",
-                    "gallery.subtitle":
-                        "ಇಲ್ಲಿನ ನಿಜವಾದ ಫೋಟೋಗಳು. ಜೂಮ್ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ.",
+                    "gallery.subtitle": "ಇಲ್ಲಿನ ನಿಜವಾದ ಫೋಟೋಗಳು. ಜೂಮ್ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ.",
                     "gallery.viewPkgs": "ಪ್ಯಾಕೇಜುಗಳನ್ನು ನೋಡಿ",
                     "gallery.close": "ಮುಚ್ಚು ✕",
                     "gallery.adv.title": "ಅಡ್ವೆಂಚರ್ ರೈಡ್ ಗ್ಯಾಲರಿ",
