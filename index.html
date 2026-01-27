@@ -770,7 +770,7 @@
                         ₹800(1 Hr) | ₹1000(1.5 Hrs)
                     </div>
                     <p class="text-xs text-slate-500" data-i18n="pkg.advNote">
-                        6+ guests: ₹200 / person extra
+                        6+ guests: ₹200 / person 
                     </p>
                     <div class="mt-5 flex flex-wrap gap-3">
                         <button class="btn-primary" onclick="openBookingForm('Adventure Ride', 800)">
@@ -861,7 +861,7 @@
                     <label>Select Duration:</label><br>
                     <select id="duration" required style="width: 100%; padding: 10px; margin: 10px 0;">
                         <option value="1" selected>1 Hour (₹800 up to 6 people)</option>
-                        <option value="1.5">1.5 Hours (₹1500 up to 6 people)</option>
+                        <option value="1.5">1.5 Hours (₹1000 up to 6 people)</option>
                     </select><br>
                 </div>
 
@@ -969,9 +969,9 @@
                             // Up to 6 people: ₹800 for 1hr, ₹1500 for 1.5hr
                             // More than 6 people: ₹200/person for 1hr, ₹250/person for 1.5hr
                             if (numPeople <= 6) {
-                                totalPrice = duration === 1 ? 800 : 1500
+                                totalPrice = duration === 1 ? 800 : 1000
                             } else {
-                                const pricePerPerson = duration === 1 ? 200 : 250
+                                const pricePerPerson = duration === 1 ? 200 : 220
                                 totalPrice = numPeople * pricePerPerson
                             }
 
