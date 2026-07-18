@@ -6,8 +6,8 @@
   <!-- Main homepage -->
   <url>
     <loc>https://sharavati-boating.github.io/honnavar/</loc>
-    <lastmod>2025-11-10</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.00</priority>
 
     <!-- Hero / main image -->
@@ -25,26 +25,34 @@
     </image:image>
   </url>
 
-  <!-- Gallery section -->
-  <url>
-    <loc>https://sharavati-boating.github.io/honnavar/#gallery</loc>
-    <lastmod>2025-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
   <!-- Packages section -->
   <url>
     <loc>https://sharavati-boating.github.io/honnavar/#packages</loc>
-    <lastmod>2025-11-10</lastmod>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Gallery section -->
+  <url>
+    <loc>https://sharavati-boating.github.io/honnavar/#gallery</loc>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- FAQ section -->
+  <url>
+    <loc>https://sharavati-boating.github.io/honnavar/#faq</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
 
   <!-- Contact / Map section -->
   <url>
     <loc>https://sharavati-boating.github.io/honnavar/#map</loc>
-    <lastmod>2025-11-10</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
